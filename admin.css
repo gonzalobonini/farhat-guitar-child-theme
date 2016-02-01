@@ -1,0 +1,11 @@
+.categorydiv div.tabs-panel {
+	max-height: 500px;
+}
+
+
+/* New Post Types: lessons, songs, bands */
+.meta-tag-label {
+    margin: 0px 10px 10px 0px;
+    min-width: 150px;
+    float: left;
+}

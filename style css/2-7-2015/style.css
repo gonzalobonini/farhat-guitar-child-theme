@@ -1,0 +1,967 @@
+/*
+Theme Name:     Farhat Gutiar Divi Child
+Description:    Farhat Guitar Divi Child Theme
+Author:         Gabriel
+Template:       Divi
+
+(optional values you can add: Theme URI, Author URI, Version)
+*/
+
+/*@import url("../Divi/style.css");*/
+
+
+/* Fix anti-responsive */
+
+img {
+    -webkit-box-shadow: 0px 5px 9px -1px rgba(181,174,181,1);
+    -moz-box-shadow: 0px 5px 9px -1px rgba(181,174,181,1);
+    box-shadow: 0px 5px 9px -1px rgba(181,174,181,1);
+}
+
+.single-post #primary {
+margin: 0;
+}
+.single-post #content {
+margin: 0 3%;
+width: 94%;
+}
+.single .site-content {
+	margin: 0;
+}
+
+.video-section {
+   max-height: 390px;
+}
+
+.video-section .et_pb_column.et_pb_column_1_4 {
+   overflow-y: hide;
+   overflow-x: hide;
+   max-height: 520px !important;
+}
+
+#flowplayer {
+    height: 30em;
+    width: 100%;
+}
+
+/* Arreglos para fijar el ancho */
+
+body {
+    margin: auto;
+    max-width: 320px;
+    font-family: open sans;
+    max-width: 960px;
+}     
+
+#main-header, body.admin-bar.et_fixed_nav #top-header {
+    margin: auto;
+    max-width: 960px;
+}
+
+#contact-information {
+    color: #ff8f5f;
+    float: right;
+    font-weight: bold;
+	padding-top: 20px;
+}
+.container,
+.et_pb_row  {
+    max-width: 960px;
+}
+
+.et_pb_row {
+  padding-top: 0px;
+}
+/*
+#home-lists div.et_pb_column.et_pb_column_1_3 .et_pb_blurb{
+	margin-top: auto;
+}*/
+
+
+
+.et_pb_column_1_3 {
+    width: 300px;
+}
+.et_pb_column_3_4 {
+    width: 705px;
+}
+.et_pb_column {
+    float: left;
+    margin-right: 8px !important;
+}
+
+@media screen and (max-width: 959) { 
+     body {
+       max-width: 320px;
+     }
+}
+
+.header-banner br,
+.header-banner .addtoany_share_save_container,
+.footer-widget .addtoany_share_save_container {
+    display: none;
+}
+
+#home-right-banner {
+    max-height: 300px;
+    max-width: 350px;
+}
+
+#home-right-banner .adsbygoogle {
+    float: left;
+}
+
+#custom_post_widget-2 {
+    border-top: 3px solid #eb4a09;
+}
+
+.single-bands .container > #content-area > div > article > h1 {
+    display: none;
+}
+
+.page h1 {
+    font-size: 15pt;
+}
+
+.et_pb_section {
+	padding: 0px;
+}
+
+/* related songs styles */
+
+.related-bands .et_pb_image_container img,
+.related-songs .et_pb_image_container img {
+    float: left;latest-uploads
+    height: 100px;
+    margin-right: 10px;
+    width: 100px;
+}
+
+
+
+.related-bands p,
+.related-songs p {
+    display: none;
+}
+
+.related-bands article {
+    float: left;
+    width: 30%;
+}
+
+
+.related-bands img {
+    float: left;
+    width: 140px;
+    height: 95px;
+}
+.related-bands h2 {
+    float: left;
+    margin: 2.5%;
+    width: 45%;
+}
+
+
+/* details-list  */
+
+
+.details-list .details-first-column {
+    float: left;
+    width: 20%;
+}
+.details-list .details-second-column {
+    float: right;
+    width: 70%;
+}
+.details-list hr {
+    clear: both;
+}
+
+#left-area ul {
+    padding: 0;
+}
+
+.songs-and-details-section .et_pb_column_1_4 {
+    margin: 0 5px;
+    width: 190px !important;
+}
+.songs-and-details-section .et_pb_column_1_4:nth-child(4),
+.songs-and-details-section .et_pb_column.et_pb_column_3_4 + .et_pb_column_1_4 {
+    width: 330px !important;
+    float: right;
+    clear: right;
+}
+.details-list ul {
+    list-style-type: none !important;
+}
+
+.song-lessons-list h3 {
+    font-family: open sans;
+    font-size: 12pt;
+    font-weight: 600;
+}
+/* Fix side bar settings hiden */
+
+
+.et_pb_page_settings.et_pb_page_layout_settings {
+    display: block !important;
+}
+
+.band-main-image {
+    height: auto;
+    width: 100%;
+}
+
+
+.band-name-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    float: left;
+    font-size: 1.5em;
+    margin-top: -36px;
+    position: relative;
+    z-index: 11;
+}
+
+img.band-main-image {
+    position: relative;
+    z-index: 10;
+}
+
+.item-song-title {
+    float: left;
+    width: 45%;
+    height: 110px;
+}
+.item-song-header > img {
+    float: left;
+    height: auto;
+    margin-right: 5px;
+    width: 50%;
+}
+
+.item-song-header {
+    width: 47%;
+    float: left;
+    margin-right: 5px;
+}
+
+.et_pb_column_2_3 {
+	width: 630px;
+}
+
+
+.songs-and-details-section .et_pb_column_3_4 {
+    width: 609px;
+}
+/* Band Template */
+.band-main-image {
+    height: auto;
+    width: 100%;
+}
+
+.item-song-title {
+    float: left;
+    width: 45%;
+}
+.item-song-header > img {
+    float: left;
+    height: auto;
+    margin-right: 5px;
+    width: 50%;
+}
+
+.part-songs-list {
+    clear: both;
+}
+
+.part-songs-list > ul.lcp_catlist {
+    height: 240px;
+    overflow-y: hidden;
+}
+
+.part-songs-list > ul.lcp_catlist:hover {
+    overflow-y: auto;
+}
+
+.part-songs-list > ul{
+    list
+}
+
+.part-songs-list > ul > li {
+    list-style: outside none none;
+}
+
+/* lesson template */
+
+.et_pb_section.style-section.et_section_regular {
+    height: 50px;
+}
+.type-lessons .style-section *:not(p) {
+    height: 50px;
+}
+
+.type-lessons .style-section .et_pb_text.et_pb_bg_layout_light.et_pb_text_align_left > p:first-child {
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.single .et_pb_post {
+    margin-bottom: 0px;
+}
+
+.style-section, .style-section > div {
+    margin: 0;
+    padding: 0;
+}
+.video-section, .video-section > div {
+    margin: 0;
+    padding: 0;
+}
+
+span.lesson-song-name {
+    font-size: 16pt;
+	margin: 4px;
+}
+span.lesson-band-name {
+    font-size: 16pt;
+margin: 4px;
+}
+span.lesson-title {
+    font-size: 16pt;
+margin: 4px;
+}
+
+.single-lessons pre {
+    line-height: 10px;
+}
+
+.video-section > div > div.et_pb_column.et_pb_column_1_4 {
+    /*max-height: 100% !important;*/
+    overflow-y: visible;
+    padding: 10px 0;
+}
+
+
+.single-lessons .et_pb_section {
+	clear: both;
+}
+
+.video-section div.part-songs-list > ul {
+    display: block;
+    max-height: 380px;
+    overflow-y: hidden;
+}
+
+.video-section div.part-songs-list > ul:hover {
+    overflow-y: auto;
+}
+
+/* related songs */
+
+
+.related-songs ul > li {
+    float: left;
+    margin: 1.5%;
+    width: 30%;
+    list-style: outside none none;
+}
+
+.related-songs ul > li > a {
+    float: right;
+    width: 50%;
+}
+.related-songs ul > li > a > img {
+    float: left;
+    height: auto;
+    width: 90%;
+}
+
+/* related bands */
+
+
+.related-bands ul > li {
+    float: left;
+    list-style: outside none none;
+    margin: 1.5%;
+    width: 30%;
+}
+.related-bands ul > li a:first-child {
+    float: right;
+    width: 46%;
+    margin: 2%;
+}
+selectorSavingError {
+    float: left;
+}
+
+.bands-list > ul > li {
+    float: left;
+    list-style: outside none none;
+    margin-right: 5%;
+    width: 45%;
+}
+
+.bands-list ul {
+	padding-left: 0px;
+}
+
+.bands-list ul > li {
+    margin-left: 0px;
+    margin-bottom: 15px;
+}
+
+.bands-list > ul > li a:first-child {
+    float: right;
+    margin-right: 18%;
+    margin-top: 10%;
+}
+
+.bands-list > ul > li a:second-child {
+    float: left;
+    width: 140;
+}
+
+
+.et_pb_text.et_pb_bg_layout_light.et_pb_text_align_left.bands-list {
+    margin-left: 30px;
+}
+
+.bands-list img {
+    height: 105px;
+    width: 105px;
+}
+
+
+#main-content .container::before {
+	background: none;
+}
+
+/* Header */
+
+
+div#et_top_search form input.et-search-field {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#top-header {
+  display: none;
+}
+
+.et-cart-info {
+    clear: both;
+    float: right;
+}
+
+#contact-information a.et-cart-info:hover {
+    color: #000000 !important;
+}
+
+#et-top-navigation {
+    background-color: #ec5518;
+	clear: both;
+    border-top: 3px solid #000000;
+}
+
+header#main-header img#logo {
+	float: left;
+	max-height: 100%;
+	padding-top: 0 !important;
+	-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	-moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+}
+
+.et_fixed_nav #logo {
+	max-height: 88px;
+}
+
+#contact-information > form {
+    float: right;
+    margin-top: 8px;
+}
+
+#main-header nav#top-menu-nav {
+	padding-top:2px;
+}
+
+header#main-header div {
+    max-height: 90px;
+}
+
+div#et-top-navigation {
+    height: 30px;
+}
+
+#contact-information > form {
+    float: right;
+}
+
+header#main-header {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 1);
+	padding-top: 0 !important;
+}
+.et_nav_text_color_light #top-menu > li > a, .et_nav_text_color_light .fullwidth-menu > li > a {
+	color: #FFFFFF;
+	  font-weight: 500;
+}
+.et_nav_text_color_light #top-menu > li > a:hover, .et_nav_text_color_light .fullwidth-menu > li > a:hover {
+	color: #534e5a;
+}
+#top-menu li.current-menu-item > a, .fullwidth-menu li.current-menu-item > a {
+  font-weight: bold;
+}
+
+/* home */
+
+.home-side-banner {
+    border-left: solid 1px #000000;
+    height: 300px
+}
+
+#home-lists .et_pb_row:first-child .et_pb_column.et_pb_column_1_3 {
+    margin-top: 25px;
+    min-width: 320px;
+    overflow: hidden;
+}
+
+
+.home-side-banner div {
+    float: right;
+}
+
+#home-lists .et_pb_row:first-child .et_pb_column_2_3 {
+    margin-right: 10px;
+    max-width: 620px;
+}
+
+.et_pb_text.home-side-banner {
+	margin-bottom: 0;
+}
+.et_pb_text {
+	margin-bottom: 15px;
+	width: auto;
+}
+
+.et_pb_post .entry-content, .project .entry-content {
+	padding-top: 0px;
+}
+
+#home-lists .et_pb_column.et_pb_column_1_3 {
+    max-height: 400px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-top: 25px;
+}
+
+#home-lists .et_pb_column.et_pb_column_1_3:hover {
+    overflow-y: auto;
+}
+
+#home-lists{
+	padding-top: 20px;
+}
+#home-lists .et_pb_row{
+	padding-top: 10px;
+}
+
+#contact-information > p {
+    font-family: open sans;
+    font-size: 11pt;
+	float: left;
+	font-weight: 400;
+	line-height: 22px;
+	margin-right: 35px;
+}
+#contact-information span.tel {
+  font-size: 19px;
+  font-weight: 700;
+}
+#contact-information ul.et-social-icons {
+	padding-top: 10px;
+}
+#top-menu a {
+    font-family: open sans;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.et_pb_slide_image > img {
+    display: none;
+}
+
+.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_dark.et_pb_media_alignment_center.et_slide_transition {
+	background-size: 100%;
+}
+
+.et_pb_slide_with_image .et_pb_slide_description {
+    float: left;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 0;
+    text-align: left;
+    width: 100%;
+	padding-top: 0px;
+	position: absolute;
+	bottom: 0px;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.et_pb_slide_description {
+    border-bottom: 5px solid #eb4a09;
+}
+
+.et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_dark.et_pb_media_alignment_center {
+    min-height: 486px;
+}
+.et_pb_slide_content {
+    float: left;
+    margin: 0 10px;
+    padding: 6px 5px;
+    width: auto;
+}
+
+.et_pb_slide_content {
+    margin-top: 15px;
+}
+
+
+#page-container .et_pb_more_button {
+    font-family: open sans;
+    font-size: 22.88pt;
+    font-weight: bold;
+}
+
+.et_pb_slide_content > p {
+    font-family: open sans;
+    font-size: 14.59pt;
+    font-weight: lighter;
+}
+
+.et_pb_more_button {
+    border: 0 solid !important;
+}
+
+#home-lists h4 {
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 5px;
+    width: 80%;
+}
+
+#home-lists .style-filter {
+    border-right: 1px solid #d3d3d3;
+    margin: 0;
+}
+
+#home-lists div.et_pb_blurb_position_left, #home-lists .style-filter {
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.alphabetical-list .et-pb-icon.et-waypoint.et_pb_animation_off.et-animated {
+    font-size: 30px;
+    height: 32px;
+    margin: -8px 20px 0 0;
+    width: 32px;
+}
+
+
+.alphabetical-list > li {
+    font-family: open sans;
+    font-size: 12pt;
+    font-weight: bold;
+    list-style: outside none none;
+}
+
+ul.alphabetical-list {
+    border-right: 1px solid #d3d3d3;
+}
+
+
+.list-container > ul > li a {
+    font-family: open sans;
+    font-size: 12pt;
+    font-weight: lighter;
+}
+
+ul.alphabetical-list li div.list-container ul li {
+    border-bottom: 1px solid #d3d3d3;
+    width: 85%;
+}
+
+.experience-filter > div.et_pb_blurb_content,
+.alphabetical-list ul.alphabetical-list,
+.style-filter > div.et_pb_blurb_content,
+.list-container > ul {
+    padding-left: 0;
+}
+
+.alphabetical-list .list-container li {
+    font-size: 12pt;
+    font-family: open sans regular;
+    list-style: outside none none;
+	/*content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;*/
+}
+
+
+
+/* Banner */
+.header-banner{
+    margin: 50px 0 10px 0;
+
+}
+/* Section Titles */
+
+.latest-uploads,
+.section-title {
+	font-family: open sans;
+    	font-size: 14.44pt;
+	border-bottom: 2px solid #eb4a09;
+	color: #eb4a09;
+	background-color: #CCC;
+	text-transform: uppercase;
+	padding-left: 5px;
+    	font-weight: 600;
+}
+
+.section-title hr {
+    display: none;
+}
+
+.sub-section-title {
+    border-bottom: 1px solid #ec5518;
+    color: #ec5518;
+    font-family: open sans;
+    font-size: 14pt;
+    padding-bottom: 5px;
+    font-weight: bold;
+	position: absolute;
+	width: 240px;
+	top: 0;
+	background: #FFF;
+}
+
+.bands-list ul li a {
+    font-family: open sans;
+    font-size: 10.69pt;
+    font-weight: bold;
+    width: 100px;
+}
+
+.et_pb_fullwidth_header {
+  padding: 5px 0;
+}
+.et_pb_fullwidth_header h1 {
+  padding: 0 0 0 10px;
+}
+
+/*Footer*/
+
+#footer-info {
+	color: #FFFFFF;
+	margin-left: 15px;
+}
+
+#footer-info a{
+	color: #FFFFFF;
+}
+
+#footer-bottom {
+	background-color: #EB6908;
+}
+.footer-widget {
+  margin-bottom: 0px;
+}
+#footer-widgets {
+  padding-top: 5px;
+}
+#footer-widgets .et_pb_row {
+  padding-top: 10px;
+}
+#footer-widgets .et_pb_column_1_3 {
+  padding-top: 0px;
+}
+#footer-widgets .fwidget {
+  padding-bottom: 0px;
+}
+
+#footer-second-column > form br {
+    display: none;
+}
+#footer-second-column > form {
+    margin-top: 8px;
+}
+
+#footer-bottom div.container {
+    float: right;
+    max-width: 850px;
+}
+
+#footer-bottom > img {
+    float: left;
+    box-shadow: none;
+    margin-left: 5px;
+}
+
+div#footer-bottom {
+    height: 45px;
+}
+
+#footer-second-column {
+    background-color: lightgray;
+    color: #000000;
+    text-align: center;
+    height: 250px;
+}
+
+#footer-widgets .footer-widget .footer-container {
+    padding: 15px;
+}
+
+#suscribe-box > div.et_pb_newsletter_description > h2,
+.footer-title {
+    color: #eb6908 !important;
+    font-family: open sans;
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 5px 0 5px 0px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+#footer-second-column {
+    background-color: lightgray;
+    color: #000000;
+    text-align: center;
+}
+
+.mc-field-group > label {
+    color: #000000;
+    font-family: open sans;
+    font-size: 11pt;
+}
+
+#mc-embedded-subscribe {
+    background-color: #eb6908;
+    color: #ffffff;
+}
+
+#suscribe-box {
+    background-image: url(./../../uploads/2015/05/educational_2_background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    padding: 0;
+}
+
+#suscribe-box .et_pb_newsletter_description {
+	padding: 0px;
+}
+
+
+/* Social Header */
+
+#main-header .et-social-icon a {
+	background: url(images/bg-social.png) no-repeat;
+	height: 24px;
+	width: 24px;
+	font-size: 13px;
+	line-height: 24px;
+}
+#main-header .et-social-icons li {
+	margin-left: 3px;
+}
+
+
+/* Pagination */
+
+ul.lcp_paginator > li {
+    border: medium none;
+    color: orange;
+    width: 5px;
+}
+
+.lcp_paginator a:hover {
+    font-size: 15pt;
+}
+
+ul.lcp_paginator > li > a {
+    color: orange;
+}
+
+ul.lcp_paginator {
+    clear: both;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+
+/* Tablas */
+
+
+.tab-container {
+    font-size: 14px;
+}
+
+/* Woocommerce */
+
+
+.woocommerce div.product div.images img {
+    height: auto;
+    max-width: 100%;
+}
+
+.woocommerce div.product div.images, .woocommerce-page div.product div.images, .woocommerce #content div.product div.images, .woocommerce-page #content div.product div.images {
+	width: 48% !important;
+}
+
+
+/* Acordes */
+
+@font-face{
+    font-family: "Farhat Acordes";
+    src: url('./FarHat-acordes.ttf')
+}
+
+@font-face{
+    font-family: "Farhat Letras";
+    src: url('./FarHat-Letras.ttf')
+}
+
+@font-face{
+    font-family: "Farhat quintas";
+    src: url('./FarHat-quintas.ttf')
+}
+/* Teachers */
+
+.recent-blog-post {
+    margin: 0 15px;
+}
+
+/* Donations */
+
+ul.unIndentedList {
+    margin: 0 20px;
+}
+
+#post-6206 .entry-content {
+    margin-left: 5px;
+}
+
+/* FAQ */
+
+.et_pb_toggle a {
+    font-weight: 700;
+}
