@@ -9,11 +9,21 @@ function create_tomate_song() {
         array(
             'labels' => array(
                 'name' => __( 'Songs Plus' ),
-                'singular_name' => __( 'Song Plus' )
+                'singular_name' => __( 'Song Plus' ),
+                'add_new' => __( 'Add New Song Plus' ),
+                'add_new_item' => __( 'Add New Song Plus' ),
+                'edit' => __( 'Edit' ),
+                'edit_item' => __( 'Edit Song Plus' ),
+                'new_item' => __( 'New Song Plus' ),
+                'view' => __( 'View Song Plus' ),
+                'view_item' => __( 'View Song Plus' ),
+                'search_items' => __( 'Search Song Plus' ),
+                'not_found' => __( 'No Song Plus found' ),
+                'not_found_in_trash' => __( 'No Song Plus found in Trash' )
             ),
             'supports' => array('title', 'thumbnail', 'categories'),
             'public' => true,
-            'has_archive' => true,
+            'has_archive' => true
         )
     );
 }

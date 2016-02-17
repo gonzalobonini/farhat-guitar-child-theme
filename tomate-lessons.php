@@ -46,9 +46,9 @@ function tomate_lesson_style() {
 
     print_html_for_meta($post, 'lesson_song_id', 'Song ID');
 
-    print_html_for_meta($post, 'lesson_video', 'Video Link');
-    print_html_for_meta($post, 'lesson_cart_link', 'Cart Link');
-    print_html_for_meta($post, 'lesson_download_tabs', 'Download Tabs Link');
+    print_html_for_meta($post, 'lesson_video', 'Video Link', 'link');
+    print_html_for_meta($post, 'lesson_cart_link', 'Cart Link', 'link');
+    print_html_for_meta($post, 'lesson_download_tabs', 'Download Tabs Link', 'link');
 
 }
 
@@ -58,8 +58,8 @@ function tomate_lesson_save( $post_id, $post ) {
     $post_type = "tomate_lesson";
 
     tomate_update_post_meta($post_id, "lesson_song_id", $post_type);
-    tomate_update_post_meta($post_id, "lesson_video", $post_type);
-    tomate_update_post_meta($post_id, "lesson_cart_link", $post_type);
-    tomate_update_post_meta($post_id, "lesson_download_tabs", $post_type);
+    tomate_update_post_meta($post_id, "lesson_video", $post_type, 'link');
+    tomate_update_post_meta($post_id, "lesson_cart_link", $post_type, 'link');
+    tomate_update_post_meta($post_id, "lesson_download_tabs", $post_type, 'link');
 
 }

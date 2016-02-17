@@ -4,6 +4,66 @@ include_once 'tomate-functions.php';
 
 include_once 'tomate-scripts-and-styles.php';
 
+/* Recibe un Post de post_type tomate_song y devuelve el permalink a de la primer lección */
+function tomate_get_first_lesson_permalink($post) {
+    if ($post instanceof WP_Post) {
+        $post_id = $post->ID;
+    } else { // I assume it got an id
+        $post_id = $post;
+    }
+    $args = array(
+        'post_type' => 'tomate_lesson',
+        'orderby' => 'date',
+        'order'   => 'ASC',
+        'meta_query' => array(
+            array(
+                'key' => 'tomate_lesson_song_id',
+                'value' => $post_id,
+                'compare' => '=',
+            )
+        )
+    );
+    $other_lessons = new WP_Query($args);
+    $first_lesson = $other_lessons->posts[0];
+
+    return get_permalink ($first_lesson->ID);
+}
+
+function tomate_get_children_lessons($song) {
+
+    $args = array(
+        'post_type' => 'tomate_lesson',
+        'orderby' => 'date',
+        'order'   => 'ASC',
+        'meta_query' => array(
+            array(
+                'key' => 'tomate_lesson_song_id',
+                'value' => $song->ID,
+                'compare' => '=',
+            )
+        )
+    );
+    $lessons_query = new WP_Query($args);
+    return $lessons_query->posts;
+}
+
+function tomate_get_children_songs($band) {
+    $args = array(
+        'post_type' => 'tomate_song',
+        'orderby' => 'date',
+        'order'   => 'ASC',
+        'meta_query' => array(
+            array(
+                'key' => 'tomate_song_band_id',
+                'value' => $band->ID,
+                'compare' => '=',
+            )
+        )
+    );
+    $songs_query = new WP_Query($args);
+    return $songs_query->posts;
+}
+
 if (!function_exists('write_log')) {
     function write_log ( $log )  {
         if ( true === WP_DEBUG ) {

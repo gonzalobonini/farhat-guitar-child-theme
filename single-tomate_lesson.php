@@ -9,17 +9,51 @@
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
                         <?php
-                            $debug = true;
+                            $debug = false;
                             $song_id = get_post_meta( get_the_ID(), 'tomate_lesson_song_id', true );
                             $song = get_post($song_id);
 
                             $band_id = get_post_meta($song_id, 'tomate_song_band_id', true);
                             $band = get_post($band_id);
 
+                            $args = array(
+                                'post_type' => 'tomate_lesson',
+                                'orderby' => 'date',
+                                'order'   => 'ASC',
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'tomate_lesson_song_id',
+                                        'value' => $song_id,
+                                        'compare' => '=',
+                                    )
+                                )
+                            );
+                            $other_lessons = new WP_Query($args);
+
+                            $args = array(
+                                'post_type' => 'tomate_song',
+                                'orderby' => 'rand',
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'tomate_song_band_id',
+                                        'value' => $band_id,
+                                        'compare' => '=',
+                                    )
+                                )
+                            );
+
+                            $related_songs_query = new WP_Query($args);
+                            $related_songs = $related_songs_query->posts;
+
                             if( $debug ) {
                                 var_dump($song);
                                 var_dump($band);
+                                var_dump($related_songs);
                             }
+
+                            $cart_link = get_post_meta( get_the_ID(), 'tomate_lesson_cart_link', true );
+                            $tabs_link = get_post_meta( get_the_ID(), 'tomate_lesson_download_tabs', true );
+                            $video_link = get_post_meta( get_the_ID(), 'tomate_lesson_video', true );
 
                         ?>
                         <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
@@ -39,12 +73,7 @@
                                                     <?php
                                                         $args = array('orderby' => 'name', 'order' => 'ASC', 'fields' => 'all');
                                                         $terms = wp_get_post_terms( $song_id, 'Style', $args );
-                                                        $styles = array();
-                                                        foreach ($terms as $style_object)
-                                                            array_push($styles,$style_object->name);
-
-                                                        $comma_list = implode(', ', $styles);
-                                                        echo $comma_list;
+                                                        echo tomate_get_separeted_by_commas_list($terms);
                                                     ?>
                                             </span></span> &nbsp; &nbsp;
                                         </div> <!-- .et_pb_text -->
@@ -71,28 +100,125 @@
                             </div><div class="et_pb_section video-section et_section_regular" style="background-color:#ffffff;">
 
 
-
                                 <div class="et_pb_row">
                                     <div class="et_pb_column et_pb_column_3_4">
-                                        <!-- the player --><div id="flowplayer" class="flowplayer functional is-splash is-paused is-mouseout" data-swf="flowplayer.swf" data-ratio="0.4167" style="z-index: 9; background-size: cover;">  <div class="buttons"><span>0.5x</span><span>0.6x</span><span>0.7x</span><span>0.8x</span><span>0.9x</span>	<span class="active">1x</span></div>      <div class="fp-ratio"></div>      <div class="fp-ui">         <div class="fp-waiting"><em></em><em></em><em></em></div>         <a class="fp-fullscreen"></a>         <a class="fp-unload"></a>         <p class="fp-speed"></p>         <div class="fp-controls">            <a class="fp-play"></a>            <div class="fp-timeline">               <div class="fp-buffer"></div>               <div class="fp-progress"></div>            </div>            <div class="fp-volume">               <a class="fp-mute"></a>               <div class="fp-volumeslider">                  <div class="fp-volumelevel"></div>               </div>            </div>         </div>         <div class="fp-time">            <em class="fp-elapsed">00:00</em>            <em class="fp-remaining"></em>            <em class="fp-duration">00:00</em>         </div>         <div class="fp-message"><h2></h2><p></p></div>      </div>      <div class="fp-help">         <a class="fp-close"></a>         <div class="fp-help-section fp-help-basics">            <p><em>space</em>play / pause</p>            <p><em>esc</em>stop</p>            <p><em>f</em>fullscreen</p>            <p><em>shift</em> + <em>←</em><em>→</em>slower / faster <small>(latest Chrome and Safari)</small></p>         </div>         <div class="fp-help-section">            <p><em>↑</em><em>↓</em>volume</p>            <p><em>m</em>mute</p>         </div>         <div class="fp-help-section">            <p><em>←</em><em>→</em>seek</p>            <p><em>&nbsp;. </em>seek to previous            </p><p><em>1</em><em>2</em>…<em>6</em> seek to 10%, 20%, …60% </p>         </div>      </div>   <a href="http://flowplayer.org" style="display: none;"></a></div>
-                                    </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_4">
-                                        <div class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center et_pb_blurb_position_left">
-                                            <div class="et_pb_blurb_content">
-                                                <div class="et_pb_main_blurb_image"><a href="http://farhatguitar.com/?p=2171" target="_blank"><span class="et-pb-icon et-waypoint et_pb_animation_top et-animated" style="color: #000000;"></span></a></div>
-                                                <h4><a href="http://farhatguitar.com/?p=2171" target="_blank">BUY THIS SONG VIDEO LESSONS</a></h4>
+                                        <!-- the player -->
+                                        <div id="flowplayer"
+                                             class="flowplayer functional is-ready is-paused is-finished is-playing is-mouseout"
+                                             data-swf="flowplayer.swf" data-ratio="0.4167"
+                                             style="z-index: 9; background-size: cover;">
+                                            <video
+                                                src="<?php echo $video_link; ?>"
+                                                type="video/mp4" class="fp-engine" autoplay="autoplay" preload="none"
+                                                x-webkit-airplay="allow"></video>
+                                            <div class="buttons">
+                                                <span>0.5x</span><span>0.6x</span><span>0.7x</span><span>0.8x</span><span>0.9x</span>
+                                                <span class="active">1x</span></div>
+                                            <div class="fp-ratio"></div>
+                                            <div class="fp-ui">
+                                                <div class="fp-waiting"><em></em><em></em><em></em></div>
+                                                <a class="fp-fullscreen"></a> <a class="fp-unload"></a>
 
-                                            </div> <!-- .et_pb_blurb_content -->
-                                        </div> <!-- .et_pb_blurb --><div class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center et_pb_blurb_position_left">
-                                            <div class="et_pb_blurb_content">
-                                                <div class="et_pb_main_blurb_image"><a href="http://www.farhatguitar.com/paginasiframes/canciones%20videos/ACDC/Jailbreak/PDF/Jailbreak_tab.pdf" target="_blank"><span class="et-pb-icon et-waypoint et_pb_animation_top et-animated" style="color: #000000;"></span></a></div>
-                                                <h4><a href="http://www.farhatguitar.com/paginasiframes/canciones%20videos/ACDC/Jailbreak/PDF/Jailbreak_tab.pdf" target="_blank">DOWNLOAD TABS (PDF)</a></h4>
+                                                <p class="fp-speed"></p>
 
-                                            </div> <!-- .et_pb_blurb_content -->
-                                        </div> <!-- .et_pb_blurb --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left part-songs-list">
-                                            <ul class="lcp_catlist" id="lcp_instance_0"><li><a href="http://farhatguitar.com/lessons/jailbreak-lesson-1/" title="Lesson 1">Lesson 1</a>  </li><li><a href="http://farhatguitar.com/lessons/jailbreak-lesson-2/" title="Lesson 2">Lesson 2</a>  </li><li><a href="http://farhatguitar.com/lessons/jailbreak-lesson-3/" title="Lesson 3">Lesson 3</a>  </li><li><a href="http://farhatguitar.com/lessons/jailbreak-lesson-4/" title="Lesson 4 – Completed">Lesson 4 – Completed</a>  </li></ul>
-                                        </div> <!-- .et_pb_text -->
-                                    </div> <!-- .et_pb_column -->
-                                </div> <!-- .et_pb_row -->
+                                                <div class="fp-controls"><a class="fp-play"></a>
+
+                                                    <div class="fp-timeline">
+                                                        <div class="fp-buffer" style="width: 100%;"></div>
+                                                        <div class="fp-progress"
+                                                             style="width: 100%; overflow: hidden;"></div>
+                                                    </div>
+                                                    <div class="fp-volume"><a class="fp-mute"></a>
+
+                                                        <div class="fp-volumeslider">
+                                                            <div class="fp-volumelevel" style="width: 32%;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="fp-time"><em class="fp-elapsed">00:20</em> <em
+                                                        class="fp-remaining">-00:00</em> <em
+                                                        class="fp-duration">00:20</em></div>
+                                                <div class="fp-message"><h2></h2>
+
+                                                    <p></p></div>
+                                            </div>
+                                            <div class="fp-help"><a class="fp-close"></a>
+
+                                                <div class="fp-help-section fp-help-basics"><p><em>space</em>play /
+                                                        pause</p>
+
+                                                    <p><em>esc</em>stop</p>
+
+                                                    <p><em>f</em>fullscreen</p>
+
+                                                    <p><em>shift</em> + <em>←</em><em>→</em>slower / faster
+                                                        <small>(latest Chrome and Safari)</small>
+                                                    </p>
+                                                </div>
+                                                <div class="fp-help-section"><p><em>↑</em><em>↓</em>volume</p>
+
+                                                    <p><em>m</em>mute</p></div>
+                                                <div class="fp-help-section"><p><em>←</em><em>→</em>seek</p>
+
+                                                    <p><em>&nbsp;. </em>seek to previous </p>
+
+                                                    <p><em>1</em><em>2</em>…<em>6</em> seek to 10%, 20%, …60% </p></div>
+                                            </div>
+                                            <a href="http://flowplayer.org"
+                                               style="display: none; position: absolute; left: 16px; bottom: 36px; z-index: 99999; width: 100px; height: 20px; background-image: url(&quot;//d32wqyuo10o653.cloudfront.net/logo.png&quot;);"></a>
+                                        </div>
+                                    </div>
+                                    <!-- .et_pb_column -->
+                                    <div class="et_pb_column et_pb_column_1_4">
+                                        <div
+                                            class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center et_pb_blurb_position_left">
+                                            <div class="et_pb_blurb_content">
+                                                <div class="et_pb_main_blurb_image"><a
+                                                        href="<?php echo $cart_link; ?>" target="_blank"><span
+                                                            class="et-pb-icon et-waypoint et_pb_animation_top et-animated"
+                                                            style="color: #000000;"></span></a></div>
+                                                <h4><a href="<?php echo $cart_link; ?>" target="_blank">BUY THIS
+                                                        SONG VIDEO LESSONS</a></h4>
+
+                                            </div>
+                                            <!-- .et_pb_blurb_content -->
+                                        </div>
+                                        <!-- .et_pb_blurb -->
+                                        <div
+                                            class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center et_pb_blurb_position_left">
+                                            <div class="et_pb_blurb_content">
+                                                <div class="et_pb_main_blurb_image"><a
+                                                        href="http://www.farhatguitar.com/paginasiframes/canciones%20videos/ACDC/Jailbreak/PDF/Jailbreak_tab.pdf"
+                                                        target="_blank"><span
+                                                            class="et-pb-icon et-waypoint et_pb_animation_top et-animated"
+                                                            style="color: #000000;"></span></a></div>
+                                                <h4>
+                                                    <a href="<?php echo $tabs_link ?>"
+                                                       target="_blank">DOWNLOAD TABS (PDF)</a></h4>
+
+                                            </div>
+                                            <!-- .et_pb_blurb_content -->
+                                        </div>
+                                        <!-- .et_pb_blurb -->
+                                        <div
+                                            class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left part-songs-list">
+                                            <ul class="lcp_catlist" id="lcp_instance_0">
+                                                <?php
+
+                                                    foreach ($other_lessons->posts as $current_lesson) {
+                                                        ?>
+                                                        <li><a href="<?php echo get_the_permalink($current_lesson) ?>"
+                                                               title="Lesson 1"><?php echo $current_lesson->post_title ?></a></li>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </ul>
+                                        </div>
+                                        <!-- .et_pb_text -->
+                                    </div>
+                                    <!-- .et_pb_column -->
+                                </div>
+                                <!-- .et_pb_row -->
 
                             </div> <!-- .et_pb_section --><div class="et_pb_section et_section_regular">
 
@@ -107,7 +233,30 @@
 
                                         </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-songs">
 
-                                            <div><ul class="lcp_catlist" id="lcp_instance_0"><li class="current"><a href="http://farhatguitar.com/lessons/jailbreak/" title="Jailbreak">Jailbreak</a>  <a href="http://farhatguitar.com/lessons/jailbreak/" title="Jailbreak"><img width="150" height="150" src="http://farhatguitar.com/wp-content/uploads/2015/01/ACDC_jailbreak_140_95-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="AC:DC_jailbreak_140_95"></a></li><li><a href="http://farhatguitar.com/lessons/back-in-black/" title="Back In Black">Back In Black</a>  <a href="http://farhatguitar.com/lessons/back-in-black/" title="Back In Black"><img width="150" height="150" src="http://farhatguitar.com/wp-content/uploads/2015/01/220px-ACDC_Back_in_Black_Single_Cover-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="220px-ACDC_Back_in_Black_Single_Cover"></a></li><li><a href="http://farhatguitar.com/lessons/you-shook-me-all-night-long/" title="You Shook Me All Night Long">You Shook Me All Night Long</a>  <a href="http://farhatguitar.com/lessons/you-shook-me-all-night-long/" title="You Shook Me All Night Long"><img width="150" height="150" src="http://farhatguitar.com/wp-content/uploads/2015/01/220px-YouShookMeAllNightLong-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="220px-YouShookMeAllNightLong"></a></li><li><a href="http://farhatguitar.com/lessons/my-michelle/" title="My Michelle">My Michelle</a>  <a href="http://farhatguitar.com/lessons/my-michelle/" title="My Michelle"><img width="150" height="150" src="http://farhatguitar.com/wp-content/uploads/2015/04/My_Michelle_Promo_Cover-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="My_Michelle_Promo_Cover"></a></li><li><a href="http://farhatguitar.com/lessons/november-rain/" title="November Rain">November Rain</a>  <a href="http://farhatguitar.com/lessons/november-rain/" title="November Rain"><img width="150" height="150" src="http://farhatguitar.com/wp-content/uploads/2015/04/220px-Novemberrain-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="220px-Novemberrain"></a></li><li><a href="http://farhatguitar.com/lessons/paradise-city/" title="Paradise City">Paradise City</a>  <a href="http://farhatguitar.com/lessons/paradise-city/" title="Paradise City"><img width="150" height="150" src="http://farhatguitar.com/wp-content/uploads/2015/04/220px-Paradisecity-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="220px-Paradisecity"></a></li></ul></div>
+                                            <div>
+                                                <ul class="lcp_catlist" id="lcp_instance_0">
+                                                    <?php
+                                                        for ($i=0; ($i< count($related_songs)) && ($i<5); $i++) {
+                                                    ?>
+                                                            <li><a
+                                                                    href="<?php echo tomate_get_first_lesson_permalink($related_songs[$i]); ?>"
+                                                                    title="<?php echo $related_songs[$i]->post_title; ?>">
+                                                                    <?php echo $related_songs[$i]->post_title; ?>
+                                                                    </a> <a
+                                                                    href="<?php echo tomate_get_first_lesson_permalink($related_songs[$i]); ?>"
+                                                                    title="<?php echo $related_songs[$i]->post_title; ?>">
+                                                                    <img width="150" height="150"
+                                                                       src="<?php echo tomate_get_featured_image_link($related_songs[$i]); ?>"
+                                                                       class="attachment-thumbnail wp-post-image"
+                                                                       alt="AC:DC_jailbreak_140_95"></a>
+                                                            </li>
+                                                    <?php
+                                                        }
+                                                    ?>
+
+
+                                                </ul>
+                                            </div>
 
                                         </div> <!-- .et_pb_text -->
                                     </div> <!-- .et_pb_column -->

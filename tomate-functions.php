@@ -38,7 +38,7 @@ function tomate_register_taxonomy ($singular_name, $plural_name, $hierarchical, 
     );
 }
 
-function tomate_update_post_meta($post_id, $meta_key, $post_type, $pre = 'tomate_') {
+function tomate_update_post_meta($post_id, $meta_key, $post_type, $data_type = 'text', $pre = 'tomate_') {
 
     // Checks save status
     $is_autosave = wp_is_post_autosave( $post_id );
@@ -52,21 +52,53 @@ function tomate_update_post_meta($post_id, $meta_key, $post_type, $pre = 'tomate
 
     // Checks for input and sanitizes/saves if needed
     if( isset( $_POST[ $pre . $meta_key ] ) ) {
-        update_post_meta( $post_id, $pre . $meta_key, sanitize_text_field( $_POST[ $pre . $meta_key ] ) );
+        if (strcasecmp('text', $data_type) == 0) {
+            $value = sanitize_text_field( $_POST[ $pre . $meta_key ]);
+        } else {
+            $value = sanitize_trackback_urls($_POST[ $pre . $meta_key ]);
+        }
+        update_post_meta( $post_id, $pre . $meta_key,  $value);
     }
 }
 
 
-function print_html_for_meta($post, $meta_key, $name, $pre = 'tomate_') {
-
+function print_html_for_meta($post, $meta_key, $name, $type = 'text', $pre = 'tomate_') {
 
     $meta_value = get_post_meta( $post->ID, $pre . $meta_key, true );
-
     echo '<label class="meta-tag-label" for="' . $pre . $meta_key . '">';
     echo $name . ': ';
     echo '</label>';
     echo '<input type="text" class="meta-tag-input" id="' . $pre . $meta_key . '" name="' . $pre . $meta_key .
-        '" value="' . esc_attr( $meta_value ) . '" size="25" />';
+        '" value="';
+    if (strcasecmp('link', $type) == 0) {
+        echo esc_url( $meta_value );
+    } else {
+        echo esc_attr( $meta_value );
+    }
+    echo '" size="25" />';
     echo '<br>';
 
+}
+
+function tomate_get_featured_image_link($post) {
+    $link = "link not found";
+    if (has_post_thumbnail( $post->ID ) ) {
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+        $link = $image[0];
+    }
+    return $link;
+}
+
+function tomate_get_separeted_by_commas_list ($array, $property = 'name') {
+    $new_items = tomate_get_array_of_properties($array, $property);
+    $comma_list = implode(', ', $new_items);
+    return $comma_list;
+}
+
+function tomate_get_array_of_properties ($array, $property = 'name') {
+    $new_items = array();
+    foreach ($array as $item) {
+        array_push($new_items, $item->$property);
+    }
+    return $new_items;
 }
