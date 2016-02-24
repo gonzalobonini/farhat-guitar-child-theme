@@ -1261,11 +1261,11 @@ ul.unIndentedList {
 
 
 /* left bar */
-
 #left-bar {
+    font-size: small;
     left: 0;
     position: absolute;
-    top: 10%;
-    width: 10em;
+    top: 29%;
+    width: 130px;
     z-index: 50;
 }
