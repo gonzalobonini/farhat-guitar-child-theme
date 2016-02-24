@@ -21,7 +21,8 @@ function create_tomate_song() {
                 'not_found' => __( 'No Song Plus found' ),
                 'not_found_in_trash' => __( 'No Song Plus found in Trash' )
             ),
-            'supports' => array('title', 'thumbnail', 'categories'),
+            'supports' => array('title', 'thumbnail'),
+            'taxonomies' => array('category'),
             'public' => true,
             'has_archive' => true
         )

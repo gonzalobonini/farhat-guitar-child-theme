@@ -4,13 +4,30 @@ include_once 'tomate-functions.php';
 
 include_once 'tomate-scripts-and-styles.php';
 
+function tomate_get_all_bands($posts_per_page = 0, $orderby = 'post_title', $order = 'ASC') {
+    // get all the bands
+        $args = array(
+            'posts_per_page'   => $posts_per_page,
+            'orderby'          => $orderby,
+            'order'            => $order,
+            'post_type'        => 'tomate_band',
+            'post_mime_type'   => '',
+            'post_parent'      => '',
+            'post_status'      => 'publish');
+
+        return get_posts( $args );
+}
+
 /* Recibe un Post de post_type tomate_song y devuelve el permalink a de la primer lección */
 function tomate_get_first_lesson_permalink($post) {
+//    echo "<!-- debugging tomate_get_first_lesson_permalink";
     if ($post instanceof WP_Post) {
         $post_id = $post->ID;
     } else { // I assume it got an id
         $post_id = $post;
     }
+//    echo "post_id";
+//    var_dump($post_id);
     $args = array(
         'post_type' => 'tomate_lesson',
         'orderby' => 'date',
@@ -24,6 +41,15 @@ function tomate_get_first_lesson_permalink($post) {
         )
     );
     $other_lessons = new WP_Query($args);
+
+//    echo "other_lessons->posts";
+//    var_dump($other_lessons->posts);
+//    echo " -->";
+
+    // no lessons at all
+    if (sizeof($other_lessons->posts) == 0) {
+        return "";
+    }
     $first_lesson = $other_lessons->posts[0];
 
     return get_permalink ($first_lesson->ID);
@@ -62,6 +88,26 @@ function tomate_get_children_songs($band) {
     );
     $songs_query = new WP_Query($args);
     return $songs_query->posts;
+}
+
+function tomate_get_band_from_song($song) {
+    if (is_int($song)) {
+        $id = $song;
+    } else {
+        $id = $song->ID;
+    }
+    $band_id = get_post_meta( $id, 'tomate_song_band_id', true );
+    return get_post($band_id);
+}
+
+function tomate_get_song_from_lesson($lesson) {
+    if (is_int($lesson)) {
+        $id = $lesson;
+    } else {
+        $id = $lesson->ID;
+    }
+    $song_id = get_post_meta( $id, 'tomate_lesson_song_id', true );
+    return get_post($song_id);
 }
 
 if (!function_exists('write_log')) {

@@ -80,10 +80,10 @@ function print_html_for_meta($post, $meta_key, $name, $type = 'text', $pre = 'to
 
 }
 
-function tomate_get_featured_image_link($post) {
+function tomate_get_featured_image_link($post, $size = 'single-post-thumbnail') {
     $link = "link not found";
     if (has_post_thumbnail( $post->ID ) ) {
-        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), $size);
         $link = $image[0];
     }
     return $link;

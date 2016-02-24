@@ -1258,3 +1258,14 @@ ul.unIndentedList {
 .search article.bands {
     background-color: #fafad2;
 }
+
+
+/* left bar */
+
+#left-bar {
+    left: 0;
+    position: absolute;
+    top: 10%;
+    width: 10em;
+    z-index: 50;
+}

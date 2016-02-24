@@ -54,5 +54,16 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
 <link rel="stylesheet" href="<?php bloginfo( "wpurl" ); ?>/wp-content/themes/farhat-gutiar-divi-child/slicknav/slicknav.css" />
 <script src="<?php bloginfo( "wpurl" ); ?>/wp-content/themes/farhat-gutiar-divi-child/slicknav/jquery.slicknav.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#left-bar").accordion({
+            active: false,
+            collapsible: true
+        });
+    });
+</script>
 </body>
 </html>

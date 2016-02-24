@@ -9,7 +9,7 @@
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
                 <?php
-                    $debug = true;
+                    $debug = false;
 
                     $songs = tomate_get_children_songs(get_post());
 

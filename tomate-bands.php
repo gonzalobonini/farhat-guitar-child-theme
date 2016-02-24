@@ -53,7 +53,6 @@ function tomate_band_style() {
 
 /* Save the meta box's post metadata. */
 function tomate_band_save( $post_id, $post ) {
-    write_log("guardando banda...");
     $post_type = "tomate_band";
 
     tomate_update_post_meta($post_id, "band_origin", $post_type);
