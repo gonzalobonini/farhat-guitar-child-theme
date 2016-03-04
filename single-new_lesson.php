@@ -10,19 +10,19 @@
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
                         <?php
                             $debug = false;
-                            $song_id = get_post_meta( get_the_ID(), 'tomate_lesson_song_id', true );
+                            $song_id = get_post_meta( get_the_ID(), 'new_lesson_song_id', true );
                             $song = get_post($song_id);
 
-                            $band_id = get_post_meta($song_id, 'tomate_song_band_id', true);
+                            $band_id = get_post_meta($song_id, 'new_song_band_id', true);
                             $band = get_post($band_id);
 
                             $args = array(
-                                'post_type' => 'tomate_lesson',
+                                'post_type' => 'new_lesson',
                                 'orderby' => 'date',
                                 'order'   => 'ASC',
                                 'meta_query' => array(
                                     array(
-                                        'key' => 'tomate_lesson_song_id',
+                                        'key' => 'new_lesson_song_id',
                                         'value' => $song_id,
                                         'compare' => '=',
                                     )
@@ -31,11 +31,11 @@
                             $other_lessons = new WP_Query($args);
 
                             $args = array(
-                                'post_type' => 'tomate_song',
+                                'post_type' => 'new_song',
                                 'orderby' => 'rand',
                                 'meta_query' => array(
                                     array(
-                                        'key' => 'tomate_song_band_id',
+                                        'key' => 'new_song_band_id',
                                         'value' => $band_id,
                                         'compare' => '=',
                                     )
@@ -51,9 +51,9 @@
                                 var_dump($related_songs);
                             }
 
-                            $cart_link = get_post_meta( get_the_ID(), 'tomate_lesson_cart_link', true );
-                            $tabs_link = get_post_meta( get_the_ID(), 'tomate_lesson_download_tabs', true );
-                            $video_link = get_post_meta( get_the_ID(), 'tomate_lesson_video', true );
+                            $cart_link = get_post_meta( get_the_ID(), 'new_lesson_cart_link', true );
+                            $tabs_link = get_post_meta( get_the_ID(), 'new_lesson_download_tabs', true );
+                            $video_link = get_post_meta( get_the_ID(), 'new_lesson_video', true );
 
                         ?>
                         <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
@@ -73,7 +73,7 @@
                                                     <?php
                                                         $args = array('orderby' => 'name', 'order' => 'ASC', 'fields' => 'all');
                                                         $terms = wp_get_post_terms( $song_id, 'Style', $args );
-                                                        echo tomate_get_separeted_by_commas_list($terms);
+                                                        echo new_get_separeted_by_commas_list($terms);
                                                     ?>
                                             </span></span> &nbsp; &nbsp;
                                         </div> <!-- .et_pb_text -->
@@ -239,14 +239,14 @@
                                                         for ($i=0; ($i< count($related_songs)) && ($i<5); $i++) {
                                                     ?>
                                                             <li><a
-                                                                    href="<?php echo tomate_get_first_lesson_permalink($related_songs[$i]); ?>"
+                                                                    href="<?php echo new_get_first_lesson_permalink($related_songs[$i]); ?>"
                                                                     title="<?php echo $related_songs[$i]->post_title; ?>">
                                                                     <?php echo $related_songs[$i]->post_title; ?>
                                                                     </a> <a
-                                                                    href="<?php echo tomate_get_first_lesson_permalink($related_songs[$i]); ?>"
+                                                                    href="<?php echo new_get_first_lesson_permalink($related_songs[$i]); ?>"
                                                                     title="<?php echo $related_songs[$i]->post_title; ?>">
                                                                     <img width="150" height="150"
-                                                                       src="<?php echo tomate_get_featured_image_link($related_songs[$i]); ?>"
+                                                                       src="<?php echo new_get_featured_image_link($related_songs[$i]); ?>"
                                                                        class="attachment-thumbnail wp-post-image"
                                                                        alt="AC:DC_jailbreak_140_95"></a>
                                                             </li>

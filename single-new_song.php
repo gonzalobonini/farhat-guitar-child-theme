@@ -4,12 +4,12 @@
 
 while ( have_posts() ) : the_post();
     $args = array(
-        'post_type' => 'tomate_lesson',
+        'post_type' => 'new_lesson',
         'orderby' => 'date',
         'order'   => 'ASC',
         'meta_query' => array(
             array(
-                'key' => 'tomate_lesson_song_id',
+                'key' => 'new_lesson_song_id',
                 'value' => get_the_ID(),
                 'compare' => '=',
             )

@@ -4,13 +4,13 @@ include_once 'tomate-functions.php';
 
 include_once 'tomate-scripts-and-styles.php';
 
-function tomate_get_all_bands($posts_per_page = 0, $orderby = 'post_title', $order = 'ASC') {
+function new_get_all_bands($posts_per_page = 0, $orderby = 'post_title', $order = 'ASC') {
     // get all the bands
         $args = array(
             'posts_per_page'   => $posts_per_page,
             'orderby'          => $orderby,
             'order'            => $order,
-            'post_type'        => 'tomate_band',
+            'post_type'        => 'new_band',
             'post_mime_type'   => '',
             'post_parent'      => '',
             'post_status'      => 'publish');
@@ -18,9 +18,9 @@ function tomate_get_all_bands($posts_per_page = 0, $orderby = 'post_title', $ord
         return get_posts( $args );
 }
 
-/* Recibe un Post de post_type tomate_song y devuelve el permalink a de la primer lección */
-function tomate_get_first_lesson_permalink($post) {
-//    echo "<!-- debugging tomate_get_first_lesson_permalink";
+/* Recibe un Post de post_type new_song y devuelve el permalink a de la primer lección */
+function new_get_first_lesson_permalink($post) {
+//    echo "<!-- debugging new_get_first_lesson_permalink";
     if ($post instanceof WP_Post) {
         $post_id = $post->ID;
     } else { // I assume it got an id
@@ -29,12 +29,12 @@ function tomate_get_first_lesson_permalink($post) {
 //    echo "post_id";
 //    var_dump($post_id);
     $args = array(
-        'post_type' => 'tomate_lesson',
+        'post_type' => 'new_lesson',
         'orderby' => 'date',
         'order'   => 'ASC',
         'meta_query' => array(
             array(
-                'key' => 'tomate_lesson_song_id',
+                'key' => 'new_lesson_song_id',
                 'value' => $post_id,
                 'compare' => '=',
             )
@@ -55,15 +55,15 @@ function tomate_get_first_lesson_permalink($post) {
     return get_permalink ($first_lesson->ID);
 }
 
-function tomate_get_children_lessons($song) {
+function new_get_children_lessons($song) {
 
     $args = array(
-        'post_type' => 'tomate_lesson',
+        'post_type' => 'new_lesson',
         'orderby' => 'date',
         'order'   => 'ASC',
         'meta_query' => array(
             array(
-                'key' => 'tomate_lesson_song_id',
+                'key' => 'new_lesson_song_id',
                 'value' => $song->ID,
                 'compare' => '=',
             )
@@ -73,14 +73,14 @@ function tomate_get_children_lessons($song) {
     return $lessons_query->posts;
 }
 
-function tomate_get_children_songs($band) {
+function new_get_children_songs($band) {
     $args = array(
-        'post_type' => 'tomate_song',
+        'post_type' => 'new_song',
         'orderby' => 'date',
         'order'   => 'ASC',
         'meta_query' => array(
             array(
-                'key' => 'tomate_song_band_id',
+                'key' => 'new_song_band_id',
                 'value' => $band->ID,
                 'compare' => '=',
             )
@@ -90,23 +90,23 @@ function tomate_get_children_songs($band) {
     return $songs_query->posts;
 }
 
-function tomate_get_band_from_song($song) {
+function new_get_band_from_song($song) {
     if (is_int($song)) {
         $id = $song;
     } else {
         $id = $song->ID;
     }
-    $band_id = get_post_meta( $id, 'tomate_song_band_id', true );
+    $band_id = get_post_meta( $id, 'new_song_band_id', true );
     return get_post($band_id);
 }
 
-function tomate_get_song_from_lesson($lesson) {
+function new_get_song_from_lesson($lesson) {
     if (is_int($lesson)) {
         $id = $lesson;
     } else {
         $id = $lesson->ID;
     }
-    $song_id = get_post_meta( $id, 'tomate_lesson_song_id', true );
+    $song_id = get_post_meta( $id, 'new_lesson_song_id', true );
     return get_post($song_id);
 }
 

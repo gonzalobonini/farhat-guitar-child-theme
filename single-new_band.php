@@ -11,11 +11,11 @@
                 <?php
                     $debug = false;
 
-                    $songs = tomate_get_children_songs(get_post());
+                    $songs = new_get_children_songs(get_post());
 
                     $genres = get_the_terms( get_the_ID(), 'Style' );
 
-                    $genres_names = tomate_get_array_of_properties($genres, 'name');
+                    $genres_names = new_get_array_of_properties($genres, 'name');
 
 
 
@@ -29,7 +29,7 @@
 
                     $args = array(
                             'posts_per_page' => 3,
-                            'post_type' => 'tomate_band',
+                            'post_type' => 'new_band',
                             'tax_query' => array(
                                 array(
                                     'taxonomy' => 'Style',
@@ -46,15 +46,15 @@
 
                     $related_bands = $related_bands_query->posts;
 
-                    $origin = get_post_meta( get_the_ID(), 'tomate_band_origin', true );
-                    $active = get_post_meta( get_the_ID(), 'tomate_band_active', true );
-                    $website = get_post_meta( get_the_ID(), 'tomate_band_website', true );
+                    $origin = get_post_meta( get_the_ID(), 'new_band_origin', true );
+                    $active = get_post_meta( get_the_ID(), 'new_band_active', true );
+                    $website = get_post_meta( get_the_ID(), 'new_band_website', true );
 
 
 //                    $i = 0;
 //                    $lesson = array();
 //                    foreach ($songs as $song) {
-//                        $lessons[$i] = tomate_get_children_lessons($song);
+//                        $lessons[$i] = new_get_children_lessons($song);
 //                        $i++;
 //                    }
 
@@ -94,7 +94,7 @@
 
                                     <div class="et_pb_row">
                                         <div class="et_pb_column et_pb_column_4_4">
-                                            <img src="<?php echo tomate_get_featured_image_link(get_the_ID()); ?>" alt="" class="et-waypoint et_pb_image et_pb_animation_fade_in band-main-image et_pb_image_sticky et-animated"><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left band-name-title">
+                                            <img src="<?php echo new_get_featured_image_link(get_the_ID()); ?>" alt="" class="et-waypoint et_pb_image et_pb_animation_fade_in band-main-image et_pb_image_sticky et-animated"><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left band-name-title">
 
                                                 <p><?php the_title(); ?></p>
 
@@ -122,7 +122,7 @@
                                             <div class="et_pb_column et_pb_column_1_4">
                                                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left song-lessons-list">
 
-                                                    <div class="item-song-header"><a title="<?php echo $song->post_title; ?>" href="<?php echo tomate_get_first_lesson_permalink($song); ?>"><img class="alignnone  wp-image-1588" src="<?php echo tomate_get_featured_image_link($song); ?>" alt="220px-ACDC_Back_in_Black_Single_Cover" width="105" height="105"></a></div>
+                                                    <div class="item-song-header"><a title="<?php echo $song->post_title; ?>" href="<?php echo new_get_first_lesson_permalink($song); ?>"><img class="alignnone  wp-image-1588" src="<?php echo new_get_featured_image_link($song); ?>" alt="220px-ACDC_Back_in_Black_Single_Cover" width="105" height="105"></a></div>
                                                     <div class="item-song-title">
                                                         <h3><?php echo $song->post_title; ?></h3>
                                                         <h3></h3>
@@ -130,7 +130,7 @@
                                                     <div class="part-songs-list">
                                                         <ul class="lcp_catlist" id="lcp_instance_0">
                                                             <?php
-                                                            $lessons = tomate_get_children_lessons($song);
+                                                            $lessons = new_get_children_lessons($song);
                                                             foreach ($lessons as $lesson) {
                                                                 ?>
                                                             <li>
@@ -173,7 +173,7 @@
                                                     <li>
                                                         <div class="details-first-column">Labels:</div>
                                                         <div class="details-second-column" style="text-align: left;">
-                                                            <?php echo tomate_get_separeted_by_commas_list($tags); ?>
+                                                            <?php echo new_get_separeted_by_commas_list($tags); ?>
                                                         </div>
                                                         <hr>
                                                     </li>
@@ -182,7 +182,7 @@
                                                     <li>
                                                         <div class="details-first-column">Genre:</div>
                                                         <div class="details-second-column">
-                                                            <?php echo tomate_get_separeted_by_commas_list($genres); ?>
+                                                            <?php echo new_get_separeted_by_commas_list($genres); ?>
                                                         </div>
                                                         <hr>
                                                     </li>
@@ -196,7 +196,7 @@
                                                     <li>
                                                         <div class="details-first-column">&nbsp;Members:</div>
                                                         <div class="details-second-column">
-                                                            <?php echo tomate_get_separeted_by_commas_list($members); ?>
+                                                            <?php echo new_get_separeted_by_commas_list($members); ?>
                                                         <hr>
                                                     </li>
                                                 </ul>
@@ -204,7 +204,7 @@
                                                     <li>
                                                         <div class="details-first-column">Past Members:</div>
                                                         <div class="details-second-column">
-                                                            <?php echo tomate_get_separeted_by_commas_list($past_members); ?>
+                                                            <?php echo new_get_separeted_by_commas_list($past_members); ?>
                                                         </div>
                                                     </li>
                                                     <li>
@@ -235,7 +235,7 @@
                                                                title="<?php echo $band->post_title ?>"><?php echo $band->post_title ?></a> <a
                                                                 href="<?php echo get_the_permalink($band); ?>"
                                                                 title="<?php echo $band->post_title ?>"><img width="144" height="95"
-                                                                                         src="<?php echo tomate_get_featured_image_link($band); ?>"
+                                                                                         src="<?php echo new_get_featured_image_link($band); ?>"
                                                                                          class="attachment-thumbnail wp-post-image"
                                                                                          alt="AC:DC2_145_95"></a></li>
                                                         <?php

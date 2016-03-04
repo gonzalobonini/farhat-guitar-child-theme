@@ -44,14 +44,14 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
             'offset'           => 0,
             'category'         => 'featured',
             'orderby'          => 'rand',
-            'post_type'        => 'tomate_song',
+            'post_type'        => 'new_song',
             'post_mime_type'   => '',
             'post_parent'      => '',
             'post_status'      => 'publish');
 
         $featured = get_posts( $args )[0];
 
-        $featured_parent_band = tomate_get_band_from_song($featured);
+        $featured_parent_band = new_get_band_from_song($featured);
 
 //        echo "featured";
 //        var_dump($featured);
@@ -63,7 +63,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
             'posts_per_page'   => 4,
             'orderby'          => 'post_date',
             'order'            => 'DESC',
-            'post_type'        => 'tomate_song',
+            'post_type'        => 'new_song',
             'post_status'      => 'publish');
 
         $last_songs = get_posts( $args );
@@ -73,7 +73,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 
         // get all the bands
-        $bands = tomate_get_all_bands();
+        $bands = new_get_all_bands();
 
 //        echo "last songs";
 //        var_dump($last_songs);
@@ -99,16 +99,16 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
         <div class="et_pb_slider et_pb_slider_no_arrows et_pb_slider_no_pagination et_pb_bg_layout_dark">
             <div class="et_pb_slides">
-                <div style="background-color:#ffffff;background-image:url(<?php echo tomate_get_featured_image_link($featured_parent_band) ?>);" class="et_pb_slide et_pb_slide_with_image et_pb_bg_layout_dark et_pb_media_alignment_center et-pb-active-slide">
+                <div style="background-color:#ffffff;background-image:url(<?php echo new_get_featured_image_link($featured_parent_band) ?>);" class="et_pb_slide et_pb_slide_with_image et_pb_bg_layout_dark et_pb_media_alignment_center et-pb-active-slide">
 
                     <div class="et_pb_container clearfix" style="min-height: 486px;">
-                        <div class="et_pb_slide_image" style="margin-top: 0px;"><img alt="<?php echo $featured->post_title ?>" src="<?php echo tomate_get_featured_image_link($featured) ?>" style="max-height: 388px;" class="active"></div>
+                        <div class="et_pb_slide_image" style="margin-top: 0px;"><img alt="<?php echo $featured->post_title ?>" src="<?php echo new_get_featured_image_link($featured) ?>" style="max-height: 388px;" class="active"></div>
                         <div class="et_pb_slide_description">
 
                             <div class="et_pb_slide_content">
                                 <p><span style="color: #ffffff;"></span><?php echo $featured_parent_band->post_title ?></p>
                             </div>
-                            <a class="et_pb_more_button" href="<?php echo tomate_get_first_lesson_permalink($featured) ?>"><?php echo $featured->post_title ?></a>
+                            <a class="et_pb_more_button" href="<?php echo new_get_first_lesson_permalink($featured) ?>"><?php echo $featured->post_title ?></a>
                         </div> <!-- .et_pb_slide_description -->
                     </div> <!-- .et_pb_container -->
 
@@ -134,12 +134,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                         foreach ($last_songs as $current_song) {
                             ?>
-                            <li><a title="<?php echo $current_song->post_title ?>" href="<?php echo tomate_get_first_lesson_permalink($current_song) ?>"><?php echo $current_song->post_title ?></a> <a
-                                title="<?php echo $current_song->post_title ?>" href="<?php echo tomate_get_first_lesson_permalink($current_song) ?>"><img width="105"
+                            <li><a title="<?php echo $current_song->post_title ?>" href="<?php echo new_get_first_lesson_permalink($current_song) ?>"><?php echo $current_song->post_title ?></a> <a
+                                title="<?php echo $current_song->post_title ?>" href="<?php echo new_get_first_lesson_permalink($current_song) ?>"><img width="105"
                                                                                                             height="105"
                                                                                                             alt="Muse_hysteria_cd-105"
                                                                                                             class="attachment-105x105 size-105x105 wp-post-image"
-                                                                                                            src="<?php echo tomate_get_featured_image_link($current_song, array(105,105)) ?>"></a>
+                                                                                                            src="<?php echo new_get_featured_image_link($current_song, array(105,105)) ?>"></a>
                         </li>
                             <?php
                         }?>

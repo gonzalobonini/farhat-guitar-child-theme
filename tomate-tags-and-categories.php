@@ -6,36 +6,36 @@
 function custom_taxonomies_init() {
     // create a new taxonomy
 
-    tomate_register_taxonomy('Style',
+    new_register_taxonomy('Style',
         'Styles',
         false,
         array(
-            'tomate_song',
-            'tomate_band'
+            'new_song',
+            'new_band'
         )
     );
 
-    tomate_register_taxonomy('Member',
+    new_register_taxonomy('Member',
         'Members',
         false,
         array(
-            'tomate_band'
+            'new_band'
         )
     );
 
-    tomate_register_taxonomy('Past Member',
+    new_register_taxonomy('Past Member',
             'Past Members',
             false,
             array(
-                'tomate_band'
+                'new_band'
             )
     );
 
-    tomate_register_taxonomy('Difficulty',
+    new_register_taxonomy('Difficulty',
         "Difficulties",
         false,
         array(
-            'tomate_song'
+            'new_song'
         )
     );
 }

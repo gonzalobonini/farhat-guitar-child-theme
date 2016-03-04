@@ -1,7 +1,7 @@
 <?php
 
 
-function tomate_register_taxonomy ($singular_name, $plural_name, $hierarchical, $post_types){
+function new_register_taxonomy ($singular_name, $plural_name, $hierarchical, $post_types){
     $labels = array(
         'name'                       => _x( '' . $plural_name . '', 'taxonomy general name' ),
         'singular_name'              => _x( '' . $singular_name . '', 'taxonomy singular name' ),
@@ -38,7 +38,7 @@ function tomate_register_taxonomy ($singular_name, $plural_name, $hierarchical, 
     );
 }
 
-function tomate_update_post_meta($post_id, $meta_key, $post_type, $data_type = 'text', $pre = 'tomate_') {
+function new_update_post_meta($post_id, $meta_key, $post_type, $data_type = 'text', $pre = 'new_') {
 
     // Checks save status
     $is_autosave = wp_is_post_autosave( $post_id );
@@ -62,7 +62,7 @@ function tomate_update_post_meta($post_id, $meta_key, $post_type, $data_type = '
 }
 
 
-function print_html_for_meta($post, $meta_key, $name, $type = 'text', $pre = 'tomate_') {
+function print_html_for_meta($post, $meta_key, $name, $type = 'text', $pre = 'new_') {
 
     $meta_value = get_post_meta( $post->ID, $pre . $meta_key, true );
     echo '<label class="meta-tag-label" for="' . $pre . $meta_key . '">';
@@ -80,7 +80,7 @@ function print_html_for_meta($post, $meta_key, $name, $type = 'text', $pre = 'to
 
 }
 
-function tomate_get_featured_image_link($post, $size = 'single-post-thumbnail') {
+function new_get_featured_image_link($post, $size = 'single-post-thumbnail') {
     $link = "link not found";
     if (has_post_thumbnail( $post->ID ) ) {
         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), $size);
@@ -89,13 +89,13 @@ function tomate_get_featured_image_link($post, $size = 'single-post-thumbnail') 
     return $link;
 }
 
-function tomate_get_separeted_by_commas_list ($array, $property = 'name') {
-    $new_items = tomate_get_array_of_properties($array, $property);
+function new_get_separeted_by_commas_list ($array, $property = 'name') {
+    $new_items = new_get_array_of_properties($array, $property);
     $comma_list = implode(', ', $new_items);
     return $comma_list;
 }
 
-function tomate_get_array_of_properties ($array, $property = 'name') {
+function new_get_array_of_properties ($array, $property = 'name') {
     $new_items = array();
     foreach ($array as $item) {
         array_push($new_items, $item->$property);
