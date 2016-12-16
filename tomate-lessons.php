@@ -36,6 +36,30 @@ function add_new_lesson_metaboxes() {
 
 }
 
+function print_songs_select($post, $meta_key, $name, $type = 'text', $pre = 'new_') {
+
+    $meta_value = get_post_meta( $post->ID, $pre . $meta_key, true );
+    echo '<label class="meta-tag-label" for="' . $pre . $meta_key . '">';
+    echo $name . ': ';
+    echo '</label>';
+    $songs = new_get_all_songs();
+//    var_dump($songs);
+    echo '<select id="' . $pre . $meta_key . '" name="' . $pre . $meta_key .'">';
+    foreach ($songs as $song) {
+        $selected = "";
+        if ($song->ID == $meta_value) {
+            $selected = "selected";
+        }
+        echo '<option value="' . $song->ID . '" ' . $selected . '>' . $song->post_title . '</option>';
+    }
+    echo '</select>';
+
+    echo '<br>';
+
+}
+
+
+
 // The Event Location Metabox
 
 function new_lesson_style() {
@@ -44,8 +68,9 @@ function new_lesson_style() {
     // Add a nonce field so we can check for it later.
     wp_nonce_field( 'new_lesson_save_meta_box_data', 'new_lesson_meta_box_nonce' );
 
-    print_html_for_meta($post, 'lesson_song_id', 'Song ID');
-
+    //print_html_for_meta($post, 'lesson_song_id', 'Song ID');
+    print_songs_select($post, 'lesson_song_id', "Song");
+    print_html_for_meta($post, 'lesson_number', 'Lesson number');
     print_html_for_meta($post, 'lesson_video', 'Video Link', 'link');
     print_html_for_meta($post, 'lesson_cart_link', 'Cart Link', 'link');
     print_html_for_meta($post, 'lesson_download_tabs', 'Download Tabs Link', 'link');
@@ -58,6 +83,7 @@ function new_lesson_save( $post_id, $post ) {
     $post_type = "new_lesson";
 
     new_update_post_meta($post_id, "lesson_song_id", $post_type);
+    new_update_post_meta($post_id, "lesson_number", $post_type);
     new_update_post_meta($post_id, "lesson_video", $post_type, 'link');
     new_update_post_meta($post_id, "lesson_cart_link", $post_type, 'link');
     new_update_post_meta($post_id, "lesson_download_tabs", $post_type, 'link');

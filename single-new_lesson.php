@@ -208,7 +208,8 @@
                                                     foreach ($other_lessons->posts as $current_lesson) {
                                                         ?>
                                                         <li><a href="<?php echo get_the_permalink($current_lesson) ?>"
-                                                               title="Lesson 1"><?php echo $current_lesson->post_title ?></a></li>
+                                                               title="Lesson <?php echo get_post_meta( $current_lesson->ID, 'new_lesson_number', true ); ?>">
+                                                        Lesson <?php echo get_post_meta( $current_lesson->ID, 'new_lesson_number', true ); ?></a></li>
                                                         <?php
                                                     }
                                                 ?>

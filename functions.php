@@ -73,6 +73,16 @@ function new_get_children_lessons($song) {
     return $lessons_query->posts;
 }
 
+function new_get_all_songs() {
+    $args = array(
+        'post_type' => 'new_song',
+        'orderby' => 'date',
+        'order'   => 'ASC'
+    );
+    $songs_query = new WP_Query($args);
+    return $songs_query->posts;
+}
+
 function new_get_children_songs($band) {
     $args = array(
         'post_type' => 'new_song',

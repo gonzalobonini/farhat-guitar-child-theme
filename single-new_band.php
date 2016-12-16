@@ -135,8 +135,8 @@
                                                                 ?>
                                                             <li>
                                                                 <a href="<?php echo get_the_permalink($lesson); ?>"
-                                                                   title="<?php echo $lesson->post_title; ?>">
-                                                                    <?php echo $lesson->post_title; ?>
+                                                                   title="Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>">
+                                                                    Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>
                                                                 </a>
                                                             </li>
                                                                 <?php
