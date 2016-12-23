@@ -1273,7 +1273,7 @@ ul.unIndentedList {
 
 
 /* left bar */
-.   left-bar-container {
+.left-bar-container {
     max-height: 390px;
     overflow-y: auto;
 }
