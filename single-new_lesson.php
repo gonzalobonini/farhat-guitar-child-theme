@@ -108,35 +108,6 @@
 
                                 <div class="et_pb_row">
                                   <div class="et_pb_column et_pb_column_1_4 left-bar-container">
-                                    <div
-                                      class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center et_pb_blurb_position_left">
-                                      <div class="et_pb_blurb_content">
-                                        <div class="et_pb_main_blurb_image"><a
-                                            href="<?php echo $cart_link; ?>" target="_blank"><span
-                                              class="et-pb-icon et-waypoint et_pb_animation_top et-animated"
-                                              style="color: #000000;"></span></a></div>
-                                        <h4><a href="<?php echo $cart_link; ?>" target="_blank">BUY THIS
-                                            SONG VIDEO LESSONS</a></h4>
-
-                                      </div>
-                                      <!-- .et_pb_blurb_content -->
-                                    </div>
-                                    <!-- .et_pb_blurb -->
-                                    <div
-                                      class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center et_pb_blurb_position_left">
-                                      <div class="et_pb_blurb_content">
-                                        <div class="et_pb_main_blurb_image"><a
-                                            href="http://www.farhatguitar.com/paginasiframes/canciones%20videos/ACDC/Jailbreak/PDF/Jailbreak_tab.pdf"
-                                            target="_blank"><span
-                                              class="et-pb-icon et-waypoint et_pb_animation_top et-animated"
-                                              style="color: #000000;"></span></a></div>
-                                        <h4>
-                                          <a href="<?php echo $tabs_link ?>"
-                                             target="_blank">DOWNLOAD TABS (PDF)</a></h4>
-
-                                      </div>
-                                      <!-- .et_pb_blurb_content -->
-                                    </div>
                                     <?php include "left-bar.php"; ?>
                                   </div>
                                     <div class="et_pb_column et_pb_column_3_4">

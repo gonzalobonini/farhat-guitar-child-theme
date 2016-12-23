@@ -32,7 +32,7 @@
 	<script type="text/javascript">
 		document.documentElement.className = 'js';
 	</script>
-
+  <script src="https://use.fontawesome.com/705de5b39a.js"></script>
 
 	<?php wp_head(); ?>
 

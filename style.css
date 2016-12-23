@@ -192,7 +192,6 @@ width: 94%;
 .video-section .et_pb_column.et_pb_column_1_4 {
    overflow-y: hide;
    overflow-x: hide;
-   max-height: 520px !important;
 }
 
 #flowplayer {
@@ -542,8 +541,6 @@ margin: 4px;
 }
 
 .video-section > div > div.et_pb_column.et_pb_column_1_4 {
-    /*max-height: 100% !important;*/
-    overflow-y: visible;
     padding: 10px 0;
 }
 
@@ -1276,21 +1273,44 @@ ul.unIndentedList {
 
 
 /* left bar */
-#left-menu {
-    font-size: small;
-    left: 0;
-    width: 130px;
-    z-index: 50;
-    position: absolute;
-}
-
-.ui-menu .ui-menu-item {
-    width: 100px;
-}
-
-.left-bar-container {
-    height: 400px;
-    overflow-x: overlay;
+.   left-bar-container {
+    max-height: 390px;
     overflow-y: auto;
-    position: relative;
+}
+
+ul.sidebar-menu li,
+ul.treeview-menu li {
+    list-style-type: none;
+}
+ul.sidebar-menu {
+    font-size: 12px;
+    width: 180px;
+}
+.sidebar-menu,
+.sidebar-menu > li:hover > a, .sidebar-menu > li.active > a,
+.sidebar-menu > li > a,
+.sidebar-menu > li > .treeview-menu,
+.sidebar-menu .treeview-menu > li > a{
+    color: #222d32;
+    background-color: #e8e8e8;
+}
+
+.sidebar-menu > li > a,
+.sidebar-menu .treeview-menu > li > a{
+    padding: 0;
+}
+
+.fa-xs {
+    font-size: 8px;
+}
+
+li.header, li.header a {
+    background-color: rgba(239, 141, 55, 0.78);
+    margin: 0;
+    padding: 0 0 0 5px !important;
+    border-bottom: 2px solid #ffffff;
+}
+
+.sidebar-menu li.header {
+    background-color: transparent;
 }

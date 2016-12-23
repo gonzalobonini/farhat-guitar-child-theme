@@ -1,44 +1,76 @@
 <?php
 
 // get all bands
-$bands = new_get_all_bands();
+$all_bands = new_get_all_bands();
 ?>
 
-<ul id="left-menu">
-<?php
+<ul class="sidebar-menu">
+    <li class="header">
+      <a href="#" onclick="$('#paypal-1').click()"><i class="fa fa-paypal"></i> <span>DONATE</span>
+      </a>
+    </li>
+
+  <?php
+  if (isset($cart_link)) {
+  ?>
+    <li class="header">
+      <a href="<?php echo $cart_link ?>"
+         target="_blank"><i class="fa fa-shopping-cart"></i> <span>BUY THIS LESSONS</span>
+      </a>
+    </li>
+
+  <?php
+  }
+  if (isset($tabs_link)) {
+    ?>
+    <li class="header">
+      <a href="<?php echo $tabs_link ?>"
+         target="_blank"><i class="fa fa-download"></i> <span>DOWNLOAD TABS (PDF)</span>
+      </a>
+    </li>
+
+  <?php
+  }
   // list all songs per band
-  foreach ($bands as $current_band) {
+  foreach ($all_bands as $current_band) {
     try {
       ?>
-      <li><div><a href="<?php echo get_the_permalink($current_band)?>"><?php echo $current_band->post_title ?></a></div>
-      <ul>
-        <?php
-        $songs = new_get_children_songs($current_band);
-        ?>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-music"></i> <span><?php echo $current_band->post_title ?></span>
+          <i class="fa fa-angle-right pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
           <?php
-          foreach($songs as $current_song) {
+          $current_songs = new_get_children_songs($current_band);
+          foreach($current_songs as $current_song) {
+            ?>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle fa-xs"></i> <span><?php echo $current_song->post_title ?></span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <?php
+                $lessons = new_get_children_lessons($current_song);
+                foreach ($lessons as $lesson) {
+                  ?>
+                  <li>
+                    <a href="<?php echo get_the_permalink($lesson); ?>"
+                       title="Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>">
+                      Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>
+                    </a>
+                  </li>
+                <?php
+                } ?>
+              </ul>
+            </li>
+          <?php
+          }
           ?>
-          <li>
-            <a href="<?php echo new_get_first_lesson_permalink($current_song)?>"><?php echo $current_song->post_title ?></a>
-            <ul>
-              <?php
-              $lessons = new_get_children_lessons($current_song);
-              foreach ($lessons as $lesson) {
-                ?>
-                <li>
-                  <a href="<?php echo get_the_permalink($lesson); ?>"
-                     title="Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>">
-                    Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>
-                  </a>
-                </li>
-              <?php
-              } ?>
-            </ul>
-          </li>
-      <?php
-      }
-      ?>
-      </ul>
+
+
+        </ul>
       </li>
     <?php
     } catch (Exception $e) {
@@ -47,5 +79,5 @@ $bands = new_get_all_bands();
 
 
   }
-?>
+  ?>
 </ul>
