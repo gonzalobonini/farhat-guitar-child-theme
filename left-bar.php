@@ -20,6 +20,20 @@ $bands = new_get_all_bands();
           ?>
           <li>
             <a href="<?php echo new_get_first_lesson_permalink($current_song)?>"><?php echo $current_song->post_title ?></a>
+            <ul>
+              <?php
+              $lessons = new_get_children_lessons($current_song);
+              foreach ($lessons as $lesson) {
+                ?>
+                <li>
+                  <a href="<?php echo get_the_permalink($lesson); ?>"
+                     title="Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>">
+                    Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>
+                  </a>
+                </li>
+              <?php
+              } ?>
+            </ul>
           </li>
       <?php
       }
