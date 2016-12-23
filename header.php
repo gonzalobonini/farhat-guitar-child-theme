@@ -39,9 +39,6 @@
 
 </head>
 <body <?php body_class(); ?>>
-<?php
-include_once 'left-bar.php';
-?>
 	<div id="page-container">
 <?php
 	if ( is_page_template( 'page-template-blank.php' ) ) {

@@ -1272,12 +1272,18 @@ ul.unIndentedList {
 #left-menu {
     font-size: small;
     left: 0;
-    position: absolute;
-    top: 29%;
     width: 130px;
     z-index: 50;
+    position: absolute;
 }
 
-.ui-accordion-content {
-    height: inherit !important;
+.ui-menu .ui-menu-item {
+    width: 100px;
+}
+
+.left-bar-container {
+    height: 400px;
+    overflow-x: overlay;
+    overflow-y: auto;
+    position: relative;
 }

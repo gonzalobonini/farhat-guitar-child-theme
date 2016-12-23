@@ -107,6 +107,9 @@
 
 
                                 <div class="et_pb_row">
+                                  <div class="et_pb_column et_pb_column_1_4 left-bar-container">
+                                    <?php include "left-bar.php"; ?>
+                                  </div>
                                     <div class="et_pb_column et_pb_column_3_4">
                                         <!-- the player -->
                                         <div id="flowplayer"
