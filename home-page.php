@@ -178,9 +178,16 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                     <?php
                         foreach($bands as $current_band) {
                     ?>
-                            <li>
-                               <a title="<?php echo $current_band->post_title ?>" href="<?php echo get_the_permalink($current_band) ?>"><?php echo $current_band->post_title ?></a>
-                            </li>
+                          <div
+                            class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center style-filter et_pb_blurb_position_left">
+                            <div class="et_pb_blurb_content">
+                              <div class="et_pb_main_blurb_image"><a href="<?php echo get_the_permalink($current_band) ?>"><img
+                                    class="et-waypoint et_pb_animation_off et-animated" alt="" src=""></a></div>
+                              <h4><a href="<?php echo get_the_permalink($current_band) ?>"><?php echo $current_band->post_title ?></a></h4>
+
+                            </div>
+                            <!-- .et_pb_blurb_content -->
+                          </div>
                     <?php
                          }
                     ?>

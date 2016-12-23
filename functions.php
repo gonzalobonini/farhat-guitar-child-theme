@@ -204,6 +204,15 @@ function custom_override_checkout_fields( $fields ) {
     return $fields;
 }
 
+function SearchFilter($query) {
+  if ($query->is_search) {
+    $query->set('post_type', array('post', 'new_band', 'new_song'));
+  }
+  return $query;
+}
+
+add_filter('pre_get_posts','SearchFilter');
+
 include_once 'tomate-bands.php';
 
 include_once 'tomate-songs.php';

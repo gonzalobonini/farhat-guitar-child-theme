@@ -370,6 +370,10 @@ body {
     font-size: 12pt;
     font-weight: 600;
 }
+
+h4 a {
+    font-size: 10pt;
+}
 /* Fix side bar settings hiden */
 
 
@@ -915,8 +919,9 @@ header#main-header {
 .alphabetical-list > li {
     font-family: open sans;
     font-size: 12pt;
-    font-weight: bold;
     list-style: outside none none;
+    border-bottom: 1px solid #d3d3d3;
+    width: 90%;
 }
 
 ul.alphabetical-list {
@@ -1243,7 +1248,7 @@ ul.unIndentedList {
 
 
 /* Search */
-
+.archive article,
 .search article {
     border: 1px solid #d3d3d3;
     float: left;
@@ -1253,16 +1258,18 @@ ul.unIndentedList {
     padding: 2%;
     width: 20%;
 }
+.archive article.product,
 .search article.product {
     background-color: #add8e6;
 }
+.archive article > h2,
 .search article > h2 {
     font-size: 14px;
 }
+.archive article > p,
 .search article > p {
     font-size: 12px;
 }
-
 .search article.bands {
     background-color: #fafad2;
 }
