@@ -4,18 +4,31 @@ include_once 'tomate-functions.php';
 
 include_once 'tomate-scripts-and-styles.php';
 
-function new_get_all_bands($posts_per_page = 0, $orderby = 'post_title', $order = 'ASC') {
-    // get all the bands
-        $args = array(
-            'posts_per_page'   => $posts_per_page,
-            'orderby'          => $orderby,
-            'order'            => $order,
-            'post_type'        => 'new_band',
-            'post_mime_type'   => '',
-            'post_parent'      => '',
-            'post_status'      => 'publish');
+function new_get_all_bands($posts_per_page = -1, $orderby = 'post_title', $order = 'ASC') {
 
-        return get_posts( $args );
+  //$bands = apc_fetch('bands');
+  $bands = wp_cache_get( 'bands', '');
+
+  if ($bands) {
+    return $bands;
+  }
+
+  // get all the bands
+  $args = array(
+      'posts_per_page'   => $posts_per_page,
+      'orderby'          => $orderby,
+      'order'            => $order,
+      'post_type'        => 'new_band',
+      'post_mime_type'   => '',
+      'post_parent'      => '',
+      'post_status'      => 'publish');
+
+  $bands = get_posts( $args );
+
+//  apc_store ( "bands" , $bands, 2628000000);
+  wp_cache_add( "bands" , $bands, "", 2628000000);
+
+  return $bands;
 }
 
 /* Recibe un Post de post_type new_song y devuelve el permalink a de la primer lección */
@@ -26,33 +39,44 @@ function new_get_first_lesson_permalink($post) {
     } else { // I assume it got an id
         $post_id = $post;
     }
+
+  $permalink = wp_cache_get( 'firt-lesson-'.$post->ID, '');
+
+  if ($permalink) {
+    return $permalink;
+  }
+
+  $args = array(
+    'post_type' => 'new_lesson',
+    'orderby' => 'date',
+    'order'   => 'ASC',
+    'meta_query' => array(
+      array(
+        'key' => 'new_lesson_song_id',
+        'value' => $post_id,
+        'compare' => '=',
+      )
+    )
+  );
+  $other_lessons = new WP_Query($args);
+  if (sizeof($other_lessons->posts) == 0) {
+    return "";
+  }
+  $first_lesson = $other_lessons->posts[0];
+
+  $permalink = get_permalink ($first_lesson->ID);
+
+//  apc_store ( "bands" , $bands, 2628000000);
+  wp_cache_add( 'firt-lesson-'.$post->ID , $permalink, "", 2628000000);
+  return $permalink;
 //    echo "post_id";
 //    var_dump($post_id);
-    $args = array(
-        'post_type' => 'new_lesson',
-        'orderby' => 'date',
-        'order'   => 'ASC',
-        'meta_query' => array(
-            array(
-                'key' => 'new_lesson_song_id',
-                'value' => $post_id,
-                'compare' => '=',
-            )
-        )
-    );
-    $other_lessons = new WP_Query($args);
 
 //    echo "other_lessons->posts";
 //    var_dump($other_lessons->posts);
 //    echo " -->";
 
-    // no lessons at all
-    if (sizeof($other_lessons->posts) == 0) {
-        return "";
-    }
-    $first_lesson = $other_lessons->posts[0];
-
-    return get_permalink ($first_lesson->ID);
+  // no lessons at all
 }
 
 function new_get_children_lessons($song) {
@@ -77,27 +101,38 @@ function new_get_all_songs() {
     $args = array(
         'post_type' => 'new_song',
         'orderby' => 'date',
-        'order'   => 'ASC'
+        'order'   => 'ASC',
+        'nopaging' => true
     );
     $songs_query = new WP_Query($args);
     return $songs_query->posts;
 }
 
 function new_get_children_songs($band) {
-    $args = array(
-        'post_type' => 'new_song',
-        'orderby' => 'date',
-        'order'   => 'ASC',
-        'meta_query' => array(
-            array(
-                'key' => 'new_song_band_id',
-                'value' => $band->ID,
-                'compare' => '=',
-            )
-        )
-    );
-    $songs_query = new WP_Query($args);
-    return $songs_query->posts;
+
+  $songs = wp_cache_get( 'songs-'.$band->ID, '');
+
+  if ($songs) {
+    return $songs;
+  }
+  $args = array(
+    'post_type' => 'new_song',
+    'orderby' => 'date',
+    'nopaging' => true,
+    'order'   => 'ASC',
+    'meta_query' => array(
+      array(
+        'key' => 'new_song_band_id',
+        'value' => $band->ID,
+        'compare' => '=',
+      )
+    )
+  );
+  $songs_query = new WP_Query($args);
+//  apc_store ( "bands" , $bands, 2628000000);
+  wp_cache_add( "songs-". $band->ID , $songs_query->posts, "", 2628000000);
+
+  return $songs_query->posts;
 }
 
 function new_get_band_from_song($song) {

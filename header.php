@@ -111,10 +111,10 @@ include_once 'left-bar.php';
 					? $user_logo
 					: $template_directory_uri . '/images/logo.png';
 			?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ocultable">
 					<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" />
 				</a>
-<div id="contact-information">
+<div id="contact-information" class="ocultable">
 
     <div id="mail-phone">
 

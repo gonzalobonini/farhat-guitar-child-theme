@@ -480,7 +480,7 @@ ul.page-numbers li a.page-number {
 
 .part-songs-list > ul.lcp_catlist {
     height: 200px;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .part-songs-list > ul.lcp_catlist:hover {
@@ -551,7 +551,7 @@ margin: 4px;
 .video-section div.part-songs-list > ul {
     display: block;
     max-height: 380px;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .video-section div.part-songs-list > ul:hover {
@@ -1082,7 +1082,7 @@ div#footer-bottom {
     background-color: lightgray;
     color: #000000;
     text-align: center;
-    height: 250px;
+    height: 350px;
 }
 
 #footer-widgets .footer-widget .footer-container {
@@ -1172,6 +1172,14 @@ ul.lcp_paginator {
 .tab-container {
      font-size: 12px;
 font-weight: bold;
+}
+
+/* Tablaturas */
+
+.tablatura pre,.tablatura code {
+    font-family: Courier New, monospace;
+    margin-bottom: 10px;
+    line-height: 10px;
 }
 
 /* Woocommerce */

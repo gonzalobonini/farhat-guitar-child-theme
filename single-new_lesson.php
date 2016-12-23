@@ -96,7 +96,13 @@
 
                             </div> <!-- .et_pb_section --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left tab-container">
 
+                              <div class="entry-content tablatura">
+                                <?php
+                                the_content();
 
+                                wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'Divi' ), 'after' => '</div>' ) );
+                                ?>
+                              </div> <!-- .entry-content -->
                             </div><div class="et_pb_section video-section et_section_regular" style="background-color:#ffffff;">
 
 
@@ -348,13 +354,6 @@
 					endif;
 				?>
 
-					<div class="entry-content">
-					<?php
-						the_content();
-
-						wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'Divi' ), 'after' => '</div>' ) );
-					?>
-					</div> <!-- .entry-content -->
 
 					<?php
 					if ( et_get_option('divi_468_enable') == 'on' ){

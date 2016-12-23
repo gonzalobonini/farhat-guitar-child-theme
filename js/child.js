@@ -1,3 +1,11 @@
+function setupMenuBar() {
+  $("#left-bar").slicknav({
+    label: '',
+    duration: 1000,
+    easingOpen: "easeOutBounce"
+  });
+}
+
 
 function setupFlowplayer($) {
 	flowplayer.conf = {
@@ -104,8 +112,27 @@ jQuery(document).ready(function($) {
 	var tabs = $('.tab-container');
 	$('.video-section').before(tabs);
 
-    $('li.first').removeClass('first');
-    $('li.last').removeClass('last');
+  $('li.first').removeClass('first');
+  $('li.last').removeClass('last');
+
+  /* Ocultar cuando el usuario se va del top */
+
+  $(window).scroll(checkscroll);
+
+
+  function checkscroll(){
+    var top = $(window).scrollTop();
+    if(top > 5){
+      $('.ocultable').fadeOut('slow');
+    }else{
+      $('.ocultable').fadeIn('slow');
+    }
+  }
+
+  checkscroll();
+
+  //setupMenuBar();
+
 });
 
 

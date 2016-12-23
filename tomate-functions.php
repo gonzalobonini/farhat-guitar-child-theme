@@ -91,14 +91,21 @@ function new_get_featured_image_link($post, $size = 'single-post-thumbnail') {
 
 function new_get_separeted_by_commas_list ($array, $property = 'name') {
     $new_items = new_get_array_of_properties($array, $property);
+    if (!$new_items) {
+      return "";
+    }
     $comma_list = implode(', ', $new_items);
     return $comma_list;
 }
 
 function new_get_array_of_properties ($array, $property = 'name') {
     $new_items = array();
-    foreach ($array as $item) {
+    if (!is_array($array)) {
+      return null;
+    }else {
+      foreach ($array as $item) {
         array_push($new_items, $item->$property);
+      }
+      return $new_items;
     }
-    return $new_items;
 }
