@@ -1269,11 +1269,15 @@ ul.unIndentedList {
 
 
 /* left bar */
-#left-bar {
+#left-menu {
     font-size: small;
     left: 0;
     position: absolute;
     top: 29%;
     width: 130px;
     z-index: 50;
+}
+
+.ui-accordion-content {
+    height: inherit !important;
 }
