@@ -312,8 +312,12 @@ body {
 }
 
 .related-songs ul li a img {
-    height: 115px;
+    height: 100px;
     width: auto;
+}
+
+.related-songs ul li a {
+    font-size: 12px;
 }
 
 .related-bands p,
@@ -571,6 +575,15 @@ margin: 4px;
     overflow-y: auto;
 }
 
+.video-section {
+    height: 630px;
+    overflow: hidden;
+}
+
+.width-100 {
+    width: 100%;
+    max-width: 100%;
+}
 /* related songs */
 
 
@@ -582,11 +595,7 @@ margin: 4px;
 }
 
 .related-songs ul > li > a {
-    float: right;
     width: 50%;
-}
-.related-songs ul > li > a > img {
-    float: left;
 }
 
 /* related bands */
@@ -1185,7 +1194,6 @@ ul.lcp_paginator {
 
 .tab-container {
      font-size: 12px;
-font-weight: bold;
 }
 
 /* Tablaturas */
@@ -1193,7 +1201,7 @@ font-weight: bold;
 .tablatura pre,.tablatura code {
     font-family: Courier New, monospace;
     margin-bottom: 10px;
-    line-height: 10px;
+    line-height: 11px;
 }
 
 /* Woocommerce */

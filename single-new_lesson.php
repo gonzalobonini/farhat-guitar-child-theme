@@ -30,18 +30,35 @@
                                 )
                             );
                             $other_lessons = new WP_Query($args);
+	                        $args = array('orderby' => 'rand', 'fields' => 'all');
+	                        $terms = wp_get_post_terms( $song_id, 'Style', $args );
 
-                            $args = array(
-                                'post_type' => 'new_song',
-                                'orderby' => 'rand',
-                                'meta_query' => array(
-                                    array(
-                                        'key' => 'new_song_band_id',
-                                        'value' => $band_id,
-                                        'compare' => '=',
-                                    )
-                                )
-                            );
+
+	                        $args = array(
+		                        'posts_per_page' => 3,
+		                        'post_type' => 'new_song',
+		                        'orderby' => 'rand',
+		                        'tax_query' => array(
+			                        array(
+				                        'taxonomy' => 'Style',
+				                        'field' => 'name',
+				                        'terms' => new_get_separeted_by_commas_list(array($terms[0])),
+				                        'operator' => 'IN'
+			                        )
+		                        )
+	                        );
+
+//                            $args = array(
+//                                'post_type' => 'new_song',
+//                                'orderby' => 'rand',
+//                                'meta_query' => array(
+//                                    array(
+//                                        'key' => 'new_song_band_id',
+//                                        'value' => $band_id,
+//                                        'compare' => '=',
+//                                    )
+//                                )
+//                            );
 
                             $related_songs_query = new WP_Query($args);
                             $related_songs = $related_songs_query->posts;
@@ -72,8 +89,7 @@
                                         <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
                                             <strong><span style="color: #ff6600;">&nbsp;Style:<span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
                                                     <?php
-                                                        $args = array('orderby' => 'name', 'order' => 'ASC', 'fields' => 'all');
-                                                        $terms = wp_get_post_terms( $song_id, 'Style', $args );
+
                                                         echo new_get_separeted_by_commas_list($terms);
                                                     ?>
                                             </span></span> &nbsp; &nbsp;
@@ -177,6 +193,46 @@
                                             <a href="http://flowplayer.org"
                                                style="display: none; position: absolute; left: 16px; bottom: 36px; z-index: 99999; width: 100px; height: 20px; background-image: url(&quot;//d32wqyuo10o653.cloudfront.net/logo.png&quot;);"></a>
                                         </div>
+
+	                                    <div class="et_pb_row width-100">
+		                                    <div class="et_pb_column et_pb_column_4_4">
+			                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left section-title">
+
+				                                    <h3><span style="color: #ff6600;">&nbsp;Related songs</span></h3>
+				                                    <hr>
+
+			                                    </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-songs">
+
+				                                    <div>
+					                                    <ul class="lcp_catlist" id="lcp_instance_0">
+						                                    <?php
+						                                    for ($i=0; ($i< count($related_songs)) && ($i<5); $i++) {
+							                                    ?>
+							                                    <li><a
+									                                    href="<?php echo new_get_first_lesson_permalink($related_songs[$i]); ?>"
+									                                    title="<?php echo $related_songs[$i]->post_title; ?>">
+									                                    <img width="150" height="150"
+									                                         src="<?php echo new_get_featured_image_link($related_songs[$i]); ?>"
+									                                         class="attachment-thumbnail wp-post-image"
+									                                         alt="AC:DC_jailbreak_140_95"></a>
+								                                    <br>
+								                                    <a
+									                                    href="<?php echo new_get_first_lesson_permalink($related_songs[$i]); ?>"
+									                                    title="<?php echo $related_songs[$i]->post_title; ?>">
+									                                    <?php echo $related_songs[$i]->post_title; ?>
+								                                    </a>
+							                                    </li>
+						                                    <?php
+						                                    }
+						                                    ?>
+
+
+					                                    </ul>
+				                                    </div>
+
+			                                    </div> <!-- .et_pb_text -->
+		                                    </div> <!-- .et_pb_column -->
+	                                    </div> <!-- .et_pb_row -->
                                     </div>
 	                                <div class="et_pb_column et_pb_column_1_4 right-banner-lesson-container">
 		                                <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script>
@@ -193,43 +249,7 @@
 
 
 
-                                <div class="et_pb_row">
-                                    <div class="et_pb_column et_pb_column_4_4">
-                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left section-title">
 
-                                            <h3><span style="color: #ff6600;">&nbsp;Related songs</span></h3>
-                                            <hr>
-
-                                        </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-songs">
-
-                                            <div>
-                                                <ul class="lcp_catlist" id="lcp_instance_0">
-                                                    <?php
-                                                        for ($i=0; ($i< count($related_songs)) && ($i<5); $i++) {
-                                                    ?>
-                                                            <li><a
-                                                                    href="<?php echo new_get_first_lesson_permalink($related_songs[$i]); ?>"
-                                                                    title="<?php echo $related_songs[$i]->post_title; ?>">
-                                                                    <?php echo $related_songs[$i]->post_title; ?>
-                                                                    </a> <a
-                                                                    href="<?php echo new_get_first_lesson_permalink($related_songs[$i]); ?>"
-                                                                    title="<?php echo $related_songs[$i]->post_title; ?>">
-                                                                    <img width="150" height="150"
-                                                                       src="<?php echo new_get_featured_image_link($related_songs[$i]); ?>"
-                                                                       class="attachment-thumbnail wp-post-image"
-                                                                       alt="AC:DC_jailbreak_140_95"></a>
-                                                            </li>
-                                                    <?php
-                                                        }
-                                                    ?>
-
-
-                                                </ul>
-                                            </div>
-
-                                        </div> <!-- .et_pb_text -->
-                                    </div> <!-- .et_pb_column -->
-                                </div> <!-- .et_pb_row -->
 
                             </div> <!-- .et_pb_section -->
                         </div> <!-- .entry-content -->
