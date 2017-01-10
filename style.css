@@ -21,14 +21,10 @@ Template:       Divi
     margin: 0;
 }
 
-.video-section {
-    max-height: 390px;
-}
-
 .video-section .et_pb_column.et_pb_column_1_4.left-bar-container {
     overflow-y: scroll;
     overflow-x: hide;
-    max-height: 390px;
+    max-height: 600px;
 }
 
 /* Arreglos para fijar el ancho */
@@ -82,11 +78,11 @@ body {
 /* Lessons banner */
 
 .et_pb_column.et_pb_column_3_4.row-video-container {
-    width: 610px;
+    width: 600px;
 }
 
 .et_pb_column.et_pb_column_1_4.right-banner-lesson-container {
-    width: 120px;
+    width: 130px;
     height: 726px;
     margin: 0;
     padding: 0;
@@ -198,10 +194,6 @@ width: 94%;
 }
 .single .site-content {
 	margin: 0;
-}
-
-.video-section {
-   max-height: 390px;
 }
 
 .flowplayer .fp-engine, .flowplayer .fp-ui, .flowplayer .fp-message {

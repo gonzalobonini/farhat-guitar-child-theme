@@ -179,15 +179,12 @@
                                         </div>
                                     </div>
 	                                <div class="et_pb_column et_pb_column_1_4 right-banner-lesson-container">
-		                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		                                <!-- Leftwordpress -->
-		                                <ins class="adsbygoogle"
-		                                     style="display:inline-block;width:120px;height:600px"
-		                                     data-ad-client="ca-pub-1247097506454706"
-		                                     data-ad-slot="3185033994"></ins>
-		                                <script>
+		                                <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script>
+		                                <!-- Adaptable -->
+		                                <ins class="adsbygoogle" style="display: block;" data-ad-client="ca-pub-1247097506454706" data-ad-slot="9146739595" data-ad-format="auto"></ins>
+		                                <script>// <![CDATA[
 			                                (adsbygoogle = window.adsbygoogle || []).push({});
-		                                </script>
+			                                // ]]></script>
 	                                </div>
                                 </div>
                                 <!-- .et_pb_row -->
