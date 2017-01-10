@@ -25,7 +25,7 @@ Template:       Divi
     max-height: 390px;
 }
 
-.video-section .et_pb_column.et_pb_column_1_4 {
+.video-section .et_pb_column.et_pb_column_1_4.left-bar-container {
     overflow-y: scroll;
     overflow-x: hide;
     max-height: 390px;
@@ -71,6 +71,26 @@ body {
     display: none;
 }
 
+.home-side-banner div {
+    min-width: 300px;
+}
+
+.home-right-banner {
+    min-width: 300px;
+}
+
+/* Lessons banner */
+
+.et_pb_column.et_pb_column_3_4.row-video-container {
+    width: 610px;
+}
+
+.et_pb_column.et_pb_column_1_4.right-banner-lesson-container {
+    width: 120px;
+    height: 726px;
+    margin: 0;
+    padding: 0;
+}
 /* related songs styles */
 
 .related-bands .et_pb_image_container img,
@@ -189,7 +209,7 @@ width: 94%;
 	height: auto;
 }
 
-.video-section .et_pb_column.et_pb_column_1_4 {
+.video-section .et_pb_column.et_pb_column_1_4.left-bar-container {
    overflow-y: hide;
    overflow-x: hide;
 }
@@ -270,7 +290,7 @@ body {
 }
 
 #home-right-banner .adsbygoogle {
-    float: left;
+    float: none;
 }
 
 #custom_post_widget-2 {
@@ -540,7 +560,7 @@ margin: 4px;
     line-height: 10px;
 }
 
-.video-section > div > div.et_pb_column.et_pb_column_1_4 {
+.video-section > div > div.et_pb_column.et_pb_column_1_4.left-bar-container {
     padding: 10px 0;
 }
 
@@ -754,7 +774,7 @@ header#main-header {
 
 
 .home-side-banner div {
-    float: right;
+    float: none;
 }
 
 #home-lists .et_pb_row:first-child .et_pb_column_2_3 {
@@ -1276,6 +1296,7 @@ ul.unIndentedList {
 .left-bar-container {
     max-height: 390px;
     overflow-y: auto;
+    width: 200px;
 }
 
 ul.sidebar-menu li,

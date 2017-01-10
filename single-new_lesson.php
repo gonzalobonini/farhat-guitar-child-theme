@@ -10,6 +10,7 @@
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
                         <?php
                             $debug = false;
+                            $is_lesson = true;
                             $song_id = get_post_meta( get_the_ID(), 'new_lesson_song_id', true );
                             $song = get_post($song_id);
 
@@ -110,7 +111,7 @@
                                   <div class="et_pb_column et_pb_column_1_4 left-bar-container">
                                     <?php include "left-bar.php"; ?>
                                   </div>
-                                    <div class="et_pb_column et_pb_column_3_4">
+                                    <div class="et_pb_column et_pb_column_3_4 row-video-container">
                                         <!-- the player -->
                                         <div id="flowplayer"
                                              class="flowplayer functional is-ready is-paused is-finished is-playing is-mouseout"
@@ -177,7 +178,17 @@
                                                style="display: none; position: absolute; left: 16px; bottom: 36px; z-index: 99999; width: 100px; height: 20px; background-image: url(&quot;//d32wqyuo10o653.cloudfront.net/logo.png&quot;);"></a>
                                         </div>
                                     </div>
-
+	                                <div class="et_pb_column et_pb_column_1_4 right-banner-lesson-container">
+		                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		                                <!-- Leftwordpress -->
+		                                <ins class="adsbygoogle"
+		                                     style="display:inline-block;width:120px;height:600px"
+		                                     data-ad-client="ca-pub-1247097506454706"
+		                                     data-ad-slot="3185033994"></ins>
+		                                <script>
+			                                (adsbygoogle = window.adsbygoogle || []).push({});
+		                                </script>
+	                                </div>
                                 </div>
                                 <!-- .et_pb_row -->
 

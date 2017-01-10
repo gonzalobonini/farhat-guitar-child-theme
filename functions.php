@@ -83,7 +83,7 @@ function new_get_children_lessons($song) {
 
     $args = array(
         'post_type' => 'new_lesson',
-        'orderby' => 'date',
+        'orderby' => 'post_title',
         'order'   => 'ASC',
         'meta_query' => array(
             array(

@@ -31,6 +31,33 @@ $all_bands = new_get_all_bands();
 
   <?php
   }
+  if (isset($other_lessons) && isset($song)) {
+    ?>
+    <li class="header">
+	  <li class="treeview active">
+		  <a href="#">
+			  <i class="fa fa-music"></i> <span><?php echo $song->post_title ?></span>
+			  <i class="fa fa-angle-right pull-right"></i>
+		  </a>
+			  <ul class="treeview-menu">
+				  <?php
+				  $lessons = new_get_children_lessons($song);
+				  foreach ($lessons as $lesson) {
+					  ?>
+					  <li>
+						  <a href="<?php echo get_the_permalink($lesson); ?>"
+						     title="Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>">
+							  Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>
+						  </a>
+					  </li>
+				  <?php
+				  } ?>
+			  </ul>
+	  </li>
+    </li>
+
+  <?php
+  }
   // list all songs per band
   foreach ($all_bands as $current_band) {
     try {
@@ -68,8 +95,6 @@ $all_bands = new_get_all_bands();
           <?php
           }
           ?>
-
-
         </ul>
       </li>
     <?php
