@@ -1,0 +1,68 @@
+#IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+#<Limit GET POST>
+#order deny,allow
+#deny from all
+#allow from all
+#</Limit>
+#<Limit PUT DELETE>
+#order deny,allow
+#deny from all
+#</Limit>
+#AuthName farhatguitar.com
+
+
+AddHandler server-parsed .html
+#AddHandler server-parsed .cgi .pl
+Options All
+ErrorDocument 404 http://www.farhatguitar.com/
+AddHandler server-parsed .htm
+RewriteEngine On
+
+## RewriteRule   ^([A-Za-z_]+)([0-9]+)/([A-Za-z_]+)([0-9]+)/([A-Za-z_]+)([0-9]+)?$    /?load=artista&band=$1&song=$2&part=$3
+## RewriteRule   ^([0-9]+)/([0-9]+)/([0-9]+)?$    /?load=artista&band=$1&song=$2&part=$3
+## http://www.farhatguitar.com/sodastereo_41/laciudadelafuria_13/part_653
+## http://www.farhatguitar.com/41/13/653
+
+RewriteRule   ^video/?$    /?load=indice
+RewriteRule   ^donations/?$    /index.php?load=donacion
+RewriteRule   ^sections/?$    /?load=secciones
+RewriteRule   ^shop/?$    /?load=carrito
+RewriteRule   ^terminos/?$    /?load=terminos
+#RewriteRule   ^newsletter/?$    /lists
+RewriteRule   ^help/?$    /?load=help
+RewriteRule   ^tools/?$    /?load=tools
+RewriteRule   ^teachers/?$    /?load=profesores
+##  http://www.farhatguitarra.com/index.php?load=indice
+
+
+## MOD_REWRITE Translate (by Diego Fragnul)
+# http://www.farhatguitar.com/index.php?load=artista&band=41&song=131&part=654
+# http://www.farhatguitar.com/pepe_41/pepa_131/papi_654
+RewriteRule ^[A-Za-z0-9\-]+_([0-9]+)/[A-Za-z0-9\-]+_([0-9]+)/[A-Za-z0-9\-]+_([0-9]+)/?$ /index.php?load=artista&band=$1&song=$2&part=$3 [QSA]
+RewriteRule ^[A-Za-z0-9\-]+_([0-9]+)/[A-Za-z0-9\-]+_([0-9]+)/?$ /index.php?load=artista&band=$1&song=$2
+RewriteRule ^[A-Za-z0-9\-]+_([0-9]+)/?$ /index.php?load=artista&band=$1
+
+
+RewriteRule ^extras/[A-Za-z0-9\-]+_([0-9]+)/?$ /index.php?load=extras&idex=$1
+RewriteRule ^secciones/[A-Za-z0-9\-]+_([0-9]+)/?$ /index.php?load=extras&idse=$1
+
+
+#Expires Header for static files
+Header unset ETag
+FileETag None
+<FilesMatch "\.(ico|pdf|flv|jpg|png|gif|js|css|swf)$">
+	Header unset Last-Modified
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+</FilesMatch>
+
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType video/webm .WebM
+
+AddType audio/ogg .ogg
+AddType audio/mp4 .m4a
+
+#GZip
+#php_flag zlib.output_compression on

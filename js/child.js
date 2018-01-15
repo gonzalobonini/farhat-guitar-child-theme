@@ -1,3 +1,12 @@
+function setupMenuBar() {
+  $("#left-bar").slicknav({
+    label: '',
+    duration: 1000,
+    easingOpen: "easeOutBounce"
+  });
+}
+
+
 function setupFlowplayer($) {
 	flowplayer.conf = {
 	  //speeds: [0.25, 0.5, 1, 1.5, 2], // default
@@ -94,7 +103,7 @@ jQuery(document).ready(function($) {
 		video.after(videoHTML);
 		$('#flowplayer').css('background-image', backgroundImage);
 		$('#flowplayer').css('z-index', 9);
-		$('#flowplayer').css('background-size', 'cover');		
+		$('#flowplayer').css('background-size', 'cover');
 		setupFlowplayer($);
   	}
 	video.remove();

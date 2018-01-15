@@ -6,6 +6,10 @@ Template Name: Home Page
 
 get_header();
 
+require_once 'Mobile-Detect-2.8.26/Mobile_Detect.php';
+$detect = new Mobile_Detect;
+
+
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
@@ -34,30 +38,9 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 
     <div class="entry-content">
-    <div style="background-color:#ffffff;" class="et_pb_section et_pb_section_parallax et_pb_fullwidth_section et_section_regular">
-
-        <?php
-        // get the last band with featured category
-
-        $args = array(
-            'posts_per_page'   => 1,
-            'offset'           => 0,
-            'category'         => 'featured',
-            'orderby'          => 'rand',
-            'post_type'        => 'new_song',
-            'post_mime_type'   => '',
-            'post_parent'      => '',
-            'post_status'      => 'publish');
-
-        $featured = get_posts( $args )[0];
-
-        $featured_parent_band = new_get_band_from_song($featured);
-
-//        echo "featured";
-//        var_dump($featured);
-
-
-        // get the last 4 songs
+    <?php
+    
+    // get the last 4 songs
 
         $args = array(
             'posts_per_page'   => 4,
@@ -94,6 +77,34 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 
         // list the left bar
+    
+// Exclude tablets.
+if(!( $detect->isMobile() && !$detect->isTablet() )){
+    ?>
+    <div style="background-color:#ffffff;" class="et_pb_section et_pb_section_parallax et_pb_fullwidth_section et_section_regular">
+
+        <?php
+        // get the last band with featured category
+
+        $args = array(
+            'posts_per_page'   => 1,
+            'offset'           => 0,
+            'category'         => 'featured',
+            'orderby'          => 'rand',
+            'post_type'        => 'new_song',
+            'post_mime_type'   => '',
+            'post_parent'      => '',
+            'post_status'      => 'publish');
+
+        $featured = get_posts( $args )[0];
+
+        $featured_parent_band = new_get_band_from_song($featured);
+
+//        echo "featured";
+//        var_dump($featured);
+
+
+        
         ?>
 
 
@@ -120,13 +131,23 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
     </div> <!-- .et_pb_section --><div style="background-color:#ffffff;" class="et_pb_section et_section_regular" id="home-lists">
 
+<?php
+$last_updates_class = "et_pb_column_2_3";
+$list_updates_class = "et_pb_column_1_3";
+} else {
+$last_updates_class = "et_pb_column_3_3";
+$list_updates_class = $last_updates_class;
+
+}
+ ?>
+    
 
 
         <div class="et_pb_row">
-            <div class="et_pb_column et_pb_column_2_3">
+            <div class="et_pb_column <?php echo $last_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads">
 
-                    <p>Latest Uploads &ndash;</p>
+                    <p>Latest Updates &ndash; 4 September </p>
 
                 </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left bands-list">
                     <ul id="lcp_instance_0" class="lcp_catlist">
@@ -146,22 +167,28 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                     </ul>
                 </div> <!-- .et_pb_text -->
-            </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3">
-                <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left home-side-banner">
-                    <div>
-                        <div id="home-right-banner">
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-1247097506454706"
-                                 data-ad-slot="3782497198"
-                                 data-ad-format="auto"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
-                    </div>
-                </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
+       <?php         if(!( $detect->isMobile() && !$detect->isTablet() )){
+ ?>
+            <div class="et_pb_column et_pb_column_1_3">
+                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left home-side-banner">
+                        <div>
+                            <div id="home-right-banner">
+                                <ins class="adsbygoogle"
+                                     style="display:block"
+                                     data-ad-client="ca-pub-1247097506454706"
+                                     data-ad-slot="3782497198"
+                                     data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        </div>
+                    </div> <!-- .et_pb_text -->
+            </div> <!-- .et_pb_column -->
+                <?php
+                }
+ ?>
         </div> <!-- .et_pb_row --><div class="et_pb_row">
             <div class="et_pb_column et_pb_column_4_4">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads section-title">
@@ -169,7 +196,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                 </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
         </div> <!-- .et_pb_row --><div class="et_pb_row">
-            <div class="et_pb_column et_pb_column_1_3">
+            <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
                     Artist
                 </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left alphabetical-list">
@@ -195,7 +222,16 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                 </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
-            <div class="et_pb_column et_pb_column_1_3">
+             <?php
+             if(( $detect->isMobile() && !$detect->isTablet() )){
+                // Si es celular
+                 ?>
+                 </div><!-- termino row-->
+                 <div class="et_pb_row"> <!-- empiezo otro row -->
+ <?php
+             }
+ ?>
+            <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
                     Style
                 </div>
@@ -219,8 +255,17 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                 ?>
 
             </div>
+            <?php
+             if(( $detect->isMobile() && !$detect->isTablet() )){
+                // Si es celular
+                 ?>
+                 </div><!-- termino row-->
+                 <div class="et_pb_row"> <!-- empiezo otro row -->
+ <?php
+             }
+ ?>
             <!-- .et_pb_column -->
-            <div class="et_pb_column et_pb_column_1_3">
+            <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
                     Experience
                 </div>

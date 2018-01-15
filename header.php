@@ -1,4 +1,8 @@
-<?php if ( ! isset( $_SESSION ) ) session_start(); ?>
+<?php if ( ! isset( $_SESSION ) ) session_start();
+require_once 'Mobile-Detect-2.8.26/Mobile_Detect.php';
+$detect = new Mobile_Detect;
+
+?>
 <!DOCTYPE html>
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
@@ -107,10 +111,12 @@
 				$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && '' != $user_logo
 					? $user_logo
 					: $template_directory_uri . '/images/logo.png';
-			?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ocultable">
-					<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" />
-				</a>
+            $small_logo = ( $detect->isMobile() && !$detect->isTablet() ) ? " style='max-height: 50px' ": "";
+            ?>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ocultable">
+                    <img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+                      <?php echo $small_logo ?> id="logo" />
+                </a>
 <div id="contact-information" class="ocultable">
 
     <div id="mail-phone">
@@ -134,23 +140,32 @@
                 //get_template_part( 'includes/social_icons', 'header' );
             } ?>
         </div> <!-- #et-info -->
+        <br>
     </div>
     <div class="social-icons-container">
        <?php get_template_part( 'includes/social_icons', 'header' ); ?>
     </div>
-    <div class="donate-container">
-        <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
-            <input type="hidden" value="_s-xclick" name="cmd">
-            <input type="hidden" value="USP7M8W7CK728" name="hosted_button_id">
-            <input type="image" id="paypal-1" src="http://farhatguitar.com/wp-content/uploads/2015/06/donate.png" name="submit" alt="PayPal - The safer, easier way to pay online!">
-        </form>
-    </div>
+    <br>
+    <?php // Exclude tablets.
+    if(!( $detect->isMobile() && !$detect->isTablet() )){
+  ?>
+        <div class="donate-container">
+            <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
+                <input type="hidden" value="_s-xclick" name="cmd">
+                <input type="hidden" value="USP7M8W7CK728" name="hosted_button_id">
+                <input type="image" id="paypal-1" src="http://farhatguitar.com/wp-content/uploads/2015/06/donate.png" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            </form>
+        </div>
+   <?php }
+    ?>
 
 
 
 <?php
-						
-						et_show_cart_total();
+// Exclude tablets.
+if(!( $detect->isMobile() && !$detect->isTablet() )){
+  et_show_cart_total();
+}
 					?>
     <?php if ( $et_contact_info_defined ) : ?>
 
@@ -206,11 +221,18 @@
 
 			</div> <!-- .container -->
 		</header> <!-- #main-header -->
-<div class="header-banner">
-					<?php $post_banner = get_post(1716); 
-						$content = $post_banner->post_content;
-						echo apply_filters( 'the_content',  $content );
 
-					?>
-				</div>
+      <?php
+      if(!( $detect->isMobile() && !$detect->isTablet() )) {
+        ?>
+          <div class="header-banner">
+        <?php $post_banner = get_post(1716);
+        $content = $post_banner->post_content;
+        echo apply_filters('the_content', $content);
+  
+        ?>
+          </div>
+        <?php
+      }
+      ?>
 		<div id="et-main-area">

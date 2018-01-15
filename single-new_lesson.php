@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="main-content">
+<div id="main-content" class="lesson">
 	<div class="container">
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
