@@ -79,7 +79,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
         // list the left bar
     
 // Exclude tablets.
-if(!( $detect->isMobile() && !$detect->isTablet() )){
+if(!$detect->isMobile() || $detect->isTablet() ){
     ?>
     <div style="background-color:#ffffff;" class="et_pb_section et_pb_section_parallax et_pb_fullwidth_section et_section_regular">
 
@@ -223,7 +223,7 @@ $list_updates_class = $last_updates_class;
                 </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
              <?php
-             if(( $detect->isMobile() && !$detect->isTablet() )){
+             if( $detect->isMobile() && !$detect->isTablet() ){
                 // Si es celular
                  ?>
                  </div><!-- termino row-->
@@ -256,7 +256,7 @@ $list_updates_class = $last_updates_class;
 
             </div>
             <?php
-             if(( $detect->isMobile() && !$detect->isTablet() )){
+             if( $detect->isMobile() && !$detect->isTablet() ){
                 // Si es celular
                  ?>
                  </div><!-- termino row-->
