@@ -1377,3 +1377,53 @@ and (orientation : portrait) { /* STYLES GO HERE */
         float: none;
     }
 }
+
+
+/**** new style for mobile ****/
+
+@media (max-width: 992px) {
+    .tablatura pre {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .related-songs ul > li {
+        float: none;
+        margin: 1.5%;
+        width: 100%;
+        list-style: outside none none;
+        text-align: center;
+    }
+    .related-songs ul li a img {
+        height: auto;
+        width: auto;
+        max-width: 300px;
+    }
+    .video-section {
+        min-height: 750px;
+        overflow: hidden;
+    }
+    .treeview {
+        list-style-type: none;
+        padding: 10px 20px;
+        position: relative;
+    }
+    .treeview > ul {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid black;
+        right: 0;
+        z-index: 10;
+        text-align: center;
+    }
+    .treeview.active > ul {
+        display: block;
+    }
+    .related-songs ul li a {
+        font-size: 14px;
+    }
+}

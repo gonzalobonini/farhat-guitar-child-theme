@@ -133,6 +133,23 @@ jQuery(document).ready(function($) {
 
   //setupMenuBar();
 
+
+  /**** Fixed mobile ****/
+  var mobile_sidebar = jQuery('.sidebar-menu .treeview.active').clone();
+	if (jQuery(document).width() < 768) {
+		jQuery('#flowplayer').after(mobile_sidebar);
+
+		jQuery('.treeview.active').removeClass('active');
+		jQuery('.treeview').click(function() {
+			jQuery(this).toggleClass('active');
+		});
+
+		jQuery('.treeview > a').click(function(event){
+			event.preventDefault();
+		});
+	}
+	/**** End fix ****/
+
 });
 
 
