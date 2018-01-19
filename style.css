@@ -1408,6 +1408,7 @@ and (orientation : portrait) { /* STYLES GO HERE */
         list-style-type: none;
         padding: 10px 20px;
         position: relative;
+        font-size: 16px;
     }
     .treeview > ul {
         display: none;
