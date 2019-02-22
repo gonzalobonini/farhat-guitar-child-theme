@@ -76,35 +76,20 @@
                             $video_link = get_post_meta(get_the_ID(), 'new_lesson_video', true);
 
                         ?>
-                        <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
-                        <span class="lesson-title"><?php echo $song->post_title ?></span>
-
+												<header>
+													<span class="lesson-song-name"><?php echo $band->post_title ?></span>|
+													<span class="lesson-title"><?php echo $song->post_title ?></span>
+													<div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+															<strong><span style="color: #ff6600;">&nbsp;Style:<span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
+																			<?php	echo new_get_separeted_by_commas_list($terms);
+                                                                            ?>
+															</span></span> &nbsp; &nbsp;
+													</div> <!-- .et_pb_text -->
+												</header>
 
 
                         <div class="entry-content">
-                            <div class="et_pb_section style-section et_section_regular" style="background-color:#ffffff;">
-
-
-
-                                <div class="et_pb_row">
-                                    <div class="et_pb_column et_pb_column_1_3">
-                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
-                                            <strong><span style="color: #ff6600;">&nbsp;Style:<span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
-                                                    <?php
-
-                                                        echo new_get_separeted_by_commas_list($terms);
-                                                    ?>
-                                            </span></span> &nbsp; &nbsp;
-                                        </div> <!-- .et_pb_text -->
-                                    </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_empty">
-
-                                    </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3 et_pb_column_empty">
-
-                                    </div> <!-- .et_pb_column -->
-                                </div> <!-- .et_pb_row -->
-
-                            </div> <!-- .et_pb_section --><div class="et_pb_section et_section_regular">
-
+                            <div class="et_pb_section et_section_regular">
 
 
                                 <div class="et_pb_row">
@@ -122,7 +107,7 @@
                                 wp_link_pages(array( 'before' => '<div class="page-links">' . __('Pages:', 'Divi'), 'after' => '</div>' ));
                                 ?>
                               </div> <!-- .entry-content -->
-                            </div><div class="et_pb_section video-section et_section_regular">
+                            </div><div class="et_pb_section video-section et_section_regular" style="background-color:#ffffff;">
 
 
                                 <div class="et_pb_row">

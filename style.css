@@ -371,6 +371,12 @@ body {
     float: right;
     clear: right;
 }
+
+.single-new_band .songs-and-details-section .band_songs_container .et_pb_column_1_4:nth-child(4) {
+    width: 190px !important;
+    float: left;
+}
+
 .details-list ul {
     list-style-type: none !important;
 }

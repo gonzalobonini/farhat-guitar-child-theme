@@ -4,27 +4,29 @@
 <div class="container">
 <div id="content-area" class="clearfix">
 <div id="left-area">
-<?php while ( have_posts() ) : the_post(); ?>
-  <?php if (et_get_option('divi_integration_single_top') <> '' && et_get_option('divi_integrate_singletop_enable') == 'on') echo(et_get_option('divi_integration_single_top')); ?>
+<?php while (have_posts()) : the_post(); ?>
+  <?php if (et_get_option('divi_integration_single_top') <> '' && et_get_option('divi_integrate_singletop_enable') == 'on') {
+    echo(et_get_option('divi_integration_single_top'));
+} ?>
 
-  <article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
+  <article id="post-<?php the_ID(); ?>" <?php post_class('et_pb_post'); ?>>
   <?php
   $debug = false;
 
   $songs = new_get_children_songs(get_post());
 
-  $genres = get_the_terms( get_the_ID(), 'Style' );
+  $genres = get_the_terms(get_the_ID(), 'Style');
 
   $genres_names = new_get_array_of_properties($genres, 'name');
 
 
 
-  $members = get_the_terms( get_the_ID(), 'Member' );
+  $members = get_the_terms(get_the_ID(), 'Member');
 
-  $past_members = get_the_terms( get_the_ID(), 'Past Member' );
+  $past_members = get_the_terms(get_the_ID(), 'Past Member');
 
 
-  $tags = get_the_terms( get_the_ID(), 'post_tag' );
+  $tags = get_the_terms(get_the_ID(), 'post_tag');
 
 
   $args = array(
@@ -46,9 +48,9 @@
 
   $related_bands = $related_bands_query->posts;
 
-  $origin = get_post_meta( get_the_ID(), 'new_band_origin', true );
-  $active = get_post_meta( get_the_ID(), 'new_band_active', true );
-  $website = get_post_meta( get_the_ID(), 'new_band_website', true );
+  $origin = get_post_meta(get_the_ID(), 'new_band_origin', true);
+  $active = get_post_meta(get_the_ID(), 'new_band_active', true);
+  $website = get_post_meta(get_the_ID(), 'new_band_website', true);
 
 
   //                    $i = 0;
@@ -58,7 +60,7 @@
   //                        $i++;
   //                    }
 
-  if( $debug ) {
+  if ($debug) {
 //                            echo "genres_names";
 //                            var_dump($genres_names);
 //                            echo "genres";
@@ -75,10 +77,10 @@
 //                            var_dump($active);
 //                            echo "website";
 //                            var_dump($website);
-    echo "songs";
-    var_dump($songs);
-    echo "related bands";
-    var_dump($related_bands);
+      echo "songs";
+      var_dump($songs);
+      echo "related bands";
+      var_dump($related_bands);
   }
 
 
@@ -120,8 +122,9 @@
           </div> <!-- .et_pb_text -->
         </div> <!-- .et_pb_column -->
             </div> <!-- .et_pb_row --><div class="et_pb_row">
-                <div class="et_pb_column et_pb_column_3_4">
-                <?php foreach ($songs as $song) { ?>
+                <div class="et_pb_column et_pb_column_3_4 band_songs_container">
+                <?php foreach ($songs as $song) {
+      ?>
                     <div class="et_pb_column et_pb_column_1_4">
                         <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left song-lessons-list">
 
@@ -134,30 +137,32 @@
                                 <ul class="lcp_catlist" id="lcp_instance_0">
                                     <?php
                                     $lessons = new_get_children_lessons($song);
-                                    foreach ($lessons as $lesson) {
-                                        ?>
+      foreach ($lessons as $lesson) {
+          ?>
                                     <li>
                                         <a href="<?php echo get_the_permalink($lesson); ?>"
-                                           title="Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>">
-                                            Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>
+                                           title="Lesson <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>">
+                                            Lesson <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>
                                         </a>
                                     </li>
                                         <?php
-                                    } ?>
+      } ?>
                                 </ul>
                             </div>
 
                         </div> <!-- .et_pb_text --><!-- .et_pb_text -->
                     </div>
-                <?php } ?> <!-- .et_pb_column -->
+                <?php
+  } ?> <!-- .et_pb_column -->
                     </div>
         <div class="et_pb_column et_pb_column_1_4">
           <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-list">
             <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-songs-title section-title visible-xs">
               Details
             </div>
-            
-            <?php if($origin) {?>
+
+            <?php if ($origin) {
+      ?>
             <ul>
               <li>
                 <div class="details-first-column">Origin:</div>
@@ -167,9 +172,11 @@
                 <hr>
               </li>
             </ul>
-            <?php } ?>
+            <?php
+  } ?>
 
-            <?php if($active) {?>
+            <?php if ($active) {
+      ?>
             <ul>
               <li>
                 <div class="details-first-column">Active:</div>
@@ -179,10 +186,12 @@
                 <hr>
               </li>
             </ul>
-            <?php } ?>
+            <?php
+  } ?>
 
-            <?php $TestTags = new_get_separeted_by_commas_list($tags); 
-            if($TestTags) {?>
+            <?php $TestTags = new_get_separeted_by_commas_list($tags);
+            if ($TestTags) {
+                ?>
             <ul>
               <li>
                 <div class="details-first-column">Labels:</div>
@@ -192,11 +201,13 @@
                 <hr>
               </li>
             </ul>
-            <?php } ?>
+            <?php
+            } ?>
 
             <ul>
-              <?php $TestGenres = new_get_separeted_by_commas_list($genres); 
-              if($TestGenres) {?>
+              <?php $TestGenres = new_get_separeted_by_commas_list($genres);
+              if ($TestGenres) {
+                  ?>
               <li>
                 <div class="details-first-column">Genre:</div>
                 <div class="details-second-column">
@@ -204,10 +215,12 @@
                 </div>
                 <hr>
               </li>
-              <?php } ?>
+              <?php
+              } ?>
 
-              <?php $TestWebsite = new_get_separeted_by_commas_list($website); 
-              if($TestWebsite) {?>
+              <?php $TestWebsite = new_get_separeted_by_commas_list($website);
+              if ($TestWebsite) {
+                  ?>
               <li>
                 <div class="details-first-column">Website:</div>
                 <div class="details-second-column">
@@ -215,10 +228,12 @@
                 </div>
                 <hr>
               </li>
-              <?php } ?>
+              <?php
+              } ?>
 
-              <?php $TestMembers = new_get_separeted_by_commas_list($members); 
-              if($TestMembers) {?>
+              <?php $TestMembers = new_get_separeted_by_commas_list($members);
+              if ($TestMembers) {
+                  ?>
               <li>
                 <div class="details-first-column">&nbsp;Members:</div>
                 <div class="details-second-column">
@@ -226,11 +241,13 @@
                 </div>
                   <hr>
               </li>
-              <?php } ?>
+              <?php
+              } ?>
             </ul>
 
-            <?php $TestPastMembers = new_get_separeted_by_commas_list($past_members); 
-            if($TestPastMembers) {?>
+            <?php $TestPastMembers = new_get_separeted_by_commas_list($past_members);
+            if ($TestPastMembers) {
+                ?>
             <ul>
               <li>
                 <div class="details-first-column">Past Members:</div>
@@ -241,10 +258,11 @@
               </li>
               <li>
                 <div class="details-second-column"><hr></div>
-                
+
               </li>
             </ul>
-            <?php } ?>
+            <?php
+            } ?>
 
           </div> <!-- .et_pb_text -->
         </div> <!-- .et_pb_column -->
@@ -262,8 +280,8 @@
 
             <ul class="lcp_catlist" id="lcp_instance_0">
               <?php
-              foreach($related_bands as $band) {
-                ?>
+              foreach ($related_bands as $band) {
+                  ?>
                 <li><a href="<?php echo get_the_permalink($band); ?>"
                        title="<?php echo $band->post_title ?>"><?php echo $band->post_title ?></a> <a
                     href="<?php echo get_the_permalink($band); ?>"
@@ -291,33 +309,33 @@
 
   <!-- content ends -->
   <?php
-  if ( ! post_password_required() ) :
+  if (! post_password_required()) :
 
     et_divi_post_meta();
 
     $thumb = '';
 
-    $width = (int) apply_filters( 'et_pb_index_blog_image_width', 1080 );
+    $width = (int) apply_filters('et_pb_index_blog_image_width', 1080);
 
-    $height = (int) apply_filters( 'et_pb_index_blog_image_height', 675 );
+    $height = (int) apply_filters('et_pb_index_blog_image_height', 675);
     $classtext = 'et_featured_image';
     $titletext = get_the_title();
-    $thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
+    $thumbnail = get_thumbnail($width, $height, $classtext, $titletext, $titletext, false, 'Blogimage');
     $thumb = $thumbnail["thumb"];
 
     $post_format = get_post_format();
 
-    if ( 'video' === $post_format && false !== ( $first_video = et_get_first_video() ) ) {
-      printf(
-        '<div class="et_main_video_container">
+    if ('video' === $post_format && false !== ($first_video = et_get_first_video())) {
+        printf(
+            '<div class="et_main_video_container">
 									%1$s
 								</div>',
-        $first_video
+            $first_video
       );
-    } else if ( ! in_array( $post_format, array( 'gallery', 'link', 'quote' ) ) && 'on' === et_get_option( 'divi_thumbnails', 'on' ) && '' !== $thumb ) {
-      print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height );
-    } else if ( 'gallery' === $post_format ) {
-      et_gallery_images();
+    } elseif (! in_array($post_format, array( 'gallery', 'link', 'quote' )) && 'on' === et_get_option('divi_thumbnails', 'on') && '' !== $thumb) {
+        print_thumbnail($thumb, $thumbnail["use_timthumb"], $titletext, $width, $height);
+    } elseif ('gallery' === $post_format) {
+        et_gallery_images();
     }
     ?>
 
@@ -326,38 +344,38 @@
 
     $inline_style = et_divi_get_post_bg_inline_style();
 
-    switch ( $post_format ) {
-      case 'audio' :
+    switch ($post_format) {
+      case 'audio':
         printf(
-          '<div class="et_audio_content%1$s"%2$s>
+            '<div class="et_audio_content%1$s"%2$s>
 										%3$s
 									</div>',
-          esc_attr( $text_color_class ),
-          $inline_style,
-          et_pb_get_audio_player()
+            esc_attr($text_color_class),
+            $inline_style,
+            et_pb_get_audio_player()
         );
 
         break;
-      case 'quote' :
+      case 'quote':
         printf(
-          '<div class="et_quote_content%2$s"%3$s>
+            '<div class="et_quote_content%2$s"%3$s>
 										%1$s
 									</div> <!-- .et_quote_content -->',
-          et_get_blockquote_in_content(),
-          esc_attr( $text_color_class ),
-          $inline_style
+            et_get_blockquote_in_content(),
+            esc_attr($text_color_class),
+            $inline_style
         );
 
         break;
-      case 'link' :
+      case 'link':
         printf(
-          '<div class="et_link_content%3$s"%4$s>
+            '<div class="et_link_content%3$s"%4$s>
 										<a href="%1$s" class="et_link_main_url">%2$s</a>
 									</div> <!-- .et_link_content -->',
-          esc_url( et_get_link_url() ),
-          esc_html( et_get_link_url() ),
-          esc_attr( $text_color_class ),
-          $inline_style
+            esc_url(et_get_link_url()),
+            esc_html(et_get_link_url()),
+            esc_attr($text_color_class),
+            $inline_style
         );
 
         break;
@@ -370,28 +388,34 @@
     <?php
     the_content();
 
-    wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'Divi' ), 'after' => '</div>' ) );
+    wp_link_pages(array( 'before' => '<div class="page-links">' . __('Pages:', 'Divi'), 'after' => '</div>' ));
     ?>
   </div> <!-- .entry-content -->
 
   <?php
-  if ( et_get_option('divi_468_enable') == 'on' ){
-    echo '<div class="et-single-post-ad">';
-    if ( et_get_option('divi_468_adsense') <> '' ) echo( et_get_option('divi_468_adsense') );
-    else { ?>
+  if (et_get_option('divi_468_enable') == 'on') {
+      echo '<div class="et-single-post-ad">';
+      if (et_get_option('divi_468_adsense') <> '') {
+          echo(et_get_option('divi_468_adsense'));
+      } else {
+          ?>
       <a href="<?php echo esc_url(et_get_option('divi_468_url')); ?>"><img src="<?php echo esc_attr(et_get_option('divi_468_image')); ?>" alt="468" class="foursixeight" /></a>
-    <?php 	}
-    echo '</div> <!-- .et-single-post-ad -->';
+    <?php
+      }
+      echo '</div> <!-- .et-single-post-ad -->';
   }
   ?>
 
   <?php
-  if ( ( comments_open() || get_comments_number() ) && 'on' == et_get_option( 'divi_show_postcomments', 'on' ) )
-    comments_template( '', true );
+  if ((comments_open() || get_comments_number()) && 'on' == et_get_option('divi_show_postcomments', 'on')) {
+      comments_template('', true);
+  }
   ?>
   </article> <!-- .et_pb_post -->
 
-  <?php if (et_get_option('divi_integration_single_bottom') <> '' && et_get_option('divi_integrate_singlebottom_enable') == 'on') echo(et_get_option('divi_integration_single_bottom')); ?>
+  <?php if (et_get_option('divi_integration_single_bottom') <> '' && et_get_option('divi_integrate_singlebottom_enable') == 'on') {
+      echo(et_get_option('divi_integration_single_bottom'));
+  } ?>
 <?php endwhile; ?>
 </div> <!-- #left-area -->
 
