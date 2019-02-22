@@ -133,24 +133,39 @@ jQuery(document).ready(function($) {
 
   //setupMenuBar();
 
-
   /**** Fixed mobile ****/
   var mobile_sidebar = jQuery('.sidebar-menu .treeview.active').clone();
 	if (jQuery(document).width() < 768) {
 		jQuery('#flowplayer').after(mobile_sidebar);
 
 		jQuery('.treeview.active').removeClass('active');
-		jQuery('.treeview').click(function() {
+		/*jQuery('.treeview').click(function() {
 			jQuery(this).toggleClass('active');
-		});
+		});*/
 
 		jQuery('.treeview > a').click(function(event){
 			event.preventDefault();
 		});
 	}
+
+
+	/*var mobile_title = jQuery('.et_pb_text.et_pb_bg_layout_light.et_pb_text_align_left.details-songs-title.section-title').clone();
+	if (jQuery(document).width() < 768) {
+		jQuery('.et_pb_text.et_pb_bg_layout_light.et_pb_text_align_left.details-songs-title.section-title').remove();
+		jQuery('.songs-and-details-section .et_pb_row .et_pb_column.et_pb_column_1_4:last-child').prepend(mobile_title);
+	}*/
 	/**** End fix ****/
 
+	jQuery(function() {
+
+		jQuery("#et_search_icon").click(function(){
+			jQuery(".et-search-field").focus();
+		});
+
+	});	
+
 });
+
 
 
 

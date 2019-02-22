@@ -147,7 +147,7 @@ $list_updates_class = $last_updates_class;
             <div class="et_pb_column <?php echo $last_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads">
 
-                    <p>Latest Updates &ndash; 4 September </p>
+                    <p><?php echo get_post_meta( $post->ID, 'update_home', true ); ?></p>
 
                 </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left bands-list">
                     <ul id="lcp_instance_0" class="lcp_catlist">
@@ -192,13 +192,13 @@ $list_updates_class = $last_updates_class;
         </div> <!-- .et_pb_row --><div class="et_pb_row">
             <div class="et_pb_column et_pb_column_4_4">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads section-title">
-                    Lessons By
+                    <?php echo get_post_meta( $post->ID, 'lessons_by', true ); ?>
                 </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
         </div> <!-- .et_pb_row --><div class="et_pb_row">
             <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
-                    Artist
+                    <?php echo get_post_meta( $post->ID, 'artist', true ); ?>
                 </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left alphabetical-list">
 
                     <ul class="alphabetical-list">
@@ -233,7 +233,7 @@ $list_updates_class = $last_updates_class;
  ?>
             <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
-                    Style
+                    <?php echo get_post_meta( $post->ID, 'style', true ); ?>
                 </div>
                 <!-- .et_pb_text -->
                 <?php
@@ -267,7 +267,7 @@ $list_updates_class = $last_updates_class;
             <!-- .et_pb_column -->
             <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
-                    Experience
+                    <?php echo get_post_meta( $post->ID, 'experience', true ); ?>
                 </div>
                 <?php
                 foreach($difficulties as $current_difficulty) {

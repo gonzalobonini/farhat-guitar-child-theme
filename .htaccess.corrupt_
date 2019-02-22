@@ -14,7 +14,7 @@
 AddHandler server-parsed .html
 #AddHandler server-parsed .cgi .pl
 Options All
-
+ErrorDocument 404 http://www.farhatguitar.com/
 AddHandler server-parsed .htm
 RewriteEngine On
 

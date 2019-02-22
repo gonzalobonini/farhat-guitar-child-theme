@@ -1,0 +1,5 @@
+[01-Mar-2016 10:59:52 UTC] PHP Fatal error:  Call to undefined function language_attributes() in /home/farhatguitar/public_html/wp-content/themes/farhat-gutiar-divi-child/header.php on line 4
+[01-Mar-2016 10:59:52 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/farhatguitar/public_html/wp-content/themes/farhat-gutiar-divi-child/functions.php on line 2
+[01-Mar-2016 10:59:52 UTC] PHP Fatal error:  Call to undefined function et_get_option() in /home/farhatguitar/public_html/wp-content/themes/farhat-gutiar-divi-child/footer.php on line 1
+[13-Mar-2016 23:20:21 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/farhatguitar/public_html/wp-content/themes/farhat-gutiar-divi-child/tomate-scripts-and-styles.php on line 4
+[13-Mar-2016 23:20:22 UTC] PHP Fatal error:  Call to undefined function et_get_option() in /home/farhatguitar/public_html/wp-content/themes/farhat-gutiar-divi-child/footer.php on line 1

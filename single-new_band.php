@@ -115,7 +115,7 @@
             Songs
           </div> <!-- .et_pb_text -->
         </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_4">
-          <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-songs-title section-title">
+          <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-songs-title section-title hidden-xs">
             Details
           </div> <!-- .et_pb_text -->
         </div> <!-- .et_pb_column -->
@@ -153,7 +153,11 @@
                     </div>
         <div class="et_pb_column et_pb_column_1_4">
           <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-list">
-
+            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-songs-title section-title visible-xs">
+              Details
+            </div>
+            
+            <?php if($origin) {?>
             <ul>
               <li>
                 <div class="details-first-column">Origin:</div>
@@ -163,6 +167,9 @@
                 <hr>
               </li>
             </ul>
+            <?php } ?>
+
+            <?php if($active) {?>
             <ul>
               <li>
                 <div class="details-first-column">Active:</div>
@@ -172,6 +179,10 @@
                 <hr>
               </li>
             </ul>
+            <?php } ?>
+
+            <?php $TestTags = new_get_separeted_by_commas_list($tags); 
+            if($TestTags) {?>
             <ul>
               <li>
                 <div class="details-first-column">Labels:</div>
@@ -181,7 +192,11 @@
                 <hr>
               </li>
             </ul>
+            <?php } ?>
+
             <ul>
+              <?php $TestGenres = new_get_separeted_by_commas_list($genres); 
+              if($TestGenres) {?>
               <li>
                 <div class="details-first-column">Genre:</div>
                 <div class="details-second-column">
@@ -189,6 +204,10 @@
                 </div>
                 <hr>
               </li>
+              <?php } ?>
+
+              <?php $TestWebsite = new_get_separeted_by_commas_list($website); 
+              if($TestWebsite) {?>
               <li>
                 <div class="details-first-column">Website:</div>
                 <div class="details-second-column">
@@ -196,25 +215,36 @@
                 </div>
                 <hr>
               </li>
+              <?php } ?>
+
+              <?php $TestMembers = new_get_separeted_by_commas_list($members); 
+              if($TestMembers) {?>
               <li>
                 <div class="details-first-column">&nbsp;Members:</div>
                 <div class="details-second-column">
                   <?php echo new_get_separeted_by_commas_list($members); ?>
+                </div>
                   <hr>
               </li>
+              <?php } ?>
             </ul>
+
+            <?php $TestPastMembers = new_get_separeted_by_commas_list($past_members); 
+            if($TestPastMembers) {?>
             <ul>
               <li>
                 <div class="details-first-column">Past Members:</div>
                 <div class="details-second-column">
                   <?php echo new_get_separeted_by_commas_list($past_members); ?>
                 </div>
-              </li>
-              <li>
-                <div class="details-second-column"></div>
                 <hr>
               </li>
+              <li>
+                <div class="details-second-column"><hr></div>
+                
+              </li>
             </ul>
+            <?php } ?>
 
           </div> <!-- .et_pb_text -->
         </div> <!-- .et_pb_column -->

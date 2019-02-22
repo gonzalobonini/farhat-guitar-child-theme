@@ -1387,6 +1387,13 @@ and (orientation : portrait) { /* STYLES GO HERE */
     }
 }
 
+.visible-xs {
+    display: none;
+}
+.hidden-xs {
+    display: block;
+}
+
 @media (max-width: 768px) {
     .related-songs ul > li {
         float: none;
@@ -1411,8 +1418,8 @@ and (orientation : portrait) { /* STYLES GO HERE */
         font-size: 16px;
     }
     .treeview > ul {
-        display: none;
-        position: absolute;
+        display: block !important;
+        position: initial;
         top: 40px;
         left: 0;
         background-color: #fff;
@@ -1426,5 +1433,151 @@ and (orientation : portrait) { /* STYLES GO HERE */
     }
     .related-songs ul li a {
         font-size: 14px;
+    }
+    /**** ****/
+    .single .songs-and-details-section .et_pb_column_3_4 {
+      width: 100%;
+      float: none;
+    }
+    .single .songs-and-details-section .et_pb_column_1_4:nth-child(4), .songs-and-details-section .et_pb_column.et_pb_column_3_4 + .et_pb_column_1_4 {
+      width: 100% !important;
+      float: none;
+      clear: right;
+      margin: 0;
+    }
+    .single .part-songs-list > ul.lcp_catlist {
+      height: auto;
+      overflow-y: auto;
+    }
+    .single .item-song-header,
+    .single .item-song-title {
+      width: 100%;
+      float: none;
+      margin-right: 0;
+      height: auto;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .single .songs-and-details-section .et_pb_column_1_4 {
+      margin: 0 0px;
+      width: 100% !important;
+    }
+    .single .et_pb_column_3_4 {
+      width: 100%!important;
+    }
+    .video-section {
+        height: auto;
+    }
+    .video-section video {
+        position: static!important;
+    }
+    .single .part-songs-list {
+      text-align: center;
+    }
+    div#footer-bottom {
+      height: auto;
+    }
+    #footer-bottom div.container {
+      float: none;
+    }
+    #footer-bottom .et_pb_column {
+      float: none;
+      width: 100%;
+    }
+    #footer-widgets .et_pb_column_1_3 {
+        padding-top: 0px;
+        float: none;
+        width: auto;
+        margin: 0!important;
+    }
+    #footer-second-column {
+      height: auto;
+    }
+    .single .related-bands img {
+      float: none;
+      display: block;
+      margin: 0 auto;
+    }
+    .single .related-bands ul > li a:first-child {
+      float: none;
+      width: 100%;
+      margin: 2%;
+    }
+    .single .related-bands ul > li {
+      float: none;
+      list-style: outside none none;
+      margin: 1.5%;
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+    #main-header > div > a,
+    #contact-information {
+        display: block!important;
+        opacity: 1!important;
+        width: 100%;
+    }
+    .single #main-content {
+        margin-top: 0px;
+    }
+    .single .donate-container {
+        margin-bottom: 20px;
+    }
+    .visible-xs {
+        display: block;
+        float: left;
+        width: 100%;
+    }
+    .hidden-xs {
+        display: none;
+    }
+    .bands-list > ul > li a:first-child {
+        min-height: 52px;
+        float: none;
+        margin-right: 0%;
+        margin-top: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sidebar-menu .treeview-menu > li > a {
+        padding: 0;
+        text-align: left;
+    }
+    .sidebar-menu .treeview-menu > li > a > .fa {
+        display: none;
+    }
+    body {
+        max-width: none;
+    }
+    #main-header #et_mobile_nav_menu {
+        margin-top: 0px!important;
+    }
+}
+
+.header-banner {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.fp-ui {
+    bottom: 0;
+}
+
+#et_top_search .et-search-form {
+    padding: 2px;
+    margin: 0;
+    border: none;
+}
+.et_pb_main_blurb_image a img {
+    min-width: 100%;
+}
+@media (max-width: 769px) and (min-width: 480px) {
+    #home-lists .et_pb_row:nth-of-type(3) {
+        display: flex;
+    }
+    #home-lists .et_pb_row:first-child {
+        height: 400px;
+        overflow: hidden;
     }
 }

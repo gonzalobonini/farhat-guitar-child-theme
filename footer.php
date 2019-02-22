@@ -62,5 +62,9 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
       $.sidebarMenu($('.sidebar-menu'));
     });
 </script>
+<script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+  <script src="https://use.fontawesome.com/705de5b39a.js"></script>
 </body>
 </html>

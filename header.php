@@ -33,10 +33,7 @@ $detect = new Mobile_Detect;
 	<script src="<?php echo esc_url( $template_directory_uri . '/js/html5.js"' ); ?>" type="text/javascript"></script>
 	<![endif]-->
 
-	<script type="text/javascript">
-		document.documentElement.className = 'js';
-	</script>
-  <script src="https://use.fontawesome.com/705de5b39a.js"></script>
+	
 
 	<?php wp_head(); ?>
 

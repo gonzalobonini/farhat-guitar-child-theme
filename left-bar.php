@@ -59,7 +59,7 @@ $all_bands = new_get_all_bands();
   <?php
   }
   // list all songs per band
-  foreach ($all_bands as $current_band) {
+  /*foreach ($all_bands as $current_band) {
     try {
       ?>
       <li class="treeview">
@@ -103,6 +103,7 @@ $all_bands = new_get_all_bands();
     }
 
 
-  }
+  }*/
+  include "left-bar.html";
   ?>
 </ul>

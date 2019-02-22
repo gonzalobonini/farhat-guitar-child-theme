@@ -222,3 +222,98 @@ include_once 'tomate-lessons.php';
 include_once 'tomate-tags-and-categories.php';
 
 
+function load_custom_fonts($init) {
+
+    $stylesheet_url = 'http://farhatguitar.com/wp-content/custom-fonts/custom-fonts.css';  // Note #1
+    if (empty ($init['content_css'])) { 
+        $init['content_css'] = $stylesheet_url; 
+    } else { 
+        $init['content_css'] = $init ['content_css']. ','. $stylesheet_url; 
+    }
+
+    $font_formats = isset ($init['font_formats'])? $init['font_formats']: 'Andale Mono = anale mono, times; Arial = arial, helvetica, sans-serif; Arial Black = arial black, avant garde; Книга Antiqua = book antiqua, palatino; Comic Sans MS = комикс без ms, sans-serif, Courier New = курьером new, курьером, Georgia = georgia, palatino, Helvetica = helvetica; Impact = impact, chicago; Symbol = symbol; Tahoma = tahoma, arial, helvetica, sans-serif; Terminal = terminal, Монако, Times New Roman = times new roman, times; Trebuchet MS = trebuchet ms, geneva; Verdana = verdana, geneva; Webdings = webdings; Wingdings = wingdings, zapf dingbats '; 
+
+    $custom_fonts = ';'. 'Farhat Acordes = Farhat Acordes; Farhat Quintas = Farhat Quintas; Farhat Letras = Farhat Letras; FarHatBC Regular = FarHatBC Regular; FarHatChords2 Regular3 = FarHatChords2 Regular3; Consolas = Consolas; Courier Regular = Courier Regular; Georgia = Georgia;'; 
+
+    $init['font_formats'] = $font_formats. $custom_fonts; 
+
+    return $init; 
+} 
+add_filter('tiny_mce_before_init', 'load_custom_fonts');
+
+function wp_editor_fontsize_filter( $buttons ) {
+        array_shift( $buttons );
+        array_unshift( $buttons, 'fontsizeselect');
+        //array_unshift( $buttons, 'formatselect');
+        return $buttons;
+}    
+add_filter('mce_buttons_2', 'wp_editor_fontsize_filter');
+
+function customize_text_sizes($initArray){
+           $initArray['theme_advanced_font_sizes'] = "10px,11px,12px,13px,14px,15px,16px,17px,18px,19px,20px,21px,22px,23px,24px,25px,26px,27px,28px,29px,30px,32px";
+           return $initArray;
+}        
+add_filter('tiny_mce_before_init', 'customize_text_sizes');
+
+
+
+function generate_template_for_menu() {
+
+  $all_bands = new_get_all_bands();
+
+  $menu_html = '';
+
+  //   list all songs per band
+  foreach ($all_bands as $current_band) {
+    try {
+
+      $menu_html .= '<li class="treeview">';
+      $menu_html .= '<a href="#"><i class="fa fa-music"></i> <span>'.$current_band->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
+      $menu_html .= '<ul class="treeview-menu">';
+
+        $current_songs = new_get_children_songs($current_band);
+        foreach($current_songs as $current_song) {
+
+          $menu_html .= '<li>'."";
+          $menu_html .= '<a href="#"><i class="fa fa-circle fa-xs"></i> <span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
+          $menu_html .= '<ul class="treeview-menu">';
+
+            $lessons = new_get_children_lessons($current_song);
+            foreach ($lessons as $lesson) {
+
+              $menu_html .= '<li>';
+              $menu_html .= '<a href="'.get_the_permalink($lesson).'" title="Lesson '.get_post_meta( $lesson->ID, 'new_lesson_number', true ).'">Lesson '.get_post_meta( $lesson->ID, 'new_lesson_number', true ).'</a>';
+              $menu_html .= '</li>';
+
+            } 
+            
+          $menu_html .= '</ul>';
+          $menu_html .= '</li>';
+        }
+
+      $menu_html .= '</ul>';
+      $menu_html .= '</li>';
+
+    } catch (Exception $e) {
+      $menu_html .= '<h1>Excepción capturada: '.$e->getMessage()."\n<h1>";
+    }
+  }
+
+
+  $name_file = $_SERVER['DOCUMENT_ROOT']."/wp-content/themes/farhat-gutiar-divi-child/left-bar.html"; 
+  $fp = fopen($name_file, "w+"); 
+
+  $test = fwrite($fp, $menu_html); 
+  if ($test) { 
+    $fp2 = 'Success.';
+  } 
+  fclose($fp);
+}
+
+
+function reload_side_bar() {
+  generate_template_for_menu();
+}
+
+add_action( 'save_post_bands', 'reload_side_bar', 10, 3 );
+add_action( 'save_post_lessons', 'reload_side_bar', 10, 3 );
