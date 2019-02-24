@@ -15,22 +15,22 @@ function setupFlowplayer($) {
 	  embed: false,
 	  rtmp: "rtmp://stream.blacktrash.org/cfx/st"
 	};
-	 
+
 	flowplayer(function (api, root) {
 	  var speedbuttons = $(".buttons span", root);
-	 
+
 	  api.bind("load", function (e, api) {
 	    // remove speed buttons if playback rate changes are not available
 	    if (api.engine == "flash" || !flowplayer.support.inlineVideo) {
 	      $(".buttons", root).remove();
 	    }
-	 
+
 	  }).bind("speed", function (e, api, rate) {
 	    // mark the current speed button as active
 	    var i;
-	 
+
 	    speedbuttons.removeClass("active");
-	 
+
 	    for (i = 0; i < api.conf.speeds.length; i = i + 1) {
 	      if (api.conf.speeds[i] == rate) {
 		speedbuttons.eq(i).addClass("active");
@@ -38,12 +38,12 @@ function setupFlowplayer($) {
 	      }
 	    }
 	  });
-	 
+
 	  // bind speed() call to click on buttons
 	  speedbuttons.click(function () {
 	    if (!$(this).hasClass("active")) {
 	      var buttonindex = speedbuttons.index(this);
-	 
+
 	      if (flowplayer.support.seekable) {
 		api.speed(api.conf.speeds[buttonindex]);
 	      } else {
@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
 		}else if (src.indexOf('mp4')>0) {
 			sources['mp4'] = src;
 		}else if (src.indexOf('ogv')>0) {
-			sources['ogv'] = src;		
+			sources['ogv'] = src;
 		}
 	});
 
@@ -81,12 +81,12 @@ jQuery(document).ready(function($) {
 	var mp4 = (sources['mp4']) ?   '<source type="video/mp4" src="'+sources['mp4']+'">' : '' ;
 	var ogv = (sources['ogv']) ?   '<source type="video/ogv" src="'+sources['ogv']+'">' : '' ;
 
-	var videoHTML = 
+	var videoHTML =
 '<!-- the player -->' +
    '<div id="flowplayer" class="flowplayer functional" data-swf="flowplayer.swf" data-ratio="0.4167">'+
     '  <video>'+
      	 webm+
-	 ogv+	
+	 ogv+
 	mp4+
      ' </video>'+
 	'<div class="buttons">'+
@@ -156,16 +156,29 @@ jQuery(document).ready(function($) {
 	}*/
 	/**** End fix ****/
 
-	jQuery(function() {
 
-		jQuery("#et_search_icon").click(function(){
-			jQuery(".et-search-field").focus();
+	jQuery("#et_search_icon").click(function(){
+		jQuery(".et-search-field").focus();
+	});
+
+
+	if($(window).width() < 768){ // Solo si es mobile
+		$('#simple-menu').sidr({
+			displace: false
 		});
 
-	});	
+	const $sidebar = $('.sidebar-menu');
+	$(document).mouseup(function (e) {
+		 if (!$sidebar.is(e.target) // if the target of the click isn't the container...
+		 && $sidebar.has(e.target).length === 0) // ... nor a descendant of the container
+		 {
+			 $.sidr('close', 'sidr');
+		}
+	 });
+
+	}
+
+
+
 
 });
-
-
-
-

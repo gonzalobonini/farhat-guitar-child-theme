@@ -83,7 +83,6 @@ body {
 
 .et_pb_column.et_pb_column_1_4.right-banner-lesson-container {
     width: 130px;
-    height: 726px;
     margin: 0;
     padding: 0;
 }
@@ -1387,8 +1386,8 @@ and (orientation : portrait) { /* STYLES GO HERE */
 
 /**** new style for mobile ****/
 
-@media (max-width: 992px) {
-    .tablatura pre {
+@media all and (max-width: 992px) {
+    .entry-content .tablatura pre {
         display: none;
     }
 }
@@ -1414,8 +1413,6 @@ and (orientation : portrait) { /* STYLES GO HERE */
         max-width: 300px;
     }
     .video-section {
-        min-height: 750px;
-        overflow: hidden;
     }
     .treeview {
         list-style-type: none;
@@ -1586,4 +1583,48 @@ and (orientation : portrait) { /* STYLES GO HERE */
         height: 400px;
         overflow: hidden;
     }
+}
+
+a.toggle-sidebar {
+  display: none;
+  position: fixed;
+  top: 45%;
+  left: 0px;
+  z-index: 9999;
+  background: #e05117;
+  border-radius: 0px 5px 5px 0px;
+  color: white;
+  padding: 5px 10px;
+}
+
+.search-mobile {
+  display: none;
+}
+.search-mobile form.et-search-form {
+  position: relative;
+  left: 0;
+  top: 3px !important;
+  border: 0;
+  border: none;
+  padding: 10px 15px;
+}
+.search-mobile .et-search-form .go-home {
+    max-width: 15%;
+    margin-right: 10px
+}
+.search-mobile .et-search-form .go-home i {
+    vertical-align: middle;
+}
+.search-mobile .et-search-form input {
+    max-width: 80%;
+}
+
+
+@media (max-width: 769px){
+  a.toggle-sidebar {
+    display: block;
+  }
+  .search-mobile, .search-mobile .et-search-form {
+    display: block;
+  }
 }

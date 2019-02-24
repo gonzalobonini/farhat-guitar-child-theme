@@ -4,7 +4,8 @@
 $all_bands = new_get_all_bands();
 ?>
 
-<ul class="sidebar-menu">
+
+<ul  class="sidebar-menu">
     <li class="header">
       <a href="#" onclick="$('#paypal-1').click()"><i class="fa fa-paypal"></i> <span>DONATE</span>
       </a>
@@ -12,7 +13,7 @@ $all_bands = new_get_all_bands();
 
   <?php
   if (isset($cart_link)) {
-  ?>
+      ?>
     <li class="header">
       <a href="<?php echo $cart_link ?>"
          target="_blank"><i class="fa fa-shopping-cart"></i> <span>BUY THIS LESSONS</span>
@@ -22,7 +23,7 @@ $all_bands = new_get_all_bands();
   <?php
   }
   if (isset($tabs_link)) {
-    ?>
+      ?>
     <li class="header">
       <a href="<?php echo $tabs_link ?>"
          target="_blank"><i class="fa fa-download"></i> <span>DOWNLOAD TABS (PDF)</span>
@@ -32,7 +33,7 @@ $all_bands = new_get_all_bands();
   <?php
   }
   if (isset($other_lessons) && isset($song)) {
-    ?>
+      ?>
     <li class="header">
 	  <li class="treeview active">
 		  <a href="#">
@@ -41,17 +42,17 @@ $all_bands = new_get_all_bands();
 		  </a>
 			  <ul class="treeview-menu">
 				  <?php
-				  $lessons = new_get_children_lessons($song);
-				  foreach ($lessons as $lesson) {
-					  ?>
+                  $lessons = new_get_children_lessons($song);
+      foreach ($lessons as $lesson) {
+          ?>
 					  <li>
 						  <a href="<?php echo get_the_permalink($lesson); ?>"
-						     title="Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>">
-							  Lesson <?php echo get_post_meta( $lesson->ID, 'new_lesson_number', true ); ?>
+						     title="Lesson <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>">
+							  Lesson <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>
 						  </a>
 					  </li>
 				  <?php
-				  } ?>
+      } ?>
 			  </ul>
 	  </li>
     </li>

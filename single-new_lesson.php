@@ -89,16 +89,7 @@
 
 
                         <div class="entry-content">
-                            <div class="et_pb_section et_section_regular">
-
-
-                                <div class="et_pb_row">
-                                    <div class="et_pb_column et_pb_column_4_4">
-                                        <!-- .et_pb_text -->
-                                    </div> <!-- .et_pb_column -->
-                                </div> <!-- .et_pb_row -->
-
-                            </div> <!-- .et_pb_section --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left tab-container">
+                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left tab-container">
 
                               <div class="entry-content tablatura">
                                 <?php
@@ -107,13 +98,20 @@
                                 wp_link_pages(array( 'before' => '<div class="page-links">' . __('Pages:', 'Divi'), 'after' => '</div>' ));
                                 ?>
                               </div> <!-- .entry-content -->
-                            </div><div class="et_pb_section video-section et_section_regular" style="background-color:#ffffff;">
+                            </div>
 
+														<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sidr@2.2.1/dist/stylesheets/jquery.sidr.bare.css">
+
+														<a id="simple-menu" class="toggle-sidebar" href="#sidr"><i class="fa fa-music"></i></a>
+
+														<div class="et_pb_section video-section et_section_regular">
+															<div class="" id="sidr">
+																<div class="et_pb_column et_pb_column_1_4 left-bar-container">
+																	<?php include "left-bar.php"; ?>
+																</div>
+															</div>
 
                                 <div class="et_pb_row">
-                                  <div class="et_pb_column et_pb_column_1_4 left-bar-container">
-                                    <?php include "left-bar.php"; ?>
-                                  </div>
                                     <div class="et_pb_column et_pb_column_3_4 row-video-container">
                                         <!-- the player -->
                                         <div id="flowplayer"
