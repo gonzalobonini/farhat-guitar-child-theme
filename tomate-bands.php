@@ -12,7 +12,9 @@ function create_new_band() {
             'supports' => array('title', 'thumbnail', 'categories'),
             'public' => true,
             'has_archive' => true,
-            'taxonomies' => array('post_tag')
+            'taxonomies' => array('post_tag'),
+            'rewrite' => array('slug' => 'bands')
+
         )
     );
 }

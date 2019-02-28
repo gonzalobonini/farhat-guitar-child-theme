@@ -1083,7 +1083,6 @@ ul.alphabetical-list li div.list-container ul li {
 }
 
 #footer-bottom div.container {
-    float: right;
     max-width: 850px;
 }
 
@@ -1361,7 +1360,7 @@ and (orientation : portrait) { /* STYLES GO HERE */
     }
 
     .lesson .left-bar-container {
-        display: none;
+        /*display: none;*/
     }
 
     .lesson .right-banner-lesson-container {

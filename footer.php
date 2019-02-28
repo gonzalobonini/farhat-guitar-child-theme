@@ -37,7 +37,7 @@ if (! is_page_template('page-template-blank.php')) : ?>
                     }
                 ?>
 
-						<p id="footer-info"><?php printf(__('Designed by %1$s | Powered by %2$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>', '<a href="http://www.wordpress.org">WordPress</a>'); ?></p>
+						<p id="footer-info"><?php printf(__('Designed by %1$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>'); ?></p>
 					</div>	<!-- .container -->
 				</div>
 			</footer> <!-- #main-footer -->
@@ -57,7 +57,6 @@ if (! is_page_template('page-template-blank.php')) : ?>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sidr/2.2.1/jquery.sidr.min.js"></script>
 
 <script>
     $(document).ready(function() {

@@ -13,7 +13,8 @@ function create_new_lesson() {
                 'supports' => array('title', 'editor')
             ),
             'public' => true,
-            'has_archive' => true
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'lessons')
         )
     );
 }

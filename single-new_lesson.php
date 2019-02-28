@@ -100,7 +100,6 @@
                               </div> <!-- .entry-content -->
                             </div>
 
-														<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sidr@2.2.1/dist/stylesheets/jquery.sidr.bare.css">
 
 														<a id="simple-menu" class="toggle-sidebar" href="#sidr"><i class="fa fa-music"></i></a>
 

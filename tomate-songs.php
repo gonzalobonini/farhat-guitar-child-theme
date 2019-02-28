@@ -24,7 +24,9 @@ function create_new_song() {
             'supports' => array('title', 'thumbnail'),
             'taxonomies' => array('category'),
             'public' => true,
-            'has_archive' => true
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'songs')
+
         )
     );
 }

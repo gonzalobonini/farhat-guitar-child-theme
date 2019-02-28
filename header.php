@@ -20,7 +20,6 @@ $detect = new Mobile_Detect;
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
-	<meta name="google-site-verification" content="Vznk0YxtNze5FYchodN9AY7A0H0-09JepUBU6XJC0AM" />
 	<title><?php wp_title(); ?></title>
 	<?php elegant_description(); ?>
 	<?php elegant_keywords(); ?>

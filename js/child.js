@@ -163,9 +163,9 @@ jQuery(document).ready(function($) {
 
 
 	if($(window).width() < 768){ // Solo si es mobile
-		$('#simple-menu').sidr({
-			displace: false
-		});
+	$('#simple-menu').sidr({
+		displace: false
+	});
 
 	const $sidebar = $('.sidebar-menu');
 	$(document).mouseup(function (e) {
@@ -177,8 +177,5 @@ jQuery(document).ready(function($) {
 	 });
 
 	}
-
-
-
 
 });

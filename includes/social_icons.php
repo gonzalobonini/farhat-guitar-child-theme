@@ -6,8 +6,8 @@
 		</a>
 	</li>
 	<li class="et-social-icon et-social-instagram">
-		<a href="https://www.instagram.com" class="fa fa-instagram icon">
-			<span>instagram</span>
+		<a href="https://www.instagram.com/MarcosFarhatGuitar/" class="fa fa-instagram icon">
+			<span>Instagram</span>
 		</a>
 	</li>
 <?php if ('on' === et_get_option('divi_show_facebook_icon', 'on')) : ?>
