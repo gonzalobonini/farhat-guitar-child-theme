@@ -104,13 +104,14 @@
 														<a id="simple-menu" class="toggle-sidebar" href="#sidr"><i class="fa fa-music"></i></a>
 
 														<div class="et_pb_section video-section et_section_regular">
-															<div class="" id="sidr">
-																<div class="et_pb_column et_pb_column_1_4 left-bar-container">
-																	<?php include "left-bar.php"; ?>
-																</div>
-															</div>
 
                                 <div class="et_pb_row">
+																	<div class="" id="sidr">
+																		<div class="et_pb_column et_pb_column_1_4 left-bar-container">
+																			<?php include "left-bar.php"; ?>
+																		</div>
+																	</div>
+
                                     <div class="et_pb_column et_pb_column_3_4 row-video-container">
                                         <!-- the player -->
                                         <div id="flowplayer"

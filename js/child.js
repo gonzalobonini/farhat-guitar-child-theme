@@ -157,8 +157,9 @@ jQuery(document).ready(function($) {
 	/**** End fix ****/
 
 
-	jQuery("#et_search_icon").click(function(){
-		jQuery(".et-search-field").focus();
+	$("#et_top_search").click(function(){
+    console.log("Click");
+		$(".et-search-field.desktop").focus();
 	});
 
 
