@@ -15,15 +15,15 @@
 
   $songs = new_get_children_songs(get_post());
 
-  $genres = get_the_terms(get_the_ID(), 'Style');
+  $genres = get_the_terms(get_the_ID(), 'style');
 
   $genres_names = new_get_array_of_properties($genres, 'name');
 
 
 
-  $members = get_the_terms(get_the_ID(), 'Member');
+  $members = get_the_terms(get_the_ID(), 'member');
 
-  $past_members = get_the_terms(get_the_ID(), 'Past Member');
+  $past_members = get_the_terms(get_the_ID(), 'past_member');
 
 
   $tags = get_the_terms(get_the_ID(), 'post_tag');
@@ -34,7 +34,7 @@
     'post_type' => 'new_band',
     'tax_query' => array(
       array(
-        'taxonomy' => 'Style',
+        'taxonomy' => 'style',
         'field' => 'name',
         'terms' => $genres_names,
         'operator' => 'IN'
@@ -142,7 +142,7 @@
                                     <li>
                                         <a href="<?php echo get_the_permalink($lesson); ?>"
                                            title="Lesson <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>">
-                                            Lesson <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>
+                                            <?php _e('Lesson ', 'farhat'); ?> <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>
                                         </a>
                                     </li>
                                         <?php
@@ -165,7 +165,7 @@
       ?>
             <ul>
               <li>
-                <div class="details-first-column">Origin:</div>
+                <div class="details-first-column"><?php _e('Origin:', 'farhat'); ?></div>
                 <div class="details-second-column">
                   <?php echo $origin; ?>
                 </div>
@@ -179,7 +179,7 @@
       ?>
             <ul>
               <li>
-                <div class="details-first-column">Active:</div>
+                <div class="details-first-column"><?php _e('Active:', 'farhat'); ?></div>
                 <div class="details-second-column">
                   <?php echo $active; ?>
                 </div>
@@ -194,7 +194,7 @@
                 ?>
             <ul>
               <li>
-                <div class="details-first-column">Labels:</div>
+                <div class="details-first-column"><?php _e('Labels:', 'farhat'); ?></div>
                 <div class="details-second-column" style="text-align: left;">
                   <?php echo new_get_separeted_by_commas_list($tags); ?>
                 </div>
@@ -209,7 +209,7 @@
               if ($TestGenres) {
                   ?>
               <li>
-                <div class="details-first-column">Genre:</div>
+                <div class="details-first-column"><?php _e('Genre:', 'farhat'); ?></div>
                 <div class="details-second-column">
                   <?php echo new_get_separeted_by_commas_list($genres); ?>
                 </div>
@@ -222,7 +222,7 @@
               if ($TestWebsite) {
                   ?>
               <li>
-                <div class="details-first-column">Website:</div>
+                <div class="details-first-column"><?php _e('Website:', 'farhat'); ?></div>
                 <div class="details-second-column">
                   <a href="<?php echo $website; ?>"><?php echo $website; ?></a>
                 </div>
@@ -235,7 +235,7 @@
               if ($TestMembers) {
                   ?>
               <li>
-                <div class="details-first-column">&nbsp;Members:</div>
+                <div class="details-first-column">&nbsp;<?php _e('Members:', 'farhat'); ?></div>
                 <div class="details-second-column">
                   <?php echo new_get_separeted_by_commas_list($members); ?>
                 </div>
@@ -250,7 +250,7 @@
                 ?>
             <ul>
               <li>
-                <div class="details-first-column">Past Members:</div>
+                <div class="details-first-column"><?php _e('Past Members:', 'farhat'); ?></div>
                 <div class="details-second-column">
                   <?php echo new_get_separeted_by_commas_list($past_members); ?>
                 </div>
@@ -275,7 +275,7 @@
       <div class="et_pb_row">
         <div class="et_pb_column et_pb_column_4_4">
           <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-artists-title section-title">
-            Related Artists
+            <?php _e('Related Artists', 'farhat'); ?>
           </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-bands">
 
             <ul class="lcp_catlist" id="lcp_instance_0">

@@ -4,14 +4,13 @@ include_once 'tomate-functions.php';
 
 include_once 'tomate-scripts-and-styles.php';
 
-function new_get_all_bands($posts_per_page = -1, $orderby = 'post_title', $order = 'ASC')
+function new_get_all_bands($posts_per_page = -1, $orderby = 'post_title', $order = 'ASC', $changeLang = false)
 {
-
-  //$bands = apc_fetch('bands');
-    //$bands = wp_cache_get('bands', '');
-
-    if ($bands) {
-        return $bands;
+    if(function_exists(pll_current_language)){
+      $lang = pll_current_language();
+    }
+    if($changeLang){
+      $lang = 'en';
     }
 
     // get all the bands
@@ -20,16 +19,15 @@ function new_get_all_bands($posts_per_page = -1, $orderby = 'post_title', $order
       'orderby'          => $orderby,
       'order'            => $order,
       'post_type'        => 'new_band',
+      'lang'           => $lang,
       'post_mime_type'   => '',
       'post_parent'      => '',
       'post_status'      => 'publish');
 
-    $bands = get_posts($args);
+    $bands = new WP_Query($args);
 
-    //  apc_store ( "bands" , $bands, 2628000000);
-    //wp_cache_add("bands", $bands, "", 2628000000);
 
-    return $bands;
+    return $bands->posts;
 }
 
 /* Recibe un Post de post_type new_song y devuelve el permalink a de la primer lección */
@@ -42,11 +40,6 @@ function new_get_first_lesson_permalink($post)
         $post_id = $post;
     }
 
-    //$permalink = wp_cache_get('firt-lesson-'.$post->ID, '');
-
-    if ($permalink) {
-        return $permalink;
-    }
 
     $args = array(
     'post_type' => 'new_lesson',
@@ -111,16 +104,20 @@ function new_get_all_songs()
     return $songs_query->posts;
 }
 
-function new_get_children_songs($band)
+function new_get_children_songs($band, $changeLang = false)
 {
     //$songs = wp_cache_get('songs-'.$band->ID, '');
-
-    if ($songs) {
-        return $songs;
+    if(function_exists(pll_current_language)){
+      $lang = pll_current_language();
     }
+    if($changeLang){
+      $lang = 'en';
+    }
+
     $args = array(
     'post_type' => 'new_song',
     'orderby' => 'date',
+    'lang'  => 'en',
     'nopaging' => true,
     'order'   => 'ASC',
     'meta_query' => array(
@@ -259,7 +256,7 @@ function customize_text_sizes($initArray)
 
 function generate_template_for_menu()
 {
-    $all_bands = new_get_all_bands();
+    $all_bands = new_get_all_bands(-1, 'post_title','ASC', true);
 
     $menu_html = '';
 
@@ -270,7 +267,7 @@ function generate_template_for_menu()
             $menu_html .= '<a href="#"><i class="fa fa-music"></i> <span>'.$current_band->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
             $menu_html .= '<ul class="treeview-menu">';
 
-            $current_songs = new_get_children_songs($current_band);
+            $current_songs = new_get_children_songs($current_band, true);
             foreach ($current_songs as $current_song) {
                 $menu_html .= '<li>'."";
                 $menu_html .= '<a href="#"><i class="fa fa-circle fa-xs"></i> <span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
@@ -278,8 +275,9 @@ function generate_template_for_menu()
 
                 $lessons = new_get_children_lessons($current_song);
                 foreach ($lessons as $lesson) {
+                    $title = __('Lesson ', 'farhat') .' '. get_post_meta($lesson->ID, 'new_lesson_number', true);
                     $menu_html .= '<li>';
-                    $menu_html .= '<a href="'.get_the_permalink($lesson).'" title="Lesson '.get_post_meta($lesson->ID, 'new_lesson_number', true).'">Lesson '.get_post_meta($lesson->ID, 'new_lesson_number', true).'</a>';
+                    $menu_html .= '<a href="'.get_the_permalink($lesson).'" title="'.$title.'">'. $title .'</a>';
                     $menu_html .= '</li>';
                 }
 
@@ -294,22 +292,18 @@ function generate_template_for_menu()
         }
     }
 
+    echo $menu_html;
 
-    $name_file = $_SERVER['DOCUMENT_ROOT']."/wp-content/themes/farhat-gutiar-divi-child/left-bar.html";
-    $fp = fopen($name_file, "w+");
-
-    $test = fwrite($fp, $menu_html);
-    if ($test) {
-        $fp2 = 'Success.';
-    }
-    fclose($fp);
 }
 
 
-function reload_side_bar()
-{
-    generate_template_for_menu();
+function wpinternationlizationtheme_setup(){
+    $domain = 'farhat';
+    // wp-content/languages/wpinternationlizationtheme/de_DE.mo
+    load_theme_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain );
+    // wp-content/themes/wpinternationlizationtheme/languages/de_DE.mo
+    load_theme_textdomain( $domain, get_stylesheet_directory() . '/languages' );
+    // wp-content/themes/wpinternationlizationtheme/languages/de_DE.mo
+    load_theme_textdomain( $domain, get_template_directory() . '/languages' );
 }
-
-add_action('save_post_bands', 'reload_side_bar', 10, 3);
-add_action('save_post_lessons', 'reload_side_bar', 10, 3);
+add_action( 'after_setup_theme', 'wpinternationlizationtheme_setup' );

@@ -1,6 +1,4 @@
-<?php if (! isset($_SESSION)) {
-    session_start();
-}
+<?php
 require_once 'Mobile-Detect-2.8.26/Mobile_Detect.php';
 $detect = new Mobile_Detect;
 
@@ -207,7 +205,7 @@ if (!($detect->isMobile() && !$detect->isTablet())) {
 
 					<?php if (false !== et_get_option('show_search_icon', true)) : ?>
           <?php get_search_form(); ?>
-				
+
 					<?php endif; // true === et_get_option( 'show_search_icon', false )?>
 
 					<?php do_action('et_header_top'); ?>

@@ -33,7 +33,7 @@
                             );
                             $other_lessons = new WP_Query($args);
                             $args = array('orderby' => 'rand', 'fields' => 'all');
-                            $terms = wp_get_post_terms($song_id, 'Style', $args);
+                            $terms = wp_get_post_terms($song_id, 'style', $args);
 
 
                             $args = array(
@@ -42,7 +42,7 @@
                                 'orderby' => 'rand',
                                 'tax_query' => array(
                                     array(
-                                        'taxonomy' => 'Style',
+                                        'taxonomy' => 'style',
                                         'field' => 'name',
                                         'terms' => new_get_separeted_by_commas_list(array($terms[0])),
                                         'operator' => 'IN'
@@ -80,7 +80,7 @@
 													<span class="lesson-song-name"><?php echo $band->post_title ?></span>|
 													<span class="lesson-title"><?php echo $song->post_title ?></span>
 													<div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
-															<strong><span style="color: #ff6600;">&nbsp;Style:<span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
+															<strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
 																			<?php	echo new_get_separeted_by_commas_list($terms);
                                                                             ?>
 															</span></span> &nbsp; &nbsp;
@@ -183,7 +183,7 @@
 		                                    <div class="et_pb_column et_pb_column_4_4">
 			                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left section-title">
 
-				                                    <h3><span style="color: #ff6600;">&nbsp;Related songs</span></h3>
+				                                    <h3><span style="color: #ff6600;">&nbsp;<?php _e('Related songs:', 'Divi');?></span></h3>
 				                                    <hr>
 
 			                                    </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-songs">

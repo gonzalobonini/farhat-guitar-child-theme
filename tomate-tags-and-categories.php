@@ -3,10 +3,13 @@
 
 /* Custom tags */
 
-function custom_taxonomies_init() {
+function custom_taxonomies_init()
+{
     // create a new taxonomy
 
-    new_register_taxonomy('Style',
+    /*new_register_taxonomy(
+        'Style',
+        'Style',
         'Styles',
         false,
         array(
@@ -15,7 +18,9 @@ function custom_taxonomies_init() {
         )
     );
 
-    new_register_taxonomy('Member',
+    new_register_taxonomy(
+        'Member',
+        'Member',
         'Members',
         false,
         array(
@@ -23,15 +28,60 @@ function custom_taxonomies_init() {
         )
     );
 
-    new_register_taxonomy('Past Member',
-            'Past Members',
-            false,
-            array(
+    new_register_taxonomy(
+        'Past Member',
+        'Past Member',
+        'Past Members',
+        false,
+        array(
                 'new_band'
             )
     );
 
-    new_register_taxonomy('Difficulty',
+    /*new_register_taxonomy(
+        'Difficulty',
+        'Difficulty',
+        "Difficulties",
+        false,
+        array(
+            'new_song'
+        )
+    );*/
+
+    new_register_taxonomy(
+        'style',
+        'Style',
+        'Styles',
+        false,
+        array(
+            'new_song',
+            'new_band'
+        )
+    );
+
+    new_register_taxonomy(
+        'member',
+        'Member',
+        'Members',
+        false,
+        array(
+            'new_band'
+        )
+    );
+
+    new_register_taxonomy(
+        'past_member',
+        'Past Member',
+        'Past Members',
+        false,
+        array(
+                'new_band'
+            )
+    );
+
+    new_register_taxonomy(
+        'difficulty',
+        'Difficulty',
         "Difficulties",
         false,
         array(
@@ -39,4 +89,4 @@ function custom_taxonomies_init() {
         )
     );
 }
-add_action( 'init', 'custom_taxonomies_init' );
+add_action('init', 'custom_taxonomies_init');

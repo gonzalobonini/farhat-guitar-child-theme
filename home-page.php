@@ -10,13 +10,13 @@ require_once 'Mobile-Detect-2.8.26/Mobile_Detect.php';
 $detect = new Mobile_Detect;
 
 
-$is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
+$is_page_builder_used = et_pb_is_pagebuilder_used(get_the_ID());
 
 ?>
 
 <div id="main-content">
 
-<?php if ( ! $is_page_builder_used ) : ?>
+<?php if (! $is_page_builder_used) : ?>
 
     <div class="container">
     <div id="content-area" class="clearfix">
@@ -24,7 +24,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 <?php endif; ?>
 
-<?php while ( have_posts() ) : the_post();
+<?php while (have_posts()) : the_post();
 
     ?>
 
@@ -39,7 +39,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
     <div class="entry-content">
     <?php
-    
+
     // get the last 4 songs
 
         $args = array(
@@ -49,7 +49,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
             'post_type'        => 'new_song',
             'post_status'      => 'publish');
 
-        $last_songs = get_posts( $args );
+        $last_songs = get_posts($args);
 
 //        echo "last songs";
 //        var_dump($last_songs);
@@ -63,23 +63,23 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
         // get all the style tags
 
-        $styles = get_terms('Style');
+        $styles = get_terms('style');
 
 //        echo "styles";
 //        var_dump($styles);
 
         // get all the difficult level tags
 
-        $difficulties = get_terms('Difficulty');
+        $difficulties = get_terms('difficulty');
 
 //        echo "difficulties";
 //        var_dump($difficulties);
 
 
         // list the left bar
-    
+
 // Exclude tablets.
-if(!$detect->isMobile() || $detect->isTablet() ){
+if (!$detect->isMobile() || $detect->isTablet()) {
     ?>
     <div style="background-color:#ffffff;" class="et_pb_section et_pb_section_parallax et_pb_fullwidth_section et_section_regular">
 
@@ -96,16 +96,12 @@ if(!$detect->isMobile() || $detect->isTablet() ){
             'post_parent'      => '',
             'post_status'      => 'publish');
 
-        $featured = get_posts( $args )[0];
+    $featured = get_posts($args)[0];
 
-        $featured_parent_band = new_get_band_from_song($featured);
+    $featured_parent_band = new_get_band_from_song($featured);
 
 //        echo "featured";
-//        var_dump($featured);
-
-
-        
-        ?>
+//        var_dump($featured); ?>
 
 
         <div class="et_pb_slider et_pb_slider_no_arrows et_pb_slider_no_pagination et_pb_bg_layout_dark">
@@ -133,21 +129,20 @@ if(!$detect->isMobile() || $detect->isTablet() ){
 
 <?php
 $last_updates_class = "et_pb_column_2_3";
-$list_updates_class = "et_pb_column_1_3";
+    $list_updates_class = "et_pb_column_1_3";
 } else {
-$last_updates_class = "et_pb_column_3_3";
-$list_updates_class = $last_updates_class;
-
+    $last_updates_class = "et_pb_column_3_3";
+    $list_updates_class = $last_updates_class;
 }
  ?>
-    
+
 
 
         <div class="et_pb_row">
             <div class="et_pb_column <?php echo $last_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads">
 
-                    <p><?php echo get_post_meta( $post->ID, 'update_home', true ); ?></p>
+                    <p><?php echo get_post_meta($post->ID, 'update_home', true); ?></p>
 
                 </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left bands-list">
                     <ul id="lcp_instance_0" class="lcp_catlist">
@@ -168,8 +163,8 @@ $list_updates_class = $last_updates_class;
                     </ul>
                 </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
-       <?php         if(!( $detect->isMobile() && !$detect->isTablet() )){
- ?>
+       <?php         if (!($detect->isMobile() && !$detect->isTablet())) {
+                            ?>
             <div class="et_pb_column et_pb_column_1_3">
                     <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left home-side-banner">
                         <div>
@@ -187,24 +182,24 @@ $list_updates_class = $last_updates_class;
                     </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
                 <?php
-                }
+                        }
  ?>
         </div> <!-- .et_pb_row --><div class="et_pb_row">
             <div class="et_pb_column et_pb_column_4_4">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads section-title">
-                    <?php echo get_post_meta( $post->ID, 'lessons_by', true ); ?>
+                    <?php echo get_post_meta($post->ID, 'lessons_by', true); ?>
                 </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
         </div> <!-- .et_pb_row --><div class="et_pb_row">
             <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
-                    <?php echo get_post_meta( $post->ID, 'artist', true ); ?>
+                    <?php echo get_post_meta($post->ID, 'artist', true); ?>
                 </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left alphabetical-list">
 
                     <ul class="alphabetical-list">
                     <?php
-                        foreach($bands as $current_band) {
-                    ?>
+                        foreach ($bands as $current_band) {
+                            ?>
                           <div
                             class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center style-filter et_pb_blurb_position_left">
                             <div class="et_pb_blurb_content">
@@ -216,15 +211,15 @@ $list_updates_class = $last_updates_class;
                             <!-- .et_pb_blurb_content -->
                           </div>
                     <?php
-                         }
+                        }
                     ?>
                     </ul>
 
                 </div> <!-- .et_pb_text -->
             </div> <!-- .et_pb_column -->
              <?php
-             if( $detect->isMobile() && !$detect->isTablet() ){
-                // Si es celular
+             if ($detect->isMobile() && !$detect->isTablet()) {
+                 // Si es celular
                  ?>
                  </div><!-- termino row-->
                  <div class="et_pb_row"> <!-- empiezo otro row -->
@@ -233,12 +228,12 @@ $list_updates_class = $last_updates_class;
  ?>
             <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
-                    <?php echo get_post_meta( $post->ID, 'style', true ); ?>
+                    <?php echo get_post_meta($post->ID, 'style', true); ?>
                 </div>
                 <!-- .et_pb_text -->
                 <?php
-                    foreach($styles as $current_style) {
-                ?>
+                    foreach ($styles as $current_style) {
+                        ?>
                         <div
                             class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center style-filter et_pb_blurb_position_left">
                             <div class="et_pb_blurb_content">
@@ -256,8 +251,8 @@ $list_updates_class = $last_updates_class;
 
             </div>
             <?php
-             if( $detect->isMobile() && !$detect->isTablet() ){
-                // Si es celular
+             if ($detect->isMobile() && !$detect->isTablet()) {
+                 // Si es celular
                  ?>
                  </div><!-- termino row-->
                  <div class="et_pb_row"> <!-- empiezo otro row -->
@@ -267,10 +262,10 @@ $list_updates_class = $last_updates_class;
             <!-- .et_pb_column -->
             <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
-                    <?php echo get_post_meta( $post->ID, 'experience', true ); ?>
+                    <?php echo get_post_meta($post->ID, 'experience', true); ?>
                 </div>
                 <?php
-                foreach($difficulties as $current_difficulty) {
+                foreach ($difficulties as $current_difficulty) {
                     ?>
                     <div
                         class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center style-filter et_pb_blurb_position_left">

@@ -3,6 +3,7 @@ Theme Name:     Farhat Gutiar Divi Child
 Description:    Farhat Guitar Divi Child Theme
 Author:         Gabriel
 Template:       Divi
+Text Domain: 	farhat
 
 (optional values you can add: Theme URI, Author URI, Version)
 */
@@ -981,7 +982,7 @@ ul.alphabetical-list li div.list-container ul li {
 
 /* Banner */
 .header-banner{
-    margin: 50px 0 10px 0;
+    margin: 25px 0 10px 0;
 
 }
 /* Section Titles */
