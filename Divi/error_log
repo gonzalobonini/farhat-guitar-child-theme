@@ -1,0 +1,38 @@
+[22-Sep-2015 06:50:24 UTC] PHP Fatal error:  Call to undefined function post_password_required() in /home/farhatguitar/public_html/wp-content/themes/Divi/comments.php on line 2
+[09-Nov-2015 03:28:10 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/index.php on line 1
+[15-Nov-2015 08:32:18 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/index.php on line 1
+[07-Dec-2015 07:55:11 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/index.php on line 1
+[21-Jan-2016 16:09:55 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[22-May-2016 06:58:03 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[17-Jun-2016 15:25:45 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[06-Jul-2016 00:56:06 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[07-Jul-2016 23:25:02 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/farhatguitar/public_html/wp-content/themes/Divi/functions.php on line 61
+[26-Jul-2016 10:41:12 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[26-Jul-2016 10:41:23 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[28-Jul-2016 05:16:27 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[06-Aug-2016 04:42:14 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/farhatguitar/public_html/wp-content/themes/Divi/functions.php on line 61
+[06-Aug-2016 12:10:45 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/farhatguitar/public_html/wp-content/themes/Divi/functions.php on line 61
+[07-Aug-2016 15:10:14 UTC] PHP Fatal error:  Call to undefined function language_attributes() in /home/farhatguitar/public_html/wp-content/themes/Divi/header.php on line 4
+[07-Aug-2016 15:10:15 UTC] PHP Fatal error:  Call to undefined function et_get_option() in /home/farhatguitar/public_html/wp-content/themes/Divi/footer.php on line 1
+[07-Aug-2016 15:10:16 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[10-Aug-2016 07:48:33 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/farhatguitar/public_html/wp-content/themes/Divi/functions.php on line 61
+[10-Aug-2016 13:47:27 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/farhatguitar/public_html/wp-content/themes/Divi/functions.php on line 61
+[27-Oct-2016 00:45:14 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[27-Oct-2016 02:51:01 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[02-Mar-2017 19:25:35 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/index.php on line 1
+[20-Mar-2017 16:03:12 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[24-Mar-2017 04:29:35 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[29-Mar-2017 20:12:50 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/farhatguitar/public_html/wp-content/themes/Divi/404.php on line 1
+[13-Aug-2018 09:59:00 UTC] Error reading Wordfence Firewall config data, configuration file could be corrupted or inaccessible. Path: /home/bbbn39n/farhatguitar.com/wp-content/wflogs/config.php
+[13-Aug-2018 09:59:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home1/bbbn39n/farhatguitar.com/wp-content/themes/Divi/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home1/bbbn39n/farhatguitar.com/wp-content/themes/Divi/404.php on line 1
+[24-Feb-2019 11:11:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home1/bbbn39n/farhatguitar.com/wp-content/themes/Divi/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home1/bbbn39n/farhatguitar.com/wp-content/themes/Divi/index.php on line 1
+[25-Feb-2019 04:29:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home1/bbbn39n/farhatguitar.com/wp-content/themes/Divi/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home1/bbbn39n/farhatguitar.com/wp-content/themes/Divi/index.php on line 1
