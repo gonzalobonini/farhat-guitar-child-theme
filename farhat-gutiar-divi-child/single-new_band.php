@@ -28,6 +28,7 @@
 
   $tags = get_the_terms(get_the_ID(), 'post_tag');
 
+  $lang = pll_current_language();
 
   $args = array(
     'posts_per_page' => 3,
@@ -39,7 +40,9 @@
         'terms' => $genres_names,
         'operator' => 'IN'
       )
-    )
+    ),
+    'lang' => $lang,
+    'post__not_in' => array(get_the_ID())
   );
 
   $related_bands_query = new WP_Query($args);
