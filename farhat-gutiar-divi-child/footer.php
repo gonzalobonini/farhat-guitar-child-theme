@@ -4,6 +4,11 @@
 
 <?php endif;
 
+	?>
+
+
+<?php
+
 if (! is_page_template('page-template-blank.php')) : ?>
 
 			<footer id="main-footer">
@@ -28,6 +33,12 @@ if (! is_page_template('page-template-blank.php')) : ?>
 				</div> <!-- #et-footer-nav -->
 
 			<?php endif; ?>
+			
+			<div class="ad-footer"> 
+			<?php if ( is_active_sidebar( 'footer-ad' ) ) { ?>
+					<?php dynamic_sidebar('footer-ad'); ?>
+			<?php } ?>
+			</div>
 
 				<div id="footer-bottom">
 					<div class="container clearfix">
@@ -48,24 +59,7 @@ if (! is_page_template('page-template-blank.php')) : ?>
 	</div> <!-- #page-container -->
 
 	<?php wp_footer(); ?>
-	<script src="<?php bloginfo("wpurl"); ?>/wp-content/themes/farhat-gutiar-divi-child/flowplayer-5.5.2/flowplayer.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="<?php bloginfo("wpurl"); ?>/wp-content/themes/farhat-gutiar-divi-child/flowplayer-5.5.2/skin/functional.css">
-        <link rel="stylesheet" type="text/css" href="<?php bloginfo("wpurl"); ?>/wp-content/themes/farhat-gutiar-divi-child/flowplayer-5.5.2/skin/flowplayer-buttons.css">
 
-<link rel="stylesheet" href="<?php bloginfo("wpurl"); ?>/wp-content/themes/farhat-gutiar-divi-child/slicknav/slicknav.css" />
-<script src="<?php bloginfo("wpurl"); ?>/wp-content/themes/farhat-gutiar-divi-child/slicknav/jquery.slicknav.min.js"></script>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-<script>
-    $(document).ready(function() {
-      $.sidebarMenu($('.sidebar-menu'));
-    });
-</script>
-<script type="text/javascript">
-		document.documentElement.className = 'js';
-	</script>
-  <script src="https://use.fontawesome.com/705de5b39a.js"></script>
 </body>
 </html>
+

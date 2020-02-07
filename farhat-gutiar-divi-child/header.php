@@ -1,6 +1,6 @@
 <?php
-require_once 'Mobile-Detect-2.8.26/Mobile_Detect.php';
-$detect = new Mobile_Detect;
+
+$detect = get_mobile_detect();
 
 ?>
 <!DOCTYPE html>
@@ -110,8 +110,7 @@ $detect = new Mobile_Detect;
             $small_logo = ($detect->isMobile() && !$detect->isTablet()) ? " style='max-height: 50px' ": "";
             ?>
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="ocultable">
-                    <img src="<?php echo esc_attr($logo); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>"
-                      <?php echo $small_logo ?> id="logo" />
+                    <img src="<?php echo esc_attr($logo); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" />
                 </a>
 <div id="contact-information" class="ocultable">
 
@@ -143,7 +142,7 @@ $detect = new Mobile_Detect;
     </div>
     <br>
     <?php // Exclude tablets.
-    if (!($detect->isMobile() && !$detect->isTablet())) {
+    //if (!($detect->isMobile() && !$detect->isTablet())) {
         ?>
         <div class="donate-container">
             <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
@@ -153,16 +152,16 @@ $detect = new Mobile_Detect;
             </form>
         </div>
    <?php
-    }
+    //}
     ?>
 
 
 
 <?php
 // Exclude tablets.
-if (!($detect->isMobile() && !$detect->isTablet())) {
+//if (!($detect->isMobile() && !$detect->isTablet())) {
     et_show_cart_total();
-}
+//}
                     ?>
     <?php if ($et_contact_info_defined) : ?>
 
@@ -231,15 +230,5 @@ if (!($detect->isMobile() && !$detect->isTablet())) {
 			</div> <!-- .container -->
 		</header> <!-- #main-header -->
 
-      <?php
-      if (!($detect->isMobile() && !$detect->isTablet())) {
-          ?>
-          <div class="header-banner">
-        <?php $post_banner = get_post(1716);
-          $content = $post_banner->post_content;
-          echo apply_filters('the_content', $content); ?>
-          </div>
-        <?php
-      }
-      ?>
+      
 		<div id="et-main-area">

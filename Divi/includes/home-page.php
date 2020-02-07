@@ -6,10 +6,6 @@ Template Name: Home Page
 
 get_header();
 
-require_once 'Mobile-Detect-2.8.26/Mobile_Detect.php';
-$detect = new Mobile_Detect;
-
-
 $is_page_builder_used = et_pb_is_pagebuilder_used(get_the_ID());
 
 ?>
@@ -77,6 +73,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used(get_the_ID());
 
 
         // list the left bar
+
 
 // Exclude tablets.
 if (!$detect->isMobile() || $detect->isTablet()) {

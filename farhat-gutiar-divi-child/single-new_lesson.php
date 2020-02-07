@@ -47,7 +47,9 @@
                                         'terms' => new_get_separeted_by_commas_list(array($terms[0])),
                                         'operator' => 'IN'
                                     )
-                                )
+                                    ),
+                                'post__not_in' => array(get_the_ID()),
+                                'lag' => pll_current_language() 
                             );
 
 //                            $args = array(
@@ -76,16 +78,16 @@
                             $video_link = get_post_meta(get_the_ID(), 'new_lesson_video', true);
 
                         ?>
-												<header>
-													<span class="lesson-song-name"><?php echo $band->post_title ?></span>|
-													<span class="lesson-title"><?php echo $song->post_title ?></span>
-													<div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
-															<strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
-																			<?php	echo new_get_separeted_by_commas_list($terms);
-                                                                            ?>
-															</span></span> &nbsp; &nbsp;
-													</div> <!-- .et_pb_text -->
-												</header>
+                            <header>
+                                <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
+                                <span class="lesson-title"><?php echo $song->post_title ?></span>
+                                <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                        <strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
+                                                        <?php	echo new_get_separeted_by_commas_list($terms);
+                                                        ?>
+                                        </span></span> &nbsp; &nbsp;
+                                </div> <!-- .et_pb_text -->
+                            </header>
 
 
                         <div class="entry-content">
@@ -101,16 +103,16 @@
                             </div>
 
 
-														<a id="simple-menu" class="toggle-sidebar" href="#sidr"><i class="fa fa-music"></i></a>
+                            <a id="simple-menu" class="toggle-sidebar" href="#sidr"><i class="fa fa-music"></i></a>
 
-														<div class="et_pb_section video-section et_section_regular">
+                            <div class="et_pb_section video-section et_section_regular">
 
-                                <div class="et_pb_row">
-																	<div class="" id="sidr">
-																		<div class="et_pb_column et_pb_column_1_4 left-bar-container">
-																			<?php include "left-bar.php"; ?>
-																		</div>
-																	</div>
+                            <div class="et_pb_row">
+                                        <div class="" id="sidr">
+                                            <div class="et_pb_column et_pb_column_1_4 left-bar-container">
+                                                <?php include "left-bar.php"; ?>
+                                            </div>
+                                        </div>
 
                                     <div class="et_pb_column et_pb_column_3_4 row-video-container">
                                         <!-- the player -->
@@ -220,21 +222,17 @@
 	                                    </div> <!-- .et_pb_row -->
                                     </div>
 	                                <div class="et_pb_column et_pb_column_1_4 right-banner-lesson-container">
-		                                <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script>
-		                                <!-- Adaptable -->
-		                                <ins class="adsbygoogle" style="display: block;" data-ad-client="ca-pub-1247097506454706" data-ad-slot="9146739595" data-ad-format="auto"></ins>
-		                                <script>// <![CDATA[
-			                                (adsbygoogle = window.adsbygoogle || []).push({});
-			                                // ]]></script>
+                                        <div class="ad-right"> 
+                                        <?php if ( is_active_sidebar( 'right-ad' ) ) { ?>
+                                                <?php dynamic_sidebar('right-ad'); ?>
+                                        <?php } ?>
+                                        </div>
+		                                
 	                                </div>
                                 </div>
                                 <!-- .et_pb_row -->
 
                             </div> <!-- .et_pb_section --><div class="et_pb_section et_section_regular">
-
-
-
-
 
                             </div> <!-- .et_pb_section -->
                         </div> <!-- .entry-content -->
@@ -354,4 +352,5 @@
 	</div> <!-- .container -->
 </div> <!-- #main-content -->
 
+<?php require_once('template-parts/lessons/player-js.php'); ?>
 <?php get_footer(); ?>

@@ -1084,7 +1084,7 @@ if ( ! function_exists( 'et_resize_image' ) ){
 	}
 }
 
-add_action( 'pre_get_posts', 'et_custom_posts_per_page' );
+//add_action( 'pre_get_posts', 'et_custom_posts_per_page' );
 function et_custom_posts_per_page( $query = false ) {
 	global $shortname;
 

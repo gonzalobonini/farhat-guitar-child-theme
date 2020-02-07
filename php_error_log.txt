@@ -1,0 +1,48 @@
+[06-Feb-2020 05:29:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\farhat\wp-includes\rest-api\endpoints\class-wp-rest-controller.php on line 295
+[06-Feb-2020 05:29:31 UTC] PHP Stack trace:
+[06-Feb-2020 05:29:31 UTC] PHP   1. {main}() E:\bin\wp-cli.phar:0
+[06-Feb-2020 05:29:31 UTC] PHP   2. include() E:\bin\wp-cli.phar:4
+[06-Feb-2020 05:29:31 UTC] PHP   3. include() phar://E:/bin/wp-cli.phar/php/boot-phar.php:11
+[06-Feb-2020 05:29:31 UTC] PHP   4. WP_CLI\bootstrap() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/wp-cli.php:25
+[06-Feb-2020 05:29:31 UTC] PHP   5. WP_CLI\Bootstrap\LaunchRunner->process() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/bootstrap.php:74
+[06-Feb-2020 05:29:31 UTC] PHP   6. WP_CLI\Runner->start() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php:23
+[06-Feb-2020 05:29:31 UTC] PHP   7. WP_CLI\Runner->load_wordpress() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php:1114
+[06-Feb-2020 05:29:31 UTC] PHP   8. WP_CLI::do_hook() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php:1216
+[06-Feb-2020 05:29:31 UTC] PHP   9. WC_CLI_Runner::after_wp_load() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/class-wp-cli.php:300
+[06-Feb-2020 05:29:31 UTC] PHP  10. WP_REST_Server->dispatch() E:\xampp\htdocs\farhat\wp-content\plugins\woocommerce\includes\cli\class-wc-cli-runner.php:63
+[06-Feb-2020 05:29:31 UTC] PHP  11. WP_REST_Server->get_index() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:946
+[06-Feb-2020 05:29:31 UTC] PHP  12. WP_REST_Server->get_data_for_routes() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1033
+[06-Feb-2020 05:29:31 UTC] PHP  13. WP_REST_Server->get_data_for_route() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1110
+[06-Feb-2020 05:29:31 UTC] PHP  14. WPCOM_REST_API_V2_Endpoint_Resolve_Redirect->get_public_item_schema() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1165
+[06-Feb-2020 05:32:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\farhat\wp-includes\rest-api\endpoints\class-wp-rest-controller.php on line 295
+[06-Feb-2020 05:32:00 UTC] PHP Stack trace:
+[06-Feb-2020 05:32:00 UTC] PHP   1. {main}() E:\bin\wp-cli.phar:0
+[06-Feb-2020 05:32:00 UTC] PHP   2. include() E:\bin\wp-cli.phar:4
+[06-Feb-2020 05:32:00 UTC] PHP   3. include() phar://E:/bin/wp-cli.phar/php/boot-phar.php:11
+[06-Feb-2020 05:32:00 UTC] PHP   4. WP_CLI\bootstrap() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/wp-cli.php:25
+[06-Feb-2020 05:32:00 UTC] PHP   5. WP_CLI\Bootstrap\LaunchRunner->process() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/bootstrap.php:74
+[06-Feb-2020 05:32:00 UTC] PHP   6. WP_CLI\Runner->start() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php:23
+[06-Feb-2020 05:32:00 UTC] PHP   7. WP_CLI\Runner->load_wordpress() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php:1114
+[06-Feb-2020 05:32:00 UTC] PHP   8. WP_CLI::do_hook() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php:1216
+[06-Feb-2020 05:32:00 UTC] PHP   9. WC_CLI_Runner::after_wp_load() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/class-wp-cli.php:300
+[06-Feb-2020 05:32:00 UTC] PHP  10. WP_REST_Server->dispatch() E:\xampp\htdocs\farhat\wp-content\plugins\woocommerce\includes\cli\class-wc-cli-runner.php:63
+[06-Feb-2020 05:32:00 UTC] PHP  11. WP_REST_Server->get_index() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:946
+[06-Feb-2020 05:32:00 UTC] PHP  12. WP_REST_Server->get_data_for_routes() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1033
+[06-Feb-2020 05:32:00 UTC] PHP  13. WP_REST_Server->get_data_for_route() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1110
+[06-Feb-2020 05:32:00 UTC] PHP  14. WPCOM_REST_API_V2_Endpoint_Resolve_Redirect->get_public_item_schema() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1165
+[06-Feb-2020 06:33:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\farhat\wp-includes\rest-api\endpoints\class-wp-rest-controller.php on line 295
+[06-Feb-2020 06:33:59 UTC] PHP Stack trace:
+[06-Feb-2020 06:33:59 UTC] PHP   1. {main}() E:\bin\wp-cli.phar:0
+[06-Feb-2020 06:33:59 UTC] PHP   2. include() E:\bin\wp-cli.phar:4
+[06-Feb-2020 06:33:59 UTC] PHP   3. include() phar://E:/bin/wp-cli.phar/php/boot-phar.php:11
+[06-Feb-2020 06:33:59 UTC] PHP   4. WP_CLI\bootstrap() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/wp-cli.php:25
+[06-Feb-2020 06:33:59 UTC] PHP   5. WP_CLI\Bootstrap\LaunchRunner->process() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/bootstrap.php:74
+[06-Feb-2020 06:33:59 UTC] PHP   6. WP_CLI\Runner->start() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php:23
+[06-Feb-2020 06:33:59 UTC] PHP   7. WP_CLI\Runner->load_wordpress() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php:1114
+[06-Feb-2020 06:33:59 UTC] PHP   8. WP_CLI::do_hook() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php:1216
+[06-Feb-2020 06:33:59 UTC] PHP   9. WC_CLI_Runner::after_wp_load() phar://E:/bin/wp-cli.phar/vendor/wp-cli/wp-cli/php/class-wp-cli.php:300
+[06-Feb-2020 06:33:59 UTC] PHP  10. WP_REST_Server->dispatch() E:\xampp\htdocs\farhat\wp-content\plugins\woocommerce\includes\cli\class-wc-cli-runner.php:63
+[06-Feb-2020 06:33:59 UTC] PHP  11. WP_REST_Server->get_index() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:946
+[06-Feb-2020 06:33:59 UTC] PHP  12. WP_REST_Server->get_data_for_routes() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1033
+[06-Feb-2020 06:33:59 UTC] PHP  13. WP_REST_Server->get_data_for_route() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1110
+[06-Feb-2020 06:33:59 UTC] PHP  14. WPCOM_REST_API_V2_Endpoint_Resolve_Redirect->get_public_item_schema() E:\xampp\htdocs\farhat\wp-includes\rest-api\class-wp-rest-server.php:1165

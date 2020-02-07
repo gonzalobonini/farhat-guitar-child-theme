@@ -4,11 +4,14 @@ include_once 'tomate-functions.php';
 
 include_once 'tomate-scripts-and-styles.php';
 
+function get_current_language(){
+    $lang = function_exists('pll_current_language') ?  pll_current_language() : 'en';
+    return $lang;
+}
+
 function new_get_all_bands($posts_per_page = -1, $orderby = 'post_title', $order = 'ASC', $changeLang = false)
 {
-    if(function_exists(pll_current_language)){
-      $lang = pll_current_language();
-    }
+    
     if($changeLang){
       $lang = 'en';
     }
@@ -76,8 +79,7 @@ function new_get_first_lesson_permalink($post)
 
 function new_get_children_lessons($song)
 {
-  $lang = pll_current_language();
-
+  $lang = get_current_language();  
     $args = array(
         'post_type' => 'new_lesson',
         'orderby' => 'post_title',
@@ -110,9 +112,8 @@ function new_get_all_songs()
 function new_get_children_songs($band, $changeLang = false)
 {
     //$songs = wp_cache_get('songs-'.$band->ID, '');
-    if(function_exists(pll_current_language)){
-      $lang = pll_current_language();
-    }
+    $lang = get_current_language();
+    
     if($changeLang){
       $lang = 'en';
     }
@@ -174,6 +175,15 @@ function add_custom_types_to_tax($query)
     }
 }
 add_filter('pre_get_posts', 'add_custom_types_to_tax');
+
+add_action( 'pre_get_posts', 'wpshout_pages_blogindex' );
+function wpshout_pages_blogindex( $query ) {
+    $lang = pll_current_language();
+
+	if ($query->is_main_query() ) :
+		//$query->set( 'lang', 'es' );
+	endif;
+}
 
 
 /* Remove billing details from Woocommerce */
@@ -273,7 +283,8 @@ function generate_template_for_menu()
             $current_songs = new_get_children_songs($current_band, true);
             foreach ($current_songs as $current_song) {
                 $menu_html .= '<li>'."";
-                $menu_html .= '<a href="#"><i class="fa fa-circle fa-xs"></i> <span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
+                //$menu_html .= '<a href="#"><i class="fa fa-circle fa-xs"></i> <span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
+                $menu_html .= '<a href="#"><span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
                 $menu_html .= '<ul class="treeview-menu">';
 
                 $lessons = new_get_children_lessons($current_song);
@@ -310,3 +321,55 @@ function wpinternationlizationtheme_setup(){
     load_theme_textdomain( $domain, get_template_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'wpinternationlizationtheme_setup' );
+
+add_action('after_setup_theme', 'remove_admin_bar');
+ 
+function remove_admin_bar() {
+  show_admin_bar(false);
+}
+
+/**
+ * Ads sidebars.
+ */
+function farhat_sidebars() {
+    register_sidebar( array(
+        'name'          => __( 'Footer Ad', 'farhat' ),
+        'id'            => 'footer-ad',
+        'description'   => __( 'Widgets in this area will be shown on the footer of all pages.', 'textdomain' ),
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Right Side Ad', 'fahat' ),
+        'id'            => 'right-ad',
+        'description'   => __( 'Widgets in this area will be shown on the right on some pages.', 'textdomain' ),
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'farhat_sidebars' );
+
+function get_mobile_detect(){
+    require_once 'includes/Mobile-Detect/Mobile_Detect.php';
+    return $detect = new Mobile_Detect;
+}
+
+/**
+ * Disable the emoji's
+ */
+function disable_emojis() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );	
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	
+}
+add_action( 'init', 'disable_emojis' );

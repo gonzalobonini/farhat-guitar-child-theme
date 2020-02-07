@@ -1,3 +1,15 @@
+$dark_active: #1e282c;
+/* left bar */
+.left-bar-container {
+  overflow-y: auto;
+  width: 220px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 700px;
+  padding: 10px 0;
+  padding-top: 0;
+}
+
 .sidebar-menu {
   list-style: none;
   margin: 0;
@@ -8,15 +20,17 @@
     margin: 0;
     padding: 0; }
     .sidebar-menu > li > a {
-      padding: 12px 5px 12px 15px;
+      padding: 10px 5px 10px 15px;
       display: block;
       border-left: 3px solid transparent;
       color: #b8c7ce; }
       .sidebar-menu > li > a > .fa {
-        width: 20px; }
+        width: 20px; 
+        margin-top: 5px;      
+      }
     .sidebar-menu > li:hover > a, .sidebar-menu > li.active > a {
       color: #fff;
-      background: #1e282c;
+      background: $dark_active;
       border-left-color: #3c8dbc; }
     .sidebar-menu > li > .treeview-menu {
       margin: 0 1px;
@@ -56,13 +70,24 @@
       .sidebar-menu .treeview-menu > li > a {
         padding: 5px 5px 5px 15px;
         display: block;
-        font-size: 14px;
+        font-size: 12px;
         color: #8aa4af; }
         .sidebar-menu .treeview-menu > li > a > .fa {
-          width: 20px; }
+          width: 20px; 
+          margin-top: 5px;
+        }
         .sidebar-menu .treeview-menu > li > a > .fa-angle-left,
         .sidebar-menu .treeview-menu > li > a > .fa-angle-down {
           width: auto; }
       .sidebar-menu .treeview-menu > li.active > a, .sidebar-menu .treeview-menu > li > a:hover {
         color: #fff; }
 
+        #left-area ul li ul, .entry-content ul li ol, .comment-content ul li ul, .comment-content ul li ol {
+          padding: 0px;
+        }
+
+        .treeview-menu.menu-open {
+          li.active {
+            background: $dark_active;
+          }
+        }

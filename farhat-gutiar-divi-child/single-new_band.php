@@ -4,303 +4,65 @@
 <div class="container">
 <div id="content-area" class="clearfix">
 <div id="left-area">
-<?php while (have_posts()) : the_post(); ?>
+
+<?php 
+
+//echo $lang = pll_current_language();
+
+$args = array('post_type'=> 'new_band', 'post__in' => get_the_ID());
+
+//set_query_var( 'lang', 'es' );
+wp_reset_postdata();
+
+//if ( have_posts() ) : the_post(); 
+while (have_posts()) : the_post(); ?>
+
   <?php if (et_get_option('divi_integration_single_top') <> '' && et_get_option('divi_integrate_singletop_enable') == 'on') {
     echo(et_get_option('divi_integration_single_top'));
 } ?>
 
   <article id="post-<?php the_ID(); ?>" <?php post_class('et_pb_post'); ?>>
-  <?php
-  $debug = false;
-
-  $songs = new_get_children_songs(get_post());
-
-  $genres = get_the_terms(get_the_ID(), 'style');
-
-  $genres_names = new_get_array_of_properties($genres, 'name');
-
-
-
-  $members = get_the_terms(get_the_ID(), 'member');
-
-  $past_members = get_the_terms(get_the_ID(), 'past_member');
-
-
-  $tags = get_the_terms(get_the_ID(), 'post_tag');
-
-  $lang = pll_current_language();
-
-  $args = array(
-    'posts_per_page' => 3,
-    'post_type' => 'new_band',
-    'tax_query' => array(
-      array(
-        'taxonomy' => 'style',
-        'field' => 'name',
-        'terms' => $genres_names,
-        'operator' => 'IN'
-      )
-    ),
-    'lang' => $lang,
-    'post__not_in' => array(get_the_ID())
-  );
-
-  $related_bands_query = new WP_Query($args);
-
-
-
-  $related_bands = $related_bands_query->posts;
-
-  $origin = get_post_meta(get_the_ID(), 'new_band_origin', true);
-  $active = get_post_meta(get_the_ID(), 'new_band_active', true);
-  $website = get_post_meta(get_the_ID(), 'new_band_website', true);
-
-
-  //                    $i = 0;
-  //                    $lesson = array();
-  //                    foreach ($songs as $song) {
-  //                        $lessons[$i] = new_get_children_lessons($song);
-  //                        $i++;
-  //                    }
-
-  if ($debug) {
-//                            echo "genres_names";
-//                            var_dump($genres_names);
-//                            echo "genres";
-//                            var_dump($genres);
-//                            echo "members";
-//                            var_dump($members);
-//                            echo "past_members";
-//                            var_dump($past_members);
-//                            echo "tags";
-//                            var_dump($tags);
-//                            echo "origin";
-//                            var_dump($origin);
-//                            echo "active";
-//                            var_dump($active);
-//                            echo "website";
-//                            var_dump($website);
-      echo "songs";
-      var_dump($songs);
-      echo "related bands";
-      var_dump($related_bands);
-  }
-
-
-  ?>
-  <h1><?php the_title(); ?></h1>
-
-
-
+  
   <div class="entry-content">
     <div class="et_pb_section et_section_regular">
-
-
 
       <div class="et_pb_row">
         <div class="et_pb_column et_pb_column_1_4 left-bar-container">
           <?php include "left-bar.php"; ?>
         </div>
+
         <div class="et_pb_column et_pb_column_3_4">
           <img src="<?php echo new_get_featured_image_link(get_the_ID()); ?>" alt="" class="et-waypoint et_pb_image et_pb_animation_fade_in band-main-image et_pb_image_sticky et-animated"><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left band-name-title">
 
-            <p><?php the_title(); ?></p>
+            <h1><?php the_title(); ?></h1>
 
           </div> <!-- .et_pb_text -->
         </div> <!-- .et_pb_column -->
       </div> <!-- .et_pb_row -->
 
-    </div> <!-- .et_pb_section --><div class="et_pb_section songs-and-details-section et_section_regular" style="background-color:#ffffff;">
+    </div> <!-- .et_pb_section -->
+    
+    <div class="et_pb_section songs-and-details-section et_section_regular" style="background-color:#ffffff;">
 
+     
+          <div class="et_pb_row">
 
-
-      <div class="et_pb_row">
-        <div class="et_pb_column et_pb_column_3_4">
-          <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left band-songs-title section-title">
-            Songs
-          </div> <!-- .et_pb_text -->
-        </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_4">
-          <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-songs-title section-title hidden-xs">
-            Details
-          </div> <!-- .et_pb_text -->
-        </div> <!-- .et_pb_column -->
-            </div> <!-- .et_pb_row --><div class="et_pb_row">
-                <div class="et_pb_column et_pb_column_3_4 band_songs_container">
-                <?php foreach ($songs as $song) {
-      ?>
-                    <div class="et_pb_column et_pb_column_1_4">
-                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left song-lessons-list">
-
-                            <div class="item-song-header"><a title="<?php echo $song->post_title; ?>" href="<?php echo new_get_first_lesson_permalink($song); ?>"><img class="alignnone  wp-image-1588" src="<?php echo new_get_featured_image_link($song); ?>" alt="220px-ACDC_Back_in_Black_Single_Cover" width="105" height="105"></a></div>
-                            <div class="item-song-title">
-                                <h3><?php echo $song->post_title; ?></h3>
-                                <h3></h3>
-                            </div>
-                            <div class="part-songs-list">
-                                <ul class="lcp_catlist" id="lcp_instance_0">
-                                    <?php
-                                    $lessons = new_get_children_lessons($song);
-      foreach ($lessons as $lesson) {
-          ?>
-                                    <li>
-                                        <a href="<?php echo get_the_permalink($lesson); ?>"
-                                           title="Lesson <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>">
-                                            <?php _e('Lesson ', 'farhat'); ?> <?php echo get_post_meta($lesson->ID, 'new_lesson_number', true); ?>
-                                        </a>
-                                    </li>
-                                        <?php
-      } ?>
-                                </ul>
-                            </div>
-
-                        </div> <!-- .et_pb_text --><!-- .et_pb_text -->
-                    </div>
-                <?php
-  } ?> <!-- .et_pb_column -->
-                    </div>
-        <div class="et_pb_column et_pb_column_1_4">
-          <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-list">
-            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left details-songs-title section-title visible-xs">
-              Details
+            <div class="et_pb_column et_pb_column_3_4 band_songs_container">
+              <?php get_template_part('template-parts/bands/band-songs'); ?> 
             </div>
 
-            <?php if ($origin) {
-      ?>
-            <ul>
-              <li>
-                <div class="details-first-column"><?php _e('Origin:', 'farhat'); ?></div>
-                <div class="details-second-column">
-                  <?php echo $origin; ?>
-                </div>
-                <hr>
-              </li>
-            </ul>
-            <?php
-  } ?>
+            <div class="et_pb_column et_pb_column_1_4">
+              <?php get_template_part('template-parts/bands/band-details'); ?> 
+            </div> <!-- .et_pb_column -->   
 
-            <?php if ($active) {
-      ?>
-            <ul>
-              <li>
-                <div class="details-first-column"><?php _e('Active:', 'farhat'); ?></div>
-                <div class="details-second-column">
-                  <?php echo $active; ?>
-                </div>
-                <hr>
-              </li>
-            </ul>
-            <?php
-  } ?>
+        </div>
 
-            <?php $TestTags = new_get_separeted_by_commas_list($tags);
-            if ($TestTags) {
-                ?>
-            <ul>
-              <li>
-                <div class="details-first-column"><?php _e('Labels:', 'farhat'); ?></div>
-                <div class="details-second-column" style="text-align: left;">
-                  <?php echo new_get_separeted_by_commas_list($tags); ?>
-                </div>
-                <hr>
-              </li>
-            </ul>
-            <?php
-            } ?>
-
-            <ul>
-              <?php $TestGenres = new_get_separeted_by_commas_list($genres);
-              if ($TestGenres) {
-                  ?>
-              <li>
-                <div class="details-first-column"><?php _e('Genre:', 'farhat'); ?></div>
-                <div class="details-second-column">
-                  <?php echo new_get_separeted_by_commas_list($genres); ?>
-                </div>
-                <hr>
-              </li>
-              <?php
-              } ?>
-
-              <?php $TestWebsite = new_get_separeted_by_commas_list($website);
-              if ($TestWebsite) {
-                  ?>
-              <li>
-                <div class="details-first-column"><?php _e('Website:', 'farhat'); ?></div>
-                <div class="details-second-column">
-                  <a href="<?php echo $website; ?>"><?php echo $website; ?></a>
-                </div>
-                <hr>
-              </li>
-              <?php
-              } ?>
-
-              <?php $TestMembers = new_get_separeted_by_commas_list($members);
-              if ($TestMembers) {
-                  ?>
-              <li>
-                <div class="details-first-column">&nbsp;<?php _e('Members:', 'farhat'); ?></div>
-                <div class="details-second-column">
-                  <?php echo new_get_separeted_by_commas_list($members); ?>
-                </div>
-                  <hr>
-              </li>
-              <?php
-              } ?>
-            </ul>
-
-            <?php $TestPastMembers = new_get_separeted_by_commas_list($past_members);
-            if ($TestPastMembers) {
-                ?>
-            <ul>
-              <li>
-                <div class="details-first-column"><?php _e('Past Members:', 'farhat'); ?></div>
-                <div class="details-second-column">
-                  <?php echo new_get_separeted_by_commas_list($past_members); ?>
-                </div>
-                <hr>
-              </li>
-              <li>
-                <div class="details-second-column"><hr></div>
-
-              </li>
-            </ul>
-            <?php
-            } ?>
-
-          </div> <!-- .et_pb_text -->
-        </div> <!-- .et_pb_column -->
+      
       </div> <!-- .et_pb_row -->
 
     </div> <!-- .et_pb_section --><div class="et_pb_section et_section_regular">
 
-
-
-      <div class="et_pb_row">
-        <div class="et_pb_column et_pb_column_4_4">
-          <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-artists-title section-title">
-            <?php _e('Related Artists', 'farhat'); ?>
-          </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left related-bands">
-
-            <ul class="lcp_catlist" id="lcp_instance_0">
-              <?php
-              foreach ($related_bands as $band) {
-                  ?>
-                <li><a href="<?php echo get_the_permalink($band); ?>"
-                       title="<?php echo $band->post_title ?>"><?php echo $band->post_title ?></a> <a
-                    href="<?php echo get_the_permalink($band); ?>"
-                    title="<?php echo $band->post_title ?>"><img width="144" height="95"
-                                                                 src="<?php echo new_get_featured_image_link($band); ?>"
-                                                                 class="attachment-thumbnail wp-post-image"
-                                                                 alt="AC:DC2_145_95"></a></li>
-              <?php
-              }
-              ?>
-
-            </ul>
-
-          </div> <!-- .et_pb_text -->
-        </div> <!-- .et_pb_column -->
-      </div> <!-- .et_pb_row -->
+    <?php get_template_part('template-parts/bands/related-bands'); ?>
 
     </div> <!-- .et_pb_section -->
   </div> <!-- .entry-content -->
@@ -389,7 +151,7 @@
 
   <div class="entry-content">
     <?php
-    the_content();
+    //the_content();
 
     wp_link_pages(array( 'before' => '<div class="page-links">' . __('Pages:', 'Divi'), 'after' => '</div>' ));
     ?>
@@ -419,7 +181,7 @@
   <?php if (et_get_option('divi_integration_single_bottom') <> '' && et_get_option('divi_integrate_singlebottom_enable') == 'on') {
       echo(et_get_option('divi_integration_single_bottom'));
   } ?>
-<?php endwhile; ?>
+<?php endwhile; //endif; ?>
 </div> <!-- #left-area -->
 
 <?php get_sidebar(); ?>
