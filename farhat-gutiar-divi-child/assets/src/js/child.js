@@ -10,7 +10,7 @@ function setupMenuBar() {
 
 jQuery(document).ready(function($) {
 	
-
+ 
   $('li.first').removeClass('first');
   $('li.last').removeClass('last');
 

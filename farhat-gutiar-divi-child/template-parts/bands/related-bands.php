@@ -16,7 +16,7 @@ $args = array(
         'operator' => 'IN'
       )
     ),
-    'lang' => $lang,
+    'lang' => get_current_language(),
     'post__not_in' => array(get_the_ID())
   );
 

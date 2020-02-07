@@ -4,7 +4,9 @@
 </div> <!-- .et_pb_text -->
 
 <?php 
-$songs = new_get_children_songs(get_post());
+$original_post = pll_get_post(get_the_ID(),'en');
+$songs = new_get_children_songs($original_post);
+
 foreach ($songs as $song) {     ?>
     <div class="et_pb_column et_pb_column_1_4">
         <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left song-lessons-list">

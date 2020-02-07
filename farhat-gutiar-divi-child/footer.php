@@ -35,7 +35,11 @@ if (! is_page_template('page-template-blank.php')) : ?>
 			<?php endif; ?>
 			
 			<div class="ad-footer"> 
-			<?php if ( is_active_sidebar( 'footer-ad' ) ) { ?>
+			
+			<?php 
+			$detect = get_mobile_detect();
+
+			if ( is_active_sidebar( 'footer-ad' ) && !$detect->isMobile() && !$detect->isTablet()) { ?>
 					<?php dynamic_sidebar('footer-ad'); ?>
 			<?php } ?>
 			</div>

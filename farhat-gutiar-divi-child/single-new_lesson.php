@@ -223,7 +223,11 @@
                                     </div>
 	                                <div class="et_pb_column et_pb_column_1_4 right-banner-lesson-container">
                                         <div class="ad-right"> 
-                                        <?php if ( is_active_sidebar( 'right-ad' ) ) { ?>
+                                        
+                                        <?php 
+                                        	$detect = get_mobile_detect();
+
+                                            if ( is_active_sidebar( 'right-ad' ) && !$detect->isMobile() && !$detect->isTablet()) { ?>
                                                 <?php dynamic_sidebar('right-ad'); ?>
                                         <?php } ?>
                                         </div>

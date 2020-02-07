@@ -1,7 +1,7 @@
 <?php
 
 /*
-Template Name: Home Page
+Template Name: Farhat Home Page
 */
 
 get_header();
@@ -77,6 +77,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used(get_the_ID());
         // list the left bar
 
 // Exclude tablets.
+$detect = get_mobile_detect();
 if (!$detect->isMobile() || $detect->isTablet()) {
     ?>
     <div style="background-color:#ffffff;" class="et_pb_section et_pb_section_parallax et_pb_fullwidth_section et_section_regular">

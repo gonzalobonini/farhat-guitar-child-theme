@@ -127,7 +127,7 @@ function new_get_children_songs($band, $changeLang = false)
     'meta_query' => array(
       array(
         'key' => 'new_song_band_id',
-        'value' => $band->ID,
+        'value' => $band,
         'compare' => '=',
       )
     )
@@ -176,7 +176,7 @@ function add_custom_types_to_tax($query)
 }
 add_filter('pre_get_posts', 'add_custom_types_to_tax');
 
-add_action( 'pre_get_posts', 'wpshout_pages_blogindex' );
+//add_action( 'pre_get_posts', 'wpshout_pages_blogindex' );
 function wpshout_pages_blogindex( $query ) {
     $lang = pll_current_language();
 
@@ -279,8 +279,8 @@ function generate_template_for_menu()
             $menu_html .= '<li class="treeview">';
             $menu_html .= '<a href="#"><i class="fa fa-music"></i> <span>'.$current_band->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
             $menu_html .= '<ul class="treeview-menu">';
-
-            $current_songs = new_get_children_songs($current_band, true);
+            $a = $current_band->ID;
+            $current_songs = new_get_children_songs($current_band->ID, true);
             foreach ($current_songs as $current_song) {
                 $menu_html .= '<li>'."";
                 //$menu_html .= '<a href="#"><i class="fa fa-circle fa-xs"></i> <span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
@@ -373,3 +373,33 @@ function disable_emojis() {
 	
 }
 add_action( 'init', 'disable_emojis' );
+
+
+function get_trashed_bands(){
+
+    $args = array(
+        'post_type' => 'new_band', 
+        'posts_per_page' => -1,
+        'post_status' => 'trash'
+    ); 
+    $do_it = true;
+
+    $trashed = new WP_Query($args);
+    $saved = array(12076,12079,12082,12084,12088,12091,12095,12098,12101,12104,12108,12110,12114,12118,12122,12124,12129,12133,12137,12141,12147,12151,12154,12157,12161,12163,12167,12170,12173);
+
+    if($do_it){
+        foreach( $saved as $trash ){
+            //echo 'Deleted ' . $trash.',';
+            wp_trash_post($trash);
+        }
+    } else {
+        foreach( $trashed->posts as $trash ){
+            echo $trash->ID.',';
+        }
+    }
+    
+
+    
+}
+
+//add_action('wp_footer', 'get_trashed_bands');
