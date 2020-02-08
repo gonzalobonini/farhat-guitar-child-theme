@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 	
  
   $('li.first').removeClass('first');
-  $('li.last').removeClass('last');
+  $('li.last').removeClass('last');  
 
   /* Ocultar cuando el usuario se va del top */
 
@@ -54,14 +54,13 @@ jQuery(document).ready(function($) {
 		jQuery('.songs-and-details-section .et_pb_row .et_pb_column.et_pb_column_1_4:last-child').prepend(mobile_title);
 	}*/
 	/**** End fix ****/
-
+ 
 
 	$("#et_top_search").click(function(){
-    console.log("Click");
-		$(".et-search-field.desktop").focus();
-	});
+		$(".et-search-field.desktop").focus(); 
+	});  
 
-
+ 
 	
 	if($(window).width() < 768){ // Solo si es mobile
 	

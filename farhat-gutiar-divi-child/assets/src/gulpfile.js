@@ -18,9 +18,9 @@ gulp.task('sass', function(){
 gulp.task('scripts', function() {
  return gulp.src(['js/*.js', 'js/*.mjs'])
   .pipe(concat('farhat-all.js'))
-  .pipe(minify({
-    noSource: true
-  }))
+  //.pipe(minify({
+  //  noSource: true
+  //}))
   .pipe(gulp.dest('../js'));
   }); 
 

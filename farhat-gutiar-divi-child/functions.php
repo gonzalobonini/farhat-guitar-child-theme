@@ -373,33 +373,3 @@ function disable_emojis() {
 	
 }
 add_action( 'init', 'disable_emojis' );
-
-
-function get_trashed_bands(){
-
-    $args = array(
-        'post_type' => 'new_band', 
-        'posts_per_page' => -1,
-        'post_status' => 'trash'
-    ); 
-    $do_it = true;
-
-    $trashed = new WP_Query($args);
-    $saved = array(12076,12079,12082,12084,12088,12091,12095,12098,12101,12104,12108,12110,12114,12118,12122,12124,12129,12133,12137,12141,12147,12151,12154,12157,12161,12163,12167,12170,12173);
-
-    if($do_it){
-        foreach( $saved as $trash ){
-            //echo 'Deleted ' . $trash.',';
-            wp_trash_post($trash);
-        }
-    } else {
-        foreach( $trashed->posts as $trash ){
-            echo $trash->ID.',';
-        }
-    }
-    
-
-    
-}
-
-//add_action('wp_footer', 'get_trashed_bands');
