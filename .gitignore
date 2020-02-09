@@ -1,2 +1,7 @@
-farhat-guitar-divi-child/assets/src/node_modules/
-farhat-gutiar-divi-child/assets/src/node_modules/*
+node_modules/
+farhat-guitar-divi-child/launch.json
+farhat-guitar-divi-child/settings.json
+farhat-guitar-divi-child/wp
+farhat-guitar-divi-child/php_error_log.txt
+.vscode/launch.json
+.vscode/settings.json

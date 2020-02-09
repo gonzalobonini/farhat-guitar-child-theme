@@ -1,13 +1,4 @@
 
-function setupMenuBar() {
-  $("#left-bar").slicknav({
-    label: '',
-    duration: 1000,
-    easingOpen: "easeOutBounce"
-  });
-} 
-
-
 jQuery(document).ready(function($) {
 	
  
@@ -15,20 +6,6 @@ jQuery(document).ready(function($) {
   $('li.last').removeClass('last');  
 
   /* Ocultar cuando el usuario se va del top */
-
-  $(window).scroll(checkscroll);
-
-
-  function checkscroll(){
-    var top = $(window).scrollTop();
-    if(top > 5){
-      $('.ocultable').fadeOut('slow');
-    }else{
-      $('.ocultable').fadeIn('slow');
-    }
-  }
-
-  checkscroll();
 
   //setupMenuBar();
 
@@ -64,7 +41,7 @@ jQuery(document).ready(function($) {
 	
 	if($(window).width() < 768){ // Solo si es mobile
 	
-
+	console.log("Sidr");
 	$('#simple-menu').sidr({
 		displace: false
 	});

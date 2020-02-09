@@ -1,3 +1,5 @@
+a { color: darken($orange, 15%) }
+
 .single-post #primary {
     margin: 0;
 }
@@ -15,14 +17,13 @@
 
 body {
     margin: auto;
-    max-width: 320px;
     font-family: open sans;
-    max-width: 960px;
+    max-width: 100%;
 }
 
 #main-header, body.admin-bar.et_fixed_nav #top-header {
     margin: auto;
-    max-width: 960px;
+    //max-width: 960px;
 }
 .container,
 .et_pb_row  {
@@ -189,20 +190,14 @@ width: 94%;
 
 /* Arreglos para fijar el ancho */
 
-body {
-    margin: auto;
-    max-width: 320px;
-    font-family: open sans;
-    max-width: 960px;
-}
 
 #main-header, body.admin-bar.et_fixed_nav #top-header {
     margin: auto;
-    max-width: 960px;
+    //max-width: 960px;
 }
 
 #contact-information {
-    color: #ff8f5f;
+    color: $dark_active;
     float: right;
     font-weight: bold;
 	padding-top: 0px;
@@ -259,9 +254,11 @@ body {
     float: none;
 }
 
-#custom_post_widget-2 {
-    border-top: 3px solid #eb4a09;
+#footer-widgets {
+    border-top: 3px solid $orange;
+    padding-top: 5px;
 }
+
 
 .single-bands .container > #content-area > div > article > h1 {
     display: none;
@@ -291,7 +288,8 @@ body {
 }
 
 .related-songs ul li a {
-    font-size: 12px;
+    font-size: 14px;
+    color: black;
 }
 
 .related-bands p,
@@ -384,14 +382,16 @@ h4 a {
 
 .band-name-title {
     background-color: rgba(0, 0, 0, 0.5);
-    float: left;
-    font-size: 2em;
-    margin-top: -50px;
     position: relative;
-    z-index: 11;
+    margin-top: 0px;    
     h1 {
-        padding-left: 15px;
+        font-size: 3em;
         color: white;
+        position: absolute;
+        bottom: 0;
+        z-index: 999;
+        left: 10px;
+        margin: 0;
     }
 }
 
@@ -518,7 +518,7 @@ ul.page-numbers li a.page-number {
     padding: 0;
 }
 .video-section, .video-section > div {
-    margin: 0;
+    margin: 0; 
     padding: 0;
 }
 
@@ -556,27 +556,23 @@ margin: 4px;
 }
 
 .video-section {
-    height: 630px;
+    max-height: 630px; 
     overflow: hidden;
+    margin-bottom: 15px;
 }
 
 .width-100 {
     width: 100%;
     max-width: 100%;
-}
+} 
 /* related songs */
 
 
-.related-songs ul > li {
-    float: left;
-    margin: 1.5%;
-    width: 30%;
-    list-style: outside none none;
+.related-songs .related-song{
+    margin-bottom: 15px;
+    min-height: 200px;
 }
 
-.related-songs ul > li > a {
-    width: 50%;
-}
 
 /* related bands */
 
@@ -639,7 +635,7 @@ margin: 4px;
 }
 
 #main-content .container {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 /* Header */
@@ -662,7 +658,7 @@ div#et_top_search form input.et-search-field {
 }
 
 #contact-information a.et-cart-info:hover {
-    color: #ec5518 !important;
+    color: $orange !important;
 }
 
 #logo {
@@ -676,9 +672,7 @@ div#et_top_search form input.et-search-field {
 }
 
 #et-top-navigation {
-    background-color: #ec5518;
-	clear: both;
-    border-top: 3px solid #000000;
+    background-color: $dark_active;
 }
 
 header#main-header img#logo {
@@ -713,17 +707,13 @@ header#main-header img#logo {
 	padding-top:2px;
 }
 
-div#et-top-navigation {
-    height: 30px;
-}
-
 #contact-information > form {
     float: right;
 }
 
 header#main-header {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 1);
-	padding-top: 0 !important;
+    
+    padding-top: 15px;
 }
 .et_nav_text_color_light #top-menu > li > a, .et_nav_text_color_light .fullwidth-menu > li > a {
 	color: #FFFFFF;
@@ -739,7 +729,7 @@ header#main-header {
 /* home */
 
 .home-side-banner {
-    border-left: solid 1px #000000;
+    border-left: solid 1px #e4e4e4;
     height: 300px
 }
 
@@ -804,11 +794,6 @@ header#main-header {
 #contact-information ul.et-social-icons {
 	padding-top: 10px;
 }
-#top-menu a {
-    font-family: open sans;
-    font-size: 12pt;
-    font-weight: bold;
-}
 
 .et_pb_slide_image > img {
     display: none;
@@ -832,7 +817,7 @@ header#main-header {
 }
 
 .et_pb_slide_description {
-    border-bottom: 5px solid #eb4a09;
+    border-bottom: 5px solid $orange;
 }
 
 .et_pb_slide.et_pb_slide_with_image.et_pb_bg_layout_dark.et_pb_media_alignment_center {
@@ -967,14 +952,15 @@ ul.alphabetical-list li div.list-container ul li {
 /* Section Titles */
 
 .latest-uploads, .section-title {
-    background-color: #cccccc;
-    border-bottom: 2px solid #eb4a09;
-    color: #ff6600;
+    border-bottom: 1px solid $orange;
+    color: $orange;
     font-family: open sans;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
-    padding-left: 10px;
     text-transform: uppercase;
+    padding: 5px 10px;
+    padding-left: 0;
+    margin-bottom: 15px;
 }
 
 .section-title h3 {
@@ -987,15 +973,11 @@ ul.alphabetical-list li div.list-container ul li {
     display: none;
 }
 
-.section-title {
-    margin-bottom: 8px;
-}
 
 .sub-section-title {
-    border-bottom: 1px solid #ec5518;
-    color: #ec5518;
-    font-family: open sans;
-    font-size: 14pt;
+    border-bottom: 1px solid $orange;
+    color: $orange;
+    font-size: 15px;
     padding-bottom: 5px;
     font-weight: bold;
 	position: absolute;
@@ -1014,9 +996,7 @@ ul.alphabetical-list li div.list-container ul li {
 .section-title h3 {
     padding-top: 5px;
 }
-.section-title {
-    height: 24px;
-}
+
 
 .et_pb_fullwidth_header {
   padding: 5px 0;
@@ -1037,14 +1017,19 @@ ul.alphabetical-list li div.list-container ul li {
 }
 
 #footer-bottom {
-	background-color: #EB6908;
+    background-color: $dark_active;
+    .et-social-icons {
+        .et-social-icon a.icon {
+            &:before {
+                color: white;
+            }
+        }
+    }
 }
 .footer-widget {
   margin-bottom: 0px;
 }
-#footer-widgets {
-  padding-top: 5px;
-}
+
 #footer-widgets .et_pb_row {
   padding-top: 10px;
 }
@@ -1072,9 +1057,6 @@ ul.alphabetical-list li div.list-container ul li {
     margin-left: 5px;
 }
 
-div#footer-bottom {
-    height: 45px;
-}
 
 #footer-second-column {
     background-color: lightgray;
@@ -1130,12 +1112,16 @@ div#footer-bottom {
 /* Social Header */
 
 #main-header .et-social-icon a {
-	background: url(assets/images/bg-social.png) no-repeat;
+	//background: url(assets/images/bg-social.png) no-repeat;
 	height: 24px;
 	width: 24px;
 	font-size: 13px;
-	line-height: 24px;
+    line-height: 24px;
+    background: $orange;
+    border-radius: 2px;
+    color: white;
 }
+
 #main-header .et-social-icons li {
 	margin-left: 3px;
 }
@@ -1245,10 +1231,12 @@ ul.unIndentedList {
     border: 1px solid #d3d3d3;
     float: left;
     margin: 2%;
-    max-height: 300px;
+    max-height: 300px; 
     overflow: hidden;
     padding: 2%;
-    width: 20%;
+    @media all and (min-width: 768px){
+        width: 32%;
+    }
 }
 .archive article.product,
 .search article.product {
@@ -1324,12 +1312,6 @@ and (orientation : portrait) { /* STYLES GO HERE */
         position: initial;
     }
 
-    .latest-uploads {
-        padding-left: 0;
-        margin-top: 50px;
-    }
-
-
     #main-header #et_mobile_nav_menu {
         margin-top: 0px;
     }
@@ -1386,8 +1368,7 @@ and (orientation : portrait) { /* STYLES GO HERE */
         width: auto;
         max-width: 300px;
     }
-    .video-section {
-    }
+   
     .treeview {
         list-style-type: none;
         padding: 10px 20px;
@@ -1451,9 +1432,7 @@ and (orientation : portrait) { /* STYLES GO HERE */
     .single .part-songs-list {
       text-align: center;
     }
-    div#footer-bottom {
-      height: auto;
-    }
+   
     #footer-bottom div.container {
       float: none;
     }
@@ -1463,7 +1442,7 @@ and (orientation : portrait) { /* STYLES GO HERE */
     }
     #footer-widgets .et_pb_column_1_3 {
         padding-top: 0px;
-        float: none;
+        float: none; 
         width: auto;
         margin: 0!important;
     }
@@ -1603,6 +1582,13 @@ a.toggle-sidebar {
   }
 }
 
+.et_pb_row, .container, .et_pb_container {
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
+
+}
+
 .search-result-block h4 {
   font-size: 15px;
   font-weight: bold;
@@ -1614,3 +1600,28 @@ a.toggle-sidebar {
   width: 100%;
   height: 150px;
 }
+
+#et-top-navigation {
+    padding: 15px 0;
+    #top-menu > li {
+        &>a {
+            padding-bottom: 0;
+            color: white;
+            &:hover{
+                color: $orange;
+            }
+        }
+        .sub-menu {
+            padding: 0;
+            background: darken($dark_active, 10%);
+            a {
+                color: white;
+            }
+        }
+    } 
+
+    #et_search_icon:before {
+        color: white;
+    }
+}
+

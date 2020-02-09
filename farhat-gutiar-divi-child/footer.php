@@ -6,13 +6,13 @@
 
 	?>
 
+</div> <!-- #et-main-area -->
 
-<?php
 
-if (! is_page_template('page-template-blank.php')) : ?>
+	</div> <!-- #page-container -->
 
-			<footer id="main-footer">
-				<?php get_sidebar('footer'); ?>
+	<footer id="main-footer">
+		<?php get_sidebar('footer'); ?>
 
 
 		<?php
@@ -52,15 +52,10 @@ if (! is_page_template('page-template-blank.php')) : ?>
                     }
                 ?>
 
-						<p id="footer-info"><?php printf(__('Designed by %1$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>'); ?></p>
+						<p id="footer-info"><?php printf(__('Designed by %1$s + %2$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>', '<a href="http://www.gonza.io" target="_blank" title="gonza.io">Gonza.io</a>');  ?></p>
 					</div>	<!-- .container -->
 				</div>
 			</footer> <!-- #main-footer -->
-		</div> <!-- #et-main-area -->
-
-<?php endif; // ! is_page_template( 'page-template-blank.php' )?>
-
-	</div> <!-- #page-container -->
 
 	<?php wp_footer(); ?>
 

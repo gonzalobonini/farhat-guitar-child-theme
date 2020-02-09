@@ -5,10 +5,11 @@
 
 <?php 
 $original_post = pll_get_post(get_the_ID(),'en');
-$songs = new_get_children_songs($original_post);
-
+$songs = new_get_children_songs($original_post); ?>
+<div class="row"> 
+<?php 
 foreach ($songs as $song) {     ?>
-    <div class="et_pb_column et_pb_column_1_4">
+    <div class="col-md-4 col-xs-12">
         <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left song-lessons-list">
 
             <div class="item-song-header"><a title="<?php echo $song->post_title; ?>" href="<?php echo new_get_first_lesson_permalink($song); ?>"><img class="alignnone  wp-image-1588" src="<?php echo new_get_featured_image_link($song); ?>" alt="220px" width="105" height="105"></a></div>
@@ -34,4 +35,5 @@ foreach ($songs as $song) {     ?>
 
         </div> <!-- .et_pb_text --><!-- .et_pb_text -->
     </div>
-    <?php } ?> 
+    <?php } ?>
+</div>

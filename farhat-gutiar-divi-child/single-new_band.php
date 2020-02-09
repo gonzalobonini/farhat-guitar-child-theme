@@ -26,43 +26,36 @@ while (have_posts()) : the_post(); ?>
   <div class="entry-content">
     <div class="et_pb_section et_section_regular">
 
-      <div class="et_pb_row">
-        <div class="et_pb_column et_pb_column_1_4 left-bar-container">
-          <?php include "left-bar.php"; ?>
-        </div>
+    
+      
+      <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left band-name-title">
+        <img src="<?php echo new_get_featured_image_link(get_the_ID()); ?>" alt="" class="et-waypoint et_pb_image et_pb_animation_fade_in band-main-image et_pb_image_sticky et-animated">
+        <h1><?php the_title(); ?></h1>
+      </div>
 
-        <div class="et_pb_column et_pb_column_3_4">
-          <img src="<?php echo new_get_featured_image_link(get_the_ID()); ?>" alt="" class="et-waypoint et_pb_image et_pb_animation_fade_in band-main-image et_pb_image_sticky et-animated"><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left band-name-title">
+      </div> <!-- .et_pb_section -->
 
-            <h1><?php the_title(); ?></h1>
-
-          </div> <!-- .et_pb_text -->
-        </div> <!-- .et_pb_column -->
-      </div> <!-- .et_pb_row -->
-
-    </div> <!-- .et_pb_section -->
     
     <div class="et_pb_section songs-and-details-section et_section_regular" style="background-color:#ffffff;">
-
-     
-          <div class="et_pb_row">
-
-            <div class="et_pb_column et_pb_column_3_4 band_songs_container">
-              <?php get_template_part('template-parts/bands/band-songs'); ?> 
-            </div>
-
-            <div class="et_pb_column et_pb_column_1_4">
-              <?php get_template_part('template-parts/bands/band-details'); ?> 
-            </div> <!-- .et_pb_column -->   
-
+    
+        <div class="row"> 
+          <div class="col-md-3">
+            <?php include "left-bar.php"; ?>
+          </div>
+          <div class="col-md-9">
+          <?php get_template_part('template-parts/bands/band-songs'); ?>
+          </div>
         </div>
 
+        <div class ="row"> 
+          <div class="col-md-8 col-xs-12">
+            <?php get_template_part('template-parts/bands/related-bands'); ?> 
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <?php get_template_part('template-parts/bands/band-details'); ?> 
+          </div>
+        </div>
       
-      </div> <!-- .et_pb_row -->
-
-    </div> <!-- .et_pb_section --><div class="et_pb_section et_section_regular">
-
-    <?php get_template_part('template-parts/bands/related-bands'); ?>
 
     </div> <!-- .et_pb_section -->
   </div> <!-- .entry-content -->

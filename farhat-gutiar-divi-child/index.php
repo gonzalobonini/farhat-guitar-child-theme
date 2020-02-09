@@ -8,9 +8,8 @@ get_header(); ?>
 	<div class="container">
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
-		<?php
+		<?php echo is_tax();
 			if ( have_posts() ) : ?>
-
 			<header class="page-header">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'Divi' ), get_search_query() ); ?></h1>
 			</header><!-- .page-header -->

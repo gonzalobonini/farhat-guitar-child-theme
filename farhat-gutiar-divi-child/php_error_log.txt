@@ -1,0 +1,50 @@
+[09-Feb-2020 04:35:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php:523
+Stack trace:
+#0 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(997): Peast\Syntax\Scanner->charAt()
+#1 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(719): Peast\Syntax\Scanner->skipWhitespacesAndComments()
+#2 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(701): Peast\Syntax\Scanner->getToken()
+#3 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(443): Peast\Syntax\Scanner->getNextToken()
+#4 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(1644): Peast\Syntax\Scanner->getState()
+#5 [internal function]: Peast\Syntax\ES2015\Parser->parseLexicalDeclaration()
+#6 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Parser.php(192): call_user_func_array(Array, Array)
+#7 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/P in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php on line 523
+[09-Feb-2020 04:36:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php:523
+Stack trace:
+#0 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(997): Peast\Syntax\Scanner->charAt()
+#1 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(719): Peast\Syntax\Scanner->skipWhitespacesAndComments()
+#2 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(701): Peast\Syntax\Scanner->getToken()
+#3 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(443): Peast\Syntax\Scanner->getNextToken()
+#4 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(1644): Peast\Syntax\Scanner->getState()
+#5 [internal function]: Peast\Syntax\ES2015\Parser->parseLexicalDeclaration()
+#6 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Parser.php(192): call_user_func_array(Array, Array)
+#7 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/P in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php on line 523
+[09-Feb-2020 04:40:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php:987
+Stack trace:
+#0 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(714): Peast\Syntax\Scanner->skipWhitespacesAndComments()
+#1 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(696): Peast\Syntax\Scanner->getToken()
+#2 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(438): Peast\Syntax\Scanner->getNextToken()
+#3 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(1644): Peast\Syntax\Scanner->getState()
+#4 [internal function]: Peast\Syntax\ES2015\Parser->parseLexicalDeclaration()
+#5 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Parser.php(188): call_user_func_array(Array, Array)
+#6 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(390): Peast\Syntax\Parser->isolateContext(Array, 'parseLexicalDec...')
+#7 phar://E:/ in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php on line 987
+[09-Feb-2020 04:41:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php:987
+Stack trace:
+#0 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(714): Peast\Syntax\Scanner->skipWhitespacesAndComments()
+#1 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(696): Peast\Syntax\Scanner->getToken()
+#2 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(438): Peast\Syntax\Scanner->getNextToken()
+#3 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(1644): Peast\Syntax\Scanner->getState()
+#4 [internal function]: Peast\Syntax\ES2015\Parser->parseLexicalDeclaration()
+#5 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Parser.php(188): call_user_func_array(Array, Array)
+#6 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(390): Peast\Syntax\Parser->isolateContext(Array, 'parseLexicalDec...')
+#7 phar://E:/ in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php on line 987
+[09-Feb-2020 04:42:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php:987
+Stack trace:
+#0 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(714): Peast\Syntax\Scanner->skipWhitespacesAndComments()
+#1 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(696): Peast\Syntax\Scanner->getToken()
+#2 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php(438): Peast\Syntax\Scanner->getNextToken()
+#3 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(1644): Peast\Syntax\Scanner->getState()
+#4 [internal function]: Peast\Syntax\ES2015\Parser->parseLexicalDeclaration()
+#5 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Parser.php(188): call_user_func_array(Array, Array)
+#6 phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/ES2015/Parser.php(390): Peast\Syntax\Parser->isolateContext(Array, 'parseLexicalDec...')
+#7 phar://E:/ in phar://E:/bin/wp-cli.phar/vendor/mck89/peast/lib/Peast/Syntax/Scanner.php on line 987

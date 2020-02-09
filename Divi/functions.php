@@ -1010,7 +1010,7 @@ function et_divi_add_customizer_css(){ ?>
 	?>
 	</style>
 <?php }
-add_action( 'wp_head', 'et_divi_add_customizer_css' );
+//add_action( 'wp_head', 'et_divi_add_customizer_css' );
 add_action( 'customize_controls_print_styles', 'et_divi_add_customizer_css' );
 
 /*

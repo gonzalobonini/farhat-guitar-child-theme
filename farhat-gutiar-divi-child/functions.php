@@ -269,6 +269,7 @@ function customize_text_sizes($initArray)
 
 function generate_template_for_menu()
 {
+    global $post;
     $all_bands = new_get_all_bands(-1, 'post_title','ASC', true);
 
     $menu_html = '';
@@ -282,6 +283,7 @@ function generate_template_for_menu()
             $a = $current_band->ID;
             $current_songs = new_get_children_songs($current_band->ID, true);
             foreach ($current_songs as $current_song) {
+                
                 $menu_html .= '<li>'."";
                 //$menu_html .= '<a href="#"><i class="fa fa-circle fa-xs"></i> <span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
                 $menu_html .= '<a href="#"><span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
@@ -373,3 +375,42 @@ function disable_emojis() {
 	
 }
 add_action( 'init', 'disable_emojis' );
+
+
+add_filter('piklist_admin_pages', 'piklist_theme_setting_pages');
+  function piklist_theme_setting_pages($pages) {
+     $pages[] = array(
+      'page_title' => __('Opciones Farhat')
+      ,'menu_title' => __('Opciones Farhat', 'piklist')
+      ,'sub_menu' => 'themes.php' //Under Appearance menu
+      ,'capability' => 'manage_options'
+      ,'menu_slug' => 'custom_settings'
+      ,'setting' => 'farhat_opciones'
+      ,'menu_icon' => plugins_url('piklist/parts/img/piklist-icon.png')
+      ,'page_icon' => plugins_url('piklist/parts/img/piklist-page-icon-32.png')
+      ,'single_line' => true
+      ,'default_tab' => 'Basic'
+      ,'save_text' => 'Guardar cambios'
+    );
+
+    return $pages;
+  }
+
+  function get_default_thumb($id){
+    $featured_image_url = wp_get_attachment_url( get_post_thumbnail_id( $id ) );
+    $thumb = '';
+    if  ( ! empty( $featured_image_url ) ) {
+    
+        $thumb = get_the_post_thumbnail_url($id, array('400,400'));
+    
+    } else {
+        $thumb = get_stylesheet_directory_uri() .'assets/images/default-thumb.jpg';
+
+    }
+    return $thumb;
+  }
+
+  function child_custom_actions() {
+    remove_action( 'wp_head', 'et_divi_add_customizer_css', 15 );
+}
+add_action( 'init' , 'child_custom_actions' );

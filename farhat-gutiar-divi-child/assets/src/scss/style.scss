@@ -7,5 +7,10 @@ Text Domain: 	farhat
 
 (optional values you can add: Theme URI, Author URI, Version) 
 */
+$dark_active: #1e282c;
+$orange: #eb4a09;
+
+@import 'boostrap-grid';
+//@import 'legacy';
 @import 'main';
 @import 'sidebar-menu';      
