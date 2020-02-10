@@ -50,28 +50,12 @@
 
 
                         <div class="entry-content">
-                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left tab-container">
-
-                            
-                            </div>
-
-
+                        
 
                             <div class="et_pb_section video-section et_section_regular">
 
                             <div class="row"> 
-                                    <?php get_template_part('template-parts/lessons/video-container'); ?>                                                       
-                            </div>
-                            
-
-                            </div> <!-- .et_pb_section -->
-                            
-                            <div class="et_pb_section et_section_regular">
-                            <div class="row"> 
-                                <div class="col-md-3">
-                                    <?php include('left-bar.php'); ?>
-                                </div>
-                                <div class="col-md-7">
+                                    <?php get_template_part('template-parts/lessons/video-container'); ?>        
                                     <header>
                                         <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
                                         <span class="lesson-title"><?php echo $song->post_title ?></span>
@@ -86,7 +70,19 @@
                                         <?php
                                         the_content();
                                         ?>
-                                    </div> <!-- .entry-content -->
+                                    </div> <!-- .entry-content -->                                               
+                            </div>
+                            
+
+                            </div> <!-- .et_pb_section -->
+                            
+                            <div class="et_pb_section et_section_regular">
+                            <div class="row"> 
+                                <div class="col-md-3">
+                                    <?php include('left-bar.php'); ?>
+                                </div>
+                                <div class="col-md-7">
+                                 
                                     <?php get_template_part('template-parts/lessons/related-songs'); ?>
                                 </div> 
                                 <div class="col-md-2">

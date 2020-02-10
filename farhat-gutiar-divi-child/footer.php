@@ -9,6 +9,15 @@
 </div> <!-- #et-main-area -->
 
 
+			<div class="ad-footer"> 
+			
+				<?php 
+				$detect = get_mobile_detect();
+
+				if ( is_active_sidebar( 'footer-ad' ) && !$detect->isMobile() && !$detect->isTablet()) { ?>
+						<?php dynamic_sidebar('footer-ad'); ?>
+				<?php } ?>
+			</div>
 	</div> <!-- #page-container -->
 
 	<footer id="main-footer">
@@ -34,15 +43,6 @@
 
 			<?php endif; ?>
 			
-			<div class="ad-footer"> 
-			
-			<?php 
-			$detect = get_mobile_detect();
-
-			if ( is_active_sidebar( 'footer-ad' ) && !$detect->isMobile() && !$detect->isTablet()) { ?>
-					<?php dynamic_sidebar('footer-ad'); ?>
-			<?php } ?>
-			</div>
 
 				<div id="footer-bottom">
 					<div class="container clearfix">

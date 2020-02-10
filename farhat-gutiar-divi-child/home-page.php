@@ -104,7 +104,7 @@ if (!$detect->isMobile() || $detect->isTablet()) {
             <div class="et_pb_slides">
                 <div style="background-color:#ffffff;background-image:url(<?php echo new_get_featured_image_link($featured_parent_band) ?>);" class="et_pb_slide et_pb_slide_with_image et_pb_bg_layout_dark et_pb_media_alignment_center et-pb-active-slide">
 
-                    <div class="et_pb_container clearfix" style="min-height: 486px;">
+                    <div class="" style="min-height: 486px;">
                         <div class="et_pb_slide_image" style="margin-top: 0px;"><img alt="<?php echo $featured->post_title ?>" src="<?php echo new_get_featured_image_link($featured) ?>" style="max-height: 388px;" class="active"></div>
                         <div class="et_pb_slide_description">
 
@@ -180,13 +180,13 @@ $last_updates_class = "et_pb_column_2_3";
                 <?php
                         }
  ?>
-        </div> <!-- .et_pb_row --><div class="et_pb_row">
-            <div class="et_pb_column et_pb_column_4_4">
+        </div> <!-- .et_pb_row -->
+        <div class="">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads section-title">
                     <?php echo get_post_meta($post->ID, 'lessons_by', true); ?>
                 </div> <!-- .et_pb_text -->
-            </div> <!-- .et_pb_column -->
-        </div> <!-- .et_pb_row --><div class="et_pb_row">
+        </div> <!-- .et_pb_row -->
+        <div class="et_pb_row">
             <div class="et_pb_column <?php echo $list_updates_class ?>">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left sub-section-title">
                     <?php echo get_post_meta($post->ID, 'artist', true); ?>

@@ -41,7 +41,7 @@ get_header(); ?>
 						<div class="image-block" style="background-image:url('<?php echo $thumbnail?>')">
 						</div>
 						</a>
-						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 					</div>
 
 
