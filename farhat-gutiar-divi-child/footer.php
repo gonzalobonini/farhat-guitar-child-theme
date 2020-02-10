@@ -29,23 +29,14 @@
                                 'container'      => '',
                                 'fallback_cb'    => '',
                             ));
-                        ?>
+						?>
+						
 					</div>
 				</div> <!-- #et-footer-nav -->
 
 			<?php endif; ?>
-			
-
-				<div id="footer-bottom">
-					<div class="container clearfix">
-				<?php
-                    if (false !== et_get_option('show_footer_social_icons', true)) {
-                        get_template_part('includes/social_icons', 'footer');
-                    }
-                ?>
-
-						<p id="footer-info"><?php printf(__('Designed by %1$s + %2$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>', '<a href="http://www.gonza.io" target="_blank" title="gonza.io">Gonza.io</a>');  ?></p>
-					<div class="ad-footer"> 
+			<div class="container">
+			<div class="ad-footer"> 
 						
 						<?php 
 						$detect = get_mobile_detect();
@@ -54,6 +45,19 @@
 								<?php dynamic_sidebar('footer-ad'); ?>
 						<?php } ?>
 					</div>
+			</div>
+
+				<div id="footer-bottom">
+					<div class="container clearfix">
+					
+				<?php
+                    if (false !== et_get_option('show_footer_social_icons', true)) {
+                        get_template_part('includes/social_icons', 'footer');
+                    }
+                ?>
+
+						<p id="footer-info"><?php printf(__('Designed by %1$s + %2$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>', '<a href="http://www.gonza.io" target="_blank" title="gonza.io">Gonza.io</a>');  ?></p>
+					
 					
 					</div>	<!-- .container -->
 				</div>
