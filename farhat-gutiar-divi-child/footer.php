@@ -9,15 +9,7 @@
 </div> <!-- #et-main-area -->
 
 
-			<div class="ad-footer"> 
 			
-				<?php 
-				$detect = get_mobile_detect();
-
-				if ( is_active_sidebar( 'footer-ad' ) && !$detect->isMobile() && !$detect->isTablet()) { ?>
-						<?php dynamic_sidebar('footer-ad'); ?>
-				<?php } ?>
-			</div>
 	</div> <!-- #page-container -->
 
 	<footer id="main-footer">
@@ -53,6 +45,16 @@
                 ?>
 
 						<p id="footer-info"><?php printf(__('Designed by %1$s + %2$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>', '<a href="http://www.gonza.io" target="_blank" title="gonza.io">Gonza.io</a>');  ?></p>
+					<div class="ad-footer"> 
+						
+						<?php 
+						$detect = get_mobile_detect();
+
+						if ( is_active_sidebar( 'footer-ad' ) && !$detect->isMobile() && !$detect->isTablet()) { ?>
+								<?php dynamic_sidebar('footer-ad'); ?>
+						<?php } ?>
+					</div>
+					
 					</div>	<!-- .container -->
 				</div>
 			</footer> <!-- #main-footer -->
