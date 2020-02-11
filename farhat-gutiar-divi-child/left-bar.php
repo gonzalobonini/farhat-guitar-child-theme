@@ -3,8 +3,7 @@
 $this_lesson = get_the_ID();
 // get all bands
 $all_bands = new_get_all_bands(-1, 'post_title','ASC', true);
-$theme_options = get_option('farhat_opciones');
-$paypal = $theme_options['paypal_url'];
+$paypal = get_paypal_link();
 ?>
 
 <a id="simple-menu" class="toggle-sidebar" href="#sidr"><i class="fa fa-music"></i></a>

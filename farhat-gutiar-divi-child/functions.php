@@ -453,3 +453,12 @@ function add_admin_link($items, $args){
     }
     return $items;
 }
+
+function get_paypal_link(){
+    $theme_options = get_option('farhat_opciones');
+    $email = $theme_options['paypal_mail'];
+    $text = $theme_options['paypal_text'];
+    $format = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=%s&lc=US&item_name=%s&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted'; 
+    $link = sprintf($format,$email, $text);
+    return $link;
+}

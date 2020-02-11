@@ -6,7 +6,13 @@
  */
 
 piklist('field', array(
-  'type' => 'url',
-  'field' => 'paypal_url',
-  'label' => 'Link Paypal',
+  'type' => 'text',
+  'field' => 'paypal_text',
+  'label' => 'Texto en página de Paypal',
+));
+
+piklist('field', array(
+  'type' => 'email',
+  'field' => 'paypal_mail',
+  'label' => 'Mail para página de Paypal',
 ));
