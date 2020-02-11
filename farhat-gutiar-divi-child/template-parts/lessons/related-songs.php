@@ -8,7 +8,7 @@
         'post_type' => 'new_song',
         'orderby' => 'rand',
         'post__not_in' => array($song_id),
-        //'lang' => pll_current_language() 
+        'lang' => 'en'
     );
 
     $related_songs_query = new WP_Query($args);

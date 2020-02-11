@@ -37,14 +37,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used(get_the_ID());
 
     // get the last 4 songs
 
-        $args = array(
-            'posts_per_page'   => 4,
-            'orderby'          => 'post_date',
-            'order'            => 'DESC',
-            'post_type'        => 'new_song',
-            'post_status'      => 'publish');
-
-        $last_songs = get_posts($args);
+        
 
 //        echo "last songs";
 //        var_dump($last_songs);
@@ -88,6 +81,7 @@ if (!$detect->isMobile() || $detect->isTablet()) {
             'category'         => 'featured',
             'orderby'          => 'rand',
             'post_type'        => 'new_song',
+            'lang'             => 'en',
             'post_mime_type'   => '',
             'post_parent'      => '',
             'post_status'      => 'publish');
@@ -124,63 +118,17 @@ if (!$detect->isMobile() || $detect->isTablet()) {
     </div> <!-- .et_pb_section --><div style="background-color:#ffffff;" class="et_pb_section et_section_regular" id="home-lists">
 
 <?php
-$last_updates_class = "et_pb_column_2_3";
+    $last_updates_class = "et_pb_column_2_3";
     $list_updates_class = "et_pb_column_1_3";
 } else {
     $last_updates_class = "et_pb_column_3_3";
     $list_updates_class = $last_updates_class;
 }
+
+    get_template_part('template-parts/home/last-updates');
  ?>
 
 
-
-        <div class="et_pb_row">
-            <div class="et_pb_column <?php echo $last_updates_class ?>">
-                <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads">
-
-                    <p><?php echo get_post_meta($post->ID, 'update_home', true); ?></p>
-
-                </div> <!-- .et_pb_text --><div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left bands-list">
-                    <ul id="lcp_instance_0" class="lcp_catlist">
-                        <?php
-
-                        foreach ($last_songs as $current_song) {
-                            ?>
-                            <li><a title="<?php echo $current_song->post_title ?>" href="<?php echo new_get_first_lesson_permalink($current_song) ?>"><?php echo $current_song->post_title ?></a> <a
-                                title="<?php echo $current_song->post_title ?>" href="<?php echo new_get_first_lesson_permalink($current_song) ?>"><img width="105"
-                                                                                                            height="105"
-                                                                                                            alt="Muse_hysteria_cd-105"
-                                                                                                            class="attachment-105x105 size-105x105 wp-post-image"
-                                                                                                            src="<?php echo new_get_featured_image_link($current_song, array(105,105)) ?>"></a>
-                        </li>
-                            <?php
-                        }?>
-
-                    </ul>
-                </div> <!-- .et_pb_text -->
-            </div> <!-- .et_pb_column -->
-       <?php         if (!($detect->isMobile() && !$detect->isTablet())) {
-                            ?>
-            <div class="et_pb_column et_pb_column_1_3">
-                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left home-side-banner">
-                        <div>
-                            <div id="home-right-banner">
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-1247097506454706"
-                                     data-ad-slot="3782497198"
-                                     data-ad-format="auto"></ins>
-                                <script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
-                                </script>
-                            </div>
-                        </div>
-                    </div> <!-- .et_pb_text -->
-            </div> <!-- .et_pb_column -->
-                <?php
-                        }
- ?>
-        </div> <!-- .et_pb_row -->
         <div class="">
                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left latest-uploads section-title">
                     <?php echo get_post_meta($post->ID, 'lessons_by', true); ?>

@@ -113,7 +113,7 @@ if ($et_top_info_defined) : ?>
 <?php
 // Exclude tablets.
 //if (!($detect->isMobile() && !$detect->isTablet())) {
-et_show_cart_total();
+
 //}
                 ?>
 <?php if ($et_contact_info_defined) : ?>
@@ -158,8 +158,8 @@ et_show_cart_total();
                 </nav>
 
                 <?php if (false !== et_get_option('show_search_icon', true)) : ?>
-                <?php get_search_form(); ?>
-
+                <?php get_search_form(); 
+                    //et_show_cart_total($defaults); ?>
                 <?php endif; // true === et_get_option( 'show_search_icon', false )?>
 
                 <?php do_action('et_header_top'); ?>

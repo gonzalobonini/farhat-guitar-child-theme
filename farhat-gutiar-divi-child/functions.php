@@ -414,3 +414,42 @@ add_filter('piklist_admin_pages', 'piklist_theme_setting_pages');
     remove_action( 'wp_head', 'et_divi_add_customizer_css', 15 );
 }
 add_action( 'init' , 'child_custom_actions' );
+
+
+function et_show_cart_total( $args = array() ) {
+    if ( ! class_exists( 'woocommerce' ) ) {
+        return;
+    }
+
+    $defaults = array(
+        'no_text' => false,
+    );
+
+    $args = wp_parse_args( $args, $defaults );
+
+    return sprintf(
+        '<a href="%1$s" class="et-cart-info">
+            <span>%2$s</span>
+        </a>',
+        esc_url( WC()->cart->get_cart_url() ),
+        ( ! $args['no_text']
+            ? sprintf(
+            __( '(%1$s)', 'Divi' ),
+            esc_html( WC()->cart->get_cart_contents_count() )           
+            )
+            : ''
+        )
+    );
+}
+
+
+/**
+* Add a custom link to the end of a specific menu that uses the wp_nav_menu() function
+*/
+add_filter('wp_nav_menu_items', 'add_admin_link', 10, 2);
+function add_admin_link($items, $args){
+    if( $args->theme_location == 'primary-menu' ){
+        $items .= '<li>'.et_show_cart_total().'</li>';
+    }
+    return $items;
+}

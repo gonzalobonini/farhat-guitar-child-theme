@@ -12,11 +12,13 @@ get_header(); ?>
 			<header class="page-header">
 				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
 			</header><!-- .page-header -->
-
+		<div class="row"> 
+		
+		
 		<?php		while ( have_posts() ) : the_post();
 					$post_format = get_post_format(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post col-md-3' ); ?>>
 
 				<?php
 					$thumb = '';
@@ -57,6 +59,7 @@ get_header(); ?>
 					get_template_part( 'includes/no-results', 'index' );
 				endif;
 			?>
+			</div>
 			</div> <!-- #left-area -->
 
 			<?php get_sidebar(); ?>

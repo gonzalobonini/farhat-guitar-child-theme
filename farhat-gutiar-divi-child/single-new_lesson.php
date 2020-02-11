@@ -50,27 +50,28 @@
 
 
                         <div class="entry-content">
-                        
+                            <header>
+                                <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
+                                <span class="lesson-title"><?php echo $song->post_title ?></span>
+                                <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                        <strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
+                                                        <?php	echo new_get_separeted_by_commas_list($terms);
+                                                        ?>
+                                        </span></span> &nbsp; &nbsp;
+                                </div> <!-- .et_pb_text -->
+                            </header>
+                            <div class="entry-content tablatura">
+                                <?php
+                                the_content();
+                                ?>
+                            </div> <!-- .entry-content -->      
 
                             <div class="et_pb_section video-section et_section_regular">
 
                             <div class="row"> 
+                          
                                     <?php get_template_part('template-parts/lessons/video-container'); ?>        
-                                    <header>
-                                        <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
-                                        <span class="lesson-title"><?php echo $song->post_title ?></span>
-                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
-                                                <strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
-                                                                <?php	echo new_get_separeted_by_commas_list($terms);
-                                                                ?>
-                                                </span></span> &nbsp; &nbsp;
-                                        </div> <!-- .et_pb_text -->
-                                  </header>
-                                    <div class="entry-content tablatura">
-                                        <?php
-                                        the_content();
-                                        ?>
-                                    </div> <!-- .entry-content -->                                               
+                                                                         
                             </div>
                             
 
