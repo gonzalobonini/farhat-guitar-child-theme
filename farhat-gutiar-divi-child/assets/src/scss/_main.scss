@@ -695,6 +695,7 @@ header#main-header img#logo {
 
 #contact-information {
     width: 45em;
+    max-height: 110px;
 }
 #contact-information > #mail-phone {
     float: left;
@@ -1630,13 +1631,13 @@ a.toggle-sidebar {
     margin: auto;
 } 
 
-.et-waypoint img {
+img.et-waypoint  {
     opacity: 1;
 }
 
 .et_header_style_centered #et-top-navigation .et-cart-info {
     color: white;
-    margin: 0;
+    margin: 0; 
 }
 
 .et_mobile_menu {

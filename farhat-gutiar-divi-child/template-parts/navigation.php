@@ -92,11 +92,6 @@ if ($et_top_info_defined) : ?>
 </div>
 <div class="social-icons-container">
     <?php get_template_part('includes/social_icons', 'header'); ?>
-</div>
-<br>
-<?php // Exclude tablets.
-//if (!($detect->isMobile() && !$detect->isTablet())) {
-    ?>
     <div class="donate-container">
         <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
             <input type="hidden" value="_s-xclick" name="cmd">
@@ -104,6 +99,12 @@ if ($et_top_info_defined) : ?>
             <input type="image" id="paypal-1" src="http://farhatguitar.com/wp-content/uploads/2015/06/donate.png" name="submit" alt="PayPal - The safer, easier way to pay online!">
         </form>
     </div>
+</div>
+<br>
+<?php // Exclude tablets.
+//if (!($detect->isMobile() && !$detect->isTablet())) {
+    ?>
+    
 <?php
 //}
 ?>
