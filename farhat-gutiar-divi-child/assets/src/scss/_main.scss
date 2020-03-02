@@ -209,7 +209,6 @@ width: 94%;
 
 .donate-container {
     float: right;
-    margin-top: 10px;
 }
 
 .et_pb_row {
@@ -795,9 +794,7 @@ header#main-header {
   font-weight: 700;
 }
 #contact-information ul.et-social-icons {
-    padding-top: 10px;
     @media all and (max-width:768px){
-        padding: 0;
         float: left;
     }
 }
