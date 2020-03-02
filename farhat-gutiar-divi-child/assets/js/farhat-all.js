@@ -10,18 +10,31 @@ jQuery(document).ready(function($) {
   //setupMenuBar();
 
   /**** Fixed mobile ****/
-  var mobile_sidebar = jQuery('.sidebar-menu .treeview.active').clone();
-	if (jQuery(document).width() < 768) {
-		jQuery('#flowplayer').after(mobile_sidebar);
+ //var mobile_sidebar = jQuery('.sidebar-menu .treeview.active').clone();
+	if ($(window).width() < 768) {
+		//jQuery('#flowplayer').after(mobile_sidebar);
 
 		jQuery('.treeview.active').removeClass('active');
 		/*jQuery('.treeview').click(function() {
 			jQuery(this).toggleClass('active');
 		});*/
 
-		jQuery('.treeview > a').click(function(event){
+		jQuery('.treeview:not(.actionable) > a').click(function(event){
 			event.preventDefault();
 		});
+
+		$('#simple-menu').sidr({
+			displace: false
+		}); 		
+		
+		const $sidebar = $('.sidebar-menu');
+		$(document).mouseup(function (e) {
+			 if (!$sidebar.is(e.target) // if the target of the click isn't the container...
+			 && $sidebar.has(e.target).length === 0) // ... nor a descendant of the container
+			 {
+				 $.sidr('close', 'sidr');
+			}
+		 });
 	}
 
 
@@ -41,19 +54,10 @@ jQuery(document).ready(function($) {
 	
 	if($(window).width() < 768){ // Solo si es mobile
 	
-	console.log("Sidr");
-	$('#simple-menu').sidr({
-		displace: false
-	});
-	
-	const $sidebar = $('.sidebar-menu');
-	$(document).mouseup(function (e) {
-		 if (!$sidebar.is(e.target) // if the target of the click isn't the container...
-		 && $sidebar.has(e.target).length === 0) // ... nor a descendant of the container
-		 {
-			 $.sidr('close', 'sidr');
-		}
-	 });
+	//$('#simple-menu').sidr({
+	//	displace: true
+	//});
+
 
 	}
 

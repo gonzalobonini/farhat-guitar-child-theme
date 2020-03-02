@@ -30,7 +30,7 @@
                 <?php
                     foreach ($related_songs as $song) { ?>
                      
-                        <div class="col-md-4 related-song">
+                        <div class="col-md-4 col-xs-6 related-song">
                             
                                 <a
                                 href="<?php echo new_get_first_lesson_permalink($song); ?>"

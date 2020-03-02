@@ -11,6 +11,7 @@ function theme_enqueue_styles()
         wp_enqueue_style('sidr-style', 'https://cdn.jsdelivr.net/npm/sidr@2.2.1/dist/stylesheets/jquery.sidr.bare.css');
         wp_enqueue_script( 'jquery-ui-accordion' );
         wp_enqueue_script('sidr', 'https://cdn.jsdelivr.net/npm/sidr@2.2.1/dist/jquery.sidr.min.js', array('jquery'), false, true);    
+        //wp_enqueue_script('slideout', 'https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js', array('jquery'), false, true);
     }
     wp_enqueue_script('farhat-all', get_stylesheet_directory_uri() . '/assets/js/farhat-all.js', array('jquery'), false, true);
     //wp_enqueue_script('slicknav', get_stylesheet_directory_uri() . '/slicknav/jquery.slicknav.min.js', array('jquery'), '1.0.0', true);

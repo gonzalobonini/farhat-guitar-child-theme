@@ -695,10 +695,12 @@ header#main-header img#logo {
 
 #contact-information {
     width: 45em;
-    max-height: 110px;
+    //max-height: 110px;
 }
 #contact-information > #mail-phone {
-    float: left;
+    @media all and (min-width:768px){
+        float: left;
+    }
 }
 .social-icons-container {
     float: right;
@@ -793,7 +795,11 @@ header#main-header {
   font-weight: 700;
 }
 #contact-information ul.et-social-icons {
-	padding-top: 10px;
+    padding-top: 10px;
+    @media all and (max-width:768px){
+        padding: 0;
+        float: left;
+    }
 }
 
 .et_pb_slide_image > img {
@@ -1487,9 +1493,7 @@ and (orientation : portrait) { /* STYLES GO HERE */
     .single #main-content {
         margin-top: 0px;
     }
-    .single .donate-container {
-        margin-bottom: 20px;
-    }
+    
     .visible-xs {
         display: block;
         float: left;

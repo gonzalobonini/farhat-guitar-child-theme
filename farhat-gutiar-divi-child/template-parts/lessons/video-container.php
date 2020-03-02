@@ -66,6 +66,5 @@
             <a href="http://flowplayer.org"
                 style="display: none; position: absolute; left: 16px; bottom: 36px; z-index: 99999; width: 100px; height: 20px; background-image: url(&quot;//d32wqyuo10o653.cloudfront.net/logo.png&quot;);"></a>
         </div>
-        <?php 
-              get_template_part('template-parts/lessons/player-js'); ?>
+        
     </div>

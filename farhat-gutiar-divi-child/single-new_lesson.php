@@ -218,4 +218,5 @@
 </div> <!-- #main-content -->
 
 <?php require_once('template-parts/lessons/player-js.php'); ?>
+
 <?php get_footer(); ?>
