@@ -49,14 +49,26 @@
 
 				<div id="footer-bottom">
 					<div class="container clearfix">
-					
-				<?php
-                    if (false !== et_get_option('show_footer_social_icons', true)) {
-                        get_template_part('includes/social_icons', 'footer');
-                    }
-                ?>
+					<div class="row"> 
+						<div class="col-sm-6 col-md-5">
 
-						<p id="footer-info"><?php printf(__('Designed by %1$s + %2$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>', '<a href="http://www.gonza.io" target="_blank" title="gonza.io">Gonza.io</a>');  ?></p>
+							<p id="footer-info"><?php printf(__('Designed by %1$s + %2$s', 'Divi'), '<a href="http://www.latorregabriel.com" target="_blank" title="latorregabriel.com">Gabriel La Torre</a>', '<a href="http://www.gonza.io" target="_blank" title="gonza.io">Gonza.io</a>');  ?></p>
+						
+						</div>
+						<div class="col-sm-6 col-md-5">
+							<?php
+								if (false !== et_get_option('show_footer_social_icons', true)) {
+									get_template_part('includes/social_icons', 'footer');
+								}
+							?>
+						</div>
+						<div class="col-md-2 footer-ssl-seal">
+							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/positivessl_trust_seal.png" alt="">
+						</div>
+
+					</div>
+				
+
 					
 					
 					</div>	<!-- .container -->

@@ -79,10 +79,10 @@
                             
                             <div class="et_pb_section et_section_regular">
                             <div class="row"> 
-                                <div class="col-md-3">
+                                <div class="col-sm-4 col-md-3">
                                     <?php include('left-bar.php'); ?>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-sm-8 col-md-7">
                                  
                                     <?php get_template_part('template-parts/lessons/related-songs'); ?>
                                 </div> 
