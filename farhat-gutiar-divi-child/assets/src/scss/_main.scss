@@ -702,8 +702,10 @@ header#main-header img#logo {
     }
 }
 .social-icons-container {
-    float: right;
-}
+    @media all and(min-width: 768px){
+        float: right;
+    }
+} 
 
 #main-header nav#top-menu-nav {
 	padding-top:2px;

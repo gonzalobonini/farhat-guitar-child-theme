@@ -8,7 +8,7 @@
                 style="z-index: 9; background-size: cover;">
             <video
                 src="<?php echo $video_link; ?>"
-                type="video/mp4" class="fp-engine" autoplay="autoplay" preload="none"
+                type="video/mp4" class="fp-engine" preload="none"
                 x-webkit-airplay="allow"></video>
             <div class="buttons">
                 <span>0.5x</span><span>0.6x</span><span>0.7x</span><span>0.8x</span><span>0.9x</span>
