@@ -9,7 +9,9 @@ jQuery(document).ready(function($) {
   //setupMenuBar();
 
   /**** Fixed mobile ****/
-	if ($(window).width() < 768) {
+  if(window.matchMedia("(max-width: 767px)").matches){
+	// The viewport is less than 768 pixels wide
+	//if ($(window).width() < 768) {
 
 		jQuery('.treeview.active').removeClass('active');
 	

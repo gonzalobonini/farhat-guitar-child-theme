@@ -120,10 +120,11 @@ function new_get_children_songs($band, $changeLang = false)
 
     $args = array(
     'post_type' => 'new_song',
-    'orderby' => 'date',
+    'orderby' => 'title',
     'lang'  => 'en',
     'nopaging' => true,
-    'order'   => 'ASC',
+    'meta_key' => 'new_lesson_number',
+    'orderby' => 'meta_value_num',
     'meta_query' => array(
       array(
         'key' => 'new_song_band_id',

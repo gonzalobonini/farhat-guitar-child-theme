@@ -14,11 +14,11 @@ get_header(); ?>
 			<header class="page-header">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'Divi' ), get_search_query() ); ?></h1>
 			</header><!-- .page-header -->
-
+		<div class="row">
 		<?php		while ( have_posts() ) : the_post();
 					$post_format = get_post_format(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post col-md-3' ); ?>>
 
 				<?php
 					$thumb = '';
@@ -49,8 +49,9 @@ get_header(); ?>
 
 					</article> <!-- .et_pb_post -->
 			<?php
-					endwhile;
-
+					endwhile; ?>
+					</div>
+			<?php
 					if ( function_exists( 'wp_pagenavi' ) )
 						wp_pagenavi();
 					else
