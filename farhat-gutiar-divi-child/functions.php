@@ -79,10 +79,11 @@ function new_get_first_lesson_permalink($post)
 
 function new_get_children_lessons($song)
 {
-  $lang = get_current_language();  
+    $lang = get_current_language();  
     $args = array(
         'post_type' => 'new_lesson',
-        'orderby' => 'post_title',
+        'meta_key' => 'new_lesson_number',
+        'orderby' => 'meta_value',
         'order'   => 'ASC',
         'lang'    => $lang,
         'meta_query' => array(
@@ -120,11 +121,12 @@ function new_get_children_songs($band, $changeLang = false)
 
     $args = array(
     'post_type' => 'new_song',
-    'orderby' => 'title',
+    'orderby' => 'post_title',
+    'order'   => 'ASC',
     'lang'  => 'en',
-    'nopaging' => true,
-    'meta_key' => 'new_lesson_number',
-    'orderby' => 'meta_value_num',
+    'no_found_rows' => true,
+    //'meta_key' => 'new_lesson_number',
+    //'orderby' => 'meta_value',
     'meta_query' => array(
       array(
         'key' => 'new_song_band_id',
