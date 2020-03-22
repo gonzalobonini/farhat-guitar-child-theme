@@ -145,7 +145,7 @@ embed, iframe, object, video { max-width: 100%; }
 
 #reviews .commentlist { padding-bottom: 0 !important; }
 
-.woocommerce-info a { color: #fff !important; }
+/*.woocommerce-info a { color: #fff !important; }*/
 input#coupon_code { padding: 14px !important; }
 
 table.cart th, #main-content table.cart th, table.cart td, #main-content table.cart td, table.cart tr, #main-content table.cart tr, #content-area table tr, #content-area table td, #content-area table th { padding: .857em 0.587em; max-width: 100px; }
@@ -711,8 +711,8 @@ p.woocommerce-result-count { font-weight: 500; font-size: 14px; color: #999; pad
 
 	.woocommerce #content .quantity, .woocommerce .quantity, .woocommerce-page #content .quantity, .woocommerce-page .quantity { width: 100px; margin: 0; }
 
-.woocommerce a.button.alt, .woocommerce-page a.button.alt, .woocommerce button.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce-page input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce-page #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page #content input.button.alt,
-.woocommerce a.button, .woocommerce-page a.button, .woocommerce button.button, .woocommerce-page button.button, .woocommerce input.button, .woocommerce-page input.button, .woocommerce #respond input#submit, .woocommerce-page #respond input#submit, .woocommerce #content input.button, .woocommerce-page #content input.button { border: none !important; -moz-border-radius: 3px !important; -webkit-border-radius: 3px !important; border-radius: 3px !important; color: #FFFFFF; font-size: 20px !important; font-weight: 500 !important; text-shadow: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; padding: 13px 24px 14px!important; color: #fff !important; }
+/*.woocommerce a.button.alt, .woocommerce-page a.button.alt, .woocommerce button.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce-page input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce-page #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page #content input.button.alt,
+.woocommerce a.button, .woocommerce-page a.button, .woocommerce button.button, .woocommerce-page button.button, .woocommerce input.button, .woocommerce-page input.button, .woocommerce #respond input#submit, .woocommerce-page #respond input#submit, .woocommerce #content input.button, .woocommerce-page #content input.button { border: none !important; -moz-border-radius: 3px !important; -webkit-border-radius: 3px !important; border-radius: 3px !important; color: #FFFFFF; font-size: 20px !important; font-weight: 500 !important; text-shadow: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; padding: 13px 24px 14px!important; color: #fff !important; }*/
 
 .et_pb_widget .buttons a { margin-top: 10px !important; }
 .woocommerce ul.cart_list li, .woocommerce ul.product_list_widget li, .woocommerce-page ul.cart_list li, .woocommerce-page ul.product_list_widget li { padding: 6px 0; }
