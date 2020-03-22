@@ -139,7 +139,7 @@ if (!$detect->isMobile() || $detect->isTablet()) {
                             <div class="et_pb_blurb_content">
                               <div class="et_pb_main_blurb_image"><a href="<?php echo get_the_permalink($current_band) ?>"><img
                                     class="et-waypoint et_pb_animation_off et-animated" alt="" src=""></a></div>
-                              <h4><a href="<?php echo get_the_permalink($current_band) ?>"><?php echo $current_band->post_title ?></a></h4>
+                              <h4><a class="no_translate" href="<?php echo get_the_permalink($current_band) ?>"><?php echo $current_band->post_title ?></a></h4>
 
                             </div>
                             <!-- .et_pb_blurb_content -->
@@ -174,7 +174,7 @@ if (!$detect->isMobile() || $detect->isTablet()) {
                                 <div class="et_pb_main_blurb_image"><a href="<?php echo get_term_link($current_style) ?>"><img
                                             class="et-waypoint et_pb_animation_off et-animated" alt="" src=""></a></div>
                                 <h4> 
-                                    <a href="<?php echo get_term_link($current_style) ?>"><?php echo $current_style->name ?> </a>
+                                    <a class="no_translate" href="<?php echo get_term_link($current_style) ?>"><?php echo $current_style->name ?> </a>
                                 </h4>
 
                             </div>

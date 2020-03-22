@@ -93,7 +93,7 @@ $paypal = get_paypal_link();
                     
                     $menu_html .= '<li>'."";
                     //$menu_html .= '<a href="#"><i class="fa fa-circle fa-xs"></i> <span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
-                    $menu_html .= '<a href="#"><span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
+                    $menu_html .= '<a  class="no_translate" href="#"><span>'.$current_song->post_title.'</span><i class="fa fa-angle-right pull-right"></i></a>';
                     $menu_html .= '<ul class="treeview-menu">';
 
                     $lessons = new_get_children_lessons($current_song);

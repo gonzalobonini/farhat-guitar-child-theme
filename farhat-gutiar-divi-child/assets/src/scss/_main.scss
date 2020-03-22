@@ -872,10 +872,7 @@ header#main-header {
     width: 80%;
 }
 
-#home-lists .et_pb_row:first-child {
-    height: 300px;
-    overflow: hidden;
-}
+
 
 #home-lists h4 a {
     font-size: 14px;
@@ -1628,7 +1625,7 @@ a.toggle-sidebar {
 #et-top-navigation {
     padding: 15px 0;
     #top-menu li {
-        a {
+        &>a {
             padding-bottom: 0;
             color: white;
             &:hover{
@@ -1640,6 +1637,7 @@ a.toggle-sidebar {
             background: darken($dark_active, 10%);
             a {
                 color: white;
+                padding: 10px 15px;
             }
         }
     } 
