@@ -706,7 +706,7 @@ p.woocommerce-result-count { font-weight: 500; font-size: 14px; color: #999; pad
 .entry-summary p.price del { color:#999; margin-right: 10px; }
 .woocommerce div.product form.cart, .woocommerce-page div.product form.cart, .woocommerce #content div.product form.cart, .woocommerce-page #content div.product form.cart { margin: 24px 0 39px !important; }
 .woocommerce div.product form.cart div.quantity, .woocommerce-page div.product form.cart div.quantity, .woocommerce #content div.product form.cart div.quantity, .woocommerce-page #content div.product form.cart div.quantity { margin: 0 20px 0 0 !important; -moz-border-radius: 3px !important; -webkit-border-radius: 3px !important; border-radius: 3px !important; width: 100px!important }
-	.woocommerce .quantity input.qty, .woocommerce-page .quantity input.qty, .woocommerce #content .quantity input.qty, .woocommerce-page #content .quantity input.qty { font-weight: 500 !important; font-size: 20px!important; color: #fff!important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; border: none!important; background-color: #b8c5c6!important; height: 47px!important; width: 70px !important; }
+	/*.woocommerce .quantity input.qty, .woocommerce-page .quantity input.qty, .woocommerce #content .quantity input.qty, .woocommerce-page #content .quantity input.qty { font-weight: 500 !important; font-size: 20px!important; color: #fff!important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; border: none!important; background-color: #b8c5c6!important; height: 47px!important; width: 70px !important; } */
 	.woocommerce .quantity .plus, .woocommerce-page .quantity .plus, .woocommerce #content .quantity .plus, .woocommerce-page #content .quantity .plus, .woocommerce .quantity .minus, .woocommerce-page .quantity .minus, .woocommerce #content .quantity .minus, .woocommerce-page #content .quantity .minus { background: #fff !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; color: #BCC8C9 !important; font-size: 20px !important; font-weight: 300!important; height: 24px!important; text-decoration: none!important; text-shadow: none !important; width: 30px !important; border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important; border: 1px solid #BCC8C9 !important; }
 
 	.woocommerce #content .quantity, .woocommerce .quantity, .woocommerce-page #content .quantity, .woocommerce-page .quantity { width: 100px; margin: 0; }
@@ -755,13 +755,13 @@ body.woocommerce div.product .woocommerce-tabs .panel, body.woocommerce #content
 
 .woocommerce #reviews #comments h2, .woocommerce-page #reviews #comments h2 { margin-bottom: 30px !important; }
 
-.woocommerce-message, .woocommerce-error, .woocommerce-info { border: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; text-shadow: none !important; font-size: 18px !important; color: #fff !important; padding: 15px !important; }
+/*.woocommerce-message, .woocommerce-error, .woocommerce-info { border: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important; text-shadow: none !important; font-size: 18px !important; color: #fff !important; padding: 15px !important; }
 
-.woocommerce-message:before, .woocommerce-error:before, .woocommerce-info:before { display: none !important; color: #FFF !important; }
+.woocommerce-message:before, .woocommerce-error:before, .woocommerce-info:before { display: none !important; color: #FFF !important; } */
 
 .woocommerce-page #reviews #commentform, .woocommerce-page #review_form #respond p.form-submit { padding-bottom: 0; margin-bottom: 0; }
 
-#left-area .woocommerce-message .button, #left-area .woocommerce-error .button, #left-area .woocommerce-info .button { color: #fff !important; font-size: 18px !important; font-weight: normal !important; margin: 5px 0 !important; padding: 0 !important; }
+/*#left-area .woocommerce-message .button, #left-area .woocommerce-error .button, #left-area .woocommerce-info .button { color: #fff !important; font-size: 18px !important; font-weight: normal !important; margin: 5px 0 !important; padding: 0 !important; } */
 
 .archive.et_left_sidebar.woocommerce ul.products li.product, .archive.et_right_sidebar.woocommerce ul.products li.product { width: 195px !important; }
 .archive.et_left_sidebar.woocommerce ul.products li.first, .archive.et_right_sidebar.woocommerce ul.products li.first { clear: none !important; }
