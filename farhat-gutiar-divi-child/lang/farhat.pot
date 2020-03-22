@@ -1,77 +1,13 @@
-# Copyright (C) 2020 Gabriel
-# This file is distributed under the .
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Farhat Gutiar Divi Child\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/farhat-guitar\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-09 04:16+0000\n"
+"POT-Creation-Date: 2020-03-21T14:08:38+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: Loco https://localise.biz/\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: farhat\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
-
-#. Theme Name of the theme
-msgid "Farhat Gutiar Divi Child"
-msgstr ""
-
-#. Description of the theme
-msgid "Farhat Guitar Divi Child Theme"
-msgstr ""
-
-#. Author of the theme
-msgid "Gabriel"
-msgstr ""
-
-#. Template Name of the theme
-msgid "Bands Page"
-msgstr ""
-
-#: functions.php:292 left-bar.php:63 template-parts/bands/band-songs.php:27
-msgid "Lesson "
-msgstr ""
-
-#: functions.php:336
-msgid "Footer Ad"
-msgstr ""
-
-#. Template Name of the theme
-msgid "Farhat Home Page"
-msgstr ""
-
-#. Template Name of the theme
-msgid "Search Page"
-msgstr ""
-
-#: left-bar.php:14
-msgid "Donate"
-msgstr ""
-
-#: left-bar.php:26
-msgid "BUY THIS LESSONS"
-msgstr ""
-
-#: left-bar.php:40
-msgid "DOWNLOAD TABS (PDF)"
-msgstr ""
-
-#: single-new_lesson.php:52
-msgid "Style:"
-msgstr ""
-
-#: template-parts/bands/related-bands.php:35
-msgid "Related Artists"
-msgstr ""
-
-#: template-parts/lessons/related-songs.php:22
-msgid "Related songs:"
-msgstr ""
-
-msgid "Members"
-msgstr ""

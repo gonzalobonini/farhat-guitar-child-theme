@@ -4,7 +4,8 @@
 </div> <!-- .et_pb_text -->
 
 <?php 
-$original_post = pll_get_post(get_the_ID(),'en');
+//$original_post = pll_get_post(get_the_ID(),'en');
+$original_post = get_the_ID();
 $songs = new_get_children_songs($original_post); ?>
 <div class="row"> 
 <?php 

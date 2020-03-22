@@ -46,23 +46,13 @@ $is_page_builder_used = et_pb_is_pagebuilder_used(get_the_ID());
         // get all the bands
         $bands = new_get_all_bands();
 
-//        echo "last songs";
-//        var_dump($last_songs);
-
         // get all the style tags
 
         $styles = get_terms('style');
 
-//        echo "styles";
-//        var_dump($styles);
-
         // get all the difficult level tags
 
         $difficulties = get_terms('difficulty');
-
-//        echo "difficulties";
-//        var_dump($difficulties);
-
 
         // list the left bar
 
@@ -183,7 +173,9 @@ if (!$detect->isMobile() || $detect->isTablet()) {
                             <div class="et_pb_blurb_content">
                                 <div class="et_pb_main_blurb_image"><a href="<?php echo get_term_link($current_style) ?>"><img
                                             class="et-waypoint et_pb_animation_off et-animated" alt="" src=""></a></div>
-                                <h4><a href="<?php echo get_term_link($current_style) ?>"><?php echo $current_style->name ?></a></h4>
+                                <h4> 
+                                    <a href="<?php echo get_term_link($current_style) ?>"><?php echo $current_style->name ?> </a>
+                                </h4>
 
                             </div>
                             <!-- .et_pb_blurb_content -->
@@ -209,7 +201,15 @@ if (!$detect->isMobile() || $detect->isTablet()) {
                     <?php echo get_post_meta($post->ID, 'experience', true); ?>
                 </div>
                 <?php
+
+                usort($difficulties, "sort_by_term_desc");
+
+                //var_dump($difficulties);
+                //var_dump($difficulties);
+
                 foreach ($difficulties as $current_difficulty) {
+                    //var_dump($current_difficulty);
+
                     ?>
                     <div
                         class="et_pb_blurb et_pb_bg_layout_light et_pb_text_align_center style-filter et_pb_blurb_position_left">

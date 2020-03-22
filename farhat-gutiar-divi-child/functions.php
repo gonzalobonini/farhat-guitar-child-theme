@@ -23,8 +23,6 @@ function new_get_all_bands($posts_per_page = -1, $orderby = 'post_title', $order
       'order'            => $order,
       'post_type'        => 'new_band',
       'lang'           => $lang,
-      'post_mime_type'   => '',
-      'post_parent'      => '',
       'post_status'      => 'publish');
 
     $bands = new WP_Query($args);
@@ -85,7 +83,7 @@ function new_get_children_lessons($song)
         'meta_key' => 'new_lesson_number',
         'orderby' => 'meta_value',
         'order'   => 'ASC',
-        'lang'    => $lang,
+        //'lang'    => 'en',
         'meta_query' => array(
             array(
                 'key' => 'new_lesson_song_id',
@@ -123,10 +121,8 @@ function new_get_children_songs($band, $changeLang = false)
     'post_type' => 'new_song',
     'orderby' => 'post_title',
     'order'   => 'ASC',
-    'lang'  => 'en',
+    //'lang'  => 'en',
     'no_found_rows' => true,
-    //'meta_key' => 'new_lesson_number',
-    //'orderby' => 'meta_value',
     'meta_query' => array(
       array(
         'key' => 'new_song_band_id',
@@ -181,7 +177,7 @@ add_filter('pre_get_posts', 'add_custom_types_to_tax');
 
 //add_action( 'pre_get_posts', 'wpshout_pages_blogindex' );
 function wpshout_pages_blogindex( $query ) {
-    $lang = pll_current_language();
+    $lang = get_current_language();
 
 	if ($query->is_main_query() ) :
 		//$query->set( 'lang', 'es' );
@@ -451,8 +447,14 @@ function et_show_cart_total( $args = array() ) {
 */
 add_filter('wp_nav_menu_items', 'add_admin_link', 10, 2);
 function add_admin_link($items, $args){
-    if( $args->theme_location == 'primary-menu' ){
+    if( $args->theme_location == 'primary-menu' ){        
+
+        if(function_exists("transposh_widget")) { 
+            $items .= '<li>'.do_shortcode('[tpe widget="flags/tpw_flags_css.php"]').'</li>';
+        }
+
         $items .= '<li>'.et_show_cart_total().'</li>';
+
     }
     return $items;
 }
@@ -464,4 +466,13 @@ function get_paypal_link(){
     $format = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=%s&lc=US&item_name=%s&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted'; 
     $link = sprintf($format,$email, $text);
     return $link;
+}
+
+function sort_by_term_desc($a,$b){
+    $a2 = intval($a->description);
+    $b2 = intval($b->description);
+    if( $a2 == $b2 ) { 
+        return 0;
+    };
+    return ($a2 < $b2 ) ? -1 : 1;
 }

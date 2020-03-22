@@ -719,16 +719,25 @@ header#main-header {
     
     padding-top: 15px;
 }
-.et_nav_text_color_light #top-menu > li > a, .et_nav_text_color_light .fullwidth-menu > li > a {
-	color: #FFFFFF;
-	  font-weight: 500;
+.et_nav_text_color_light {
+
+    #top-menu, .fullwidth-menu {
+        li {
+            &.current-menu-item {
+                a {
+                    font-weight: bold;
+                }
+            }
+            div, a {
+
+                color: #FFFFFF;
+	            font-weight: 500;
+            }
+        }
+    }
+
 }
-.et_nav_text_color_light #top-menu > li > a:hover, .et_nav_text_color_light .fullwidth-menu > li > a:hover {
-	color: #534e5a;
-}
-#top-menu li.current-menu-item > a, .fullwidth-menu li.current-menu-item > a {
-  font-weight: bold;
-}
+
 
 /* home */
 
@@ -1618,8 +1627,8 @@ a.toggle-sidebar {
 
 #et-top-navigation {
     padding: 15px 0;
-    #top-menu > li {
-        &>a {
+    #top-menu li {
+        a {
             padding-bottom: 0;
             color: white;
             &:hover{
@@ -1657,3 +1666,15 @@ img.et-waypoint  {
 .et_mobile_menu {
     background: $dark_active;
 }
+
+#home-lists { padding: 0 15px}
+
+.transposh_flags {
+
+    a {
+        color: white;
+        &.tr_active { display: none !important }
+        span.trf { margin-left: 5px; height: 10px;}
+    }
+}
+

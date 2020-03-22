@@ -5,11 +5,20 @@ jQuery(document).ready(function($) {
   $('li.last').removeClass('last');  
 
   /* Ocultar cuando el usuario se va del top */
-
+  
   //setupMenuBar();
 
   /**** Fixed mobile ****/
-  if(window.matchMedia("(max-width: 767px)").matches){
+  var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+
+  // Add flags to language switcher
+
+  jQuery(".trf").each(function(){
+	var title = jQuery(this).attr("title");
+	jQuery(this).parent().prepend(title);
+  });
+
+  if(window.matchMedia("(max-width: 767px)").matches || isMobile){
 	// The viewport is less than 768 pixels wide
 	//if ($(window).width() < 768) {
 

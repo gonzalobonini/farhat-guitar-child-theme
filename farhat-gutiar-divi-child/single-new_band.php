@@ -12,7 +12,7 @@
 $args = array('post_type'=> 'new_band', 'post__in' => get_the_ID());
 
 //set_query_var( 'lang', 'es' );
-wp_reset_postdata();
+//wp_reset_postdata();
 
 //if ( have_posts() ) : the_post(); 
 while (have_posts()) : the_post(); ?>
