@@ -29,16 +29,16 @@ jQuery(document).ready(function($) {
 			event.preventDefault();
 		});
 
-		$('#simple-menu').sidr({
+		jQuery('#simple-menu').sidr({
 			displace: false
 		}); 		
 		
-		const $sidebar = $('.sidebar-menu');
-		$(document).mouseup(function (e) {
-			 if (!$sidebar.is(e.target) // if the target of the click isn't the container...
-			 && $sidebar.has(e.target).length === 0) // ... nor a descendant of the container
+		var sidebar = jQuery('.sidebar-menu');
+		jQuery(document).mouseup(function (e) {
+			 if (!sidebar.is(e.target) // if the target of the click isn't the container...
+			 && sidebar.has(e.target).length === 0) // ... nor a descendant of the container
 			 {
-				 $.sidr('close', 'sidr');
+				jQuery.sidr('close', 'sidr');
 			}
 		 });
 	}
