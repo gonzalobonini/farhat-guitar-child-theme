@@ -9,16 +9,16 @@ jQuery(document).ready(function($) {
   //setupMenuBar();
 
   /**** Fixed mobile ****/
-  var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   // Add flags to language switcher
 
   jQuery(".trf").each(function(){
-	var title = jQuery(this).attr("title");
+	var title = jQuery(this).attr("title"); 
 	jQuery(this).parent().prepend(title);
   });
 
-  if(window.matchMedia("(max-width: 767px)").matches || isMobile){
+  if(isMobile || window.matchMedia("(max-width: 767px)").matches){
 	// The viewport is less than 768 pixels wide
 	//if ($(window).width() < 768) {
 
