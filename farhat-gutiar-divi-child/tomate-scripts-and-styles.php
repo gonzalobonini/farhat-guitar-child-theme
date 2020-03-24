@@ -13,7 +13,7 @@ function theme_enqueue_styles()
         wp_enqueue_script('sidr', 'https://cdn.jsdelivr.net/npm/sidr@2.2.1/dist/jquery.sidr.min.js', array('jquery'), false, true);    
     }
     wp_enqueue_script('farhat-all', get_stylesheet_directory_uri() . '/assets/js/farhat-all.js', array('jquery'), false, true);
-
+    wp_enqueue_script('google-ads', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', array('jquery'), false, true);
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
