@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
   $('li.last').removeClass('last');  
   
   // Add flags to language switcher
-
+ 
   jQuery(".trf").each(function(){
 	var title = jQuery(this).attr("title"); 
 	jQuery(this).parent().prepend(title);
