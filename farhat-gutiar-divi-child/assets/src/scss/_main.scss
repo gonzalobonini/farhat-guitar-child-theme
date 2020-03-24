@@ -1347,14 +1347,20 @@ and (orientation : portrait) { /* STYLES GO HERE */
         margin-top: 0px;
     }
 
-   .sidr {
+   #sidr {
+
 
     &.left {
+        display: block;
+        position: fixed;
         left: -260px;
+        .left-bar-container {
+            display:block;
+        }
     }
     .left-bar-container {
         max-height: none;
-        
+        display:none;
     }
    }
 
