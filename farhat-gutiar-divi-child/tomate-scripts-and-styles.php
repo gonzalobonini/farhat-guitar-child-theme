@@ -24,10 +24,10 @@ function remove_unnecesary_scripts(){
     wp_deregister_script( 'waypoints' );
     //wp_dequeue_script( 'divi-fitvids' );
     //wp_deregister_script( 'divi-fitvids' );
-    wp_dequeue_script( 'divi-custom-script' );
-    wp_deregister_script( 'divi-custom-script' );
+    //wp_dequeue_script( 'divi-custom-script' );
+    //wp_deregister_script( 'divi-custom-script' );
 }
-add_filter( 'wp_enqueue_scripts', 'remove_unnecesary_scripts', 20);
+//add_filter( 'wp_enqueue_scripts', 'remove_unnecesary_scripts', 20);
 
 add_action('admin_menu', 'et_settings_fix');
 function et_settings_fix()
