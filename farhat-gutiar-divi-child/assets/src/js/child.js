@@ -3,14 +3,7 @@ jQuery(document).ready(function($) {
  
   $('li.first').removeClass('first');
   $('li.last').removeClass('last');  
-
-  /* Ocultar cuando el usuario se va del top */
   
-  //setupMenuBar();
-
-  /**** Fixed mobile ****/
-  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
   // Add flags to language switcher
 
   jQuery(".trf").each(function(){
@@ -18,13 +11,13 @@ jQuery(document).ready(function($) {
 	jQuery(this).parent().prepend(title);
   });
 
-  if(isMobile || window.matchMedia("(max-width: 767px)").matches){
-	// The viewport is less than 768 pixels wide
-	//if ($(window).width() < 768) {
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  var isSingle = jQuery(".sidebar-menu");
+  if( (isMobile || window.matchMedia("(max-width: 767px)").matches ) && isSingle){
+
+	// The viewport is less than 768 pixels wide or is mobile
 
 		jQuery('.treeview.active').removeClass('active');
-	
-
 		jQuery('.treeview:not(.actionable) > a').click(function(event){
 			event.preventDefault();
 		});

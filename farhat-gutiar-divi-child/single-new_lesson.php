@@ -40,22 +40,18 @@
                                 var_dump($related_songs);
                             }
 
-                            $cart_link = get_post_meta(get_the_ID(), 'new_lesson_cart_link', true);
-                            $tabs_link = get_post_meta(get_the_ID(), 'new_lesson_download_tabs', true);
-                            $terms = wp_get_post_terms($song_id, 'style');
+                            $terms = get_the_terms(intval($song_id), 'style');
 
 
                         ?>
                            
-
-
                         <div class="entry-content">
                             <header>
                                 <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
                                 <span class="lesson-title"><?php echo $song->post_title ?></span>
                                 <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
                                         <strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
-                                                        <?php	echo new_get_separeted_by_commas_list($terms);
+                                                        <?php	echo new_get_separated_by_commas_list($terms);
                                                         ?>
                                         </span></span> &nbsp; &nbsp;
                                 </div> <!-- .et_pb_text -->
@@ -217,6 +213,5 @@
 	</div> <!-- .container -->
 </div> <!-- #main-content -->
 
-<?php require_once('template-parts/lessons/player-js.php'); ?>
 
 <?php get_footer(); ?>

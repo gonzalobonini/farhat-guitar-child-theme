@@ -29,7 +29,7 @@ function new_register_taxonomy($tax_name, $singular_name, $plural_name, $hierarc
         'show_admin_column'     => true,
         'update_count_callback' => '_update_post_term_count',
         //'query_var'             => true,
-        'rewrite'               => array( 'slug' => '' . $singular_name . '' )
+        'rewrite'               => array( 'slug' => '' . $tax_name . '' )
     );
 
     register_taxonomy(
@@ -91,7 +91,7 @@ function new_get_featured_image_link($post, $size = 'single-post-thumbnail')
     return $link;
 }
 
-function new_get_separeted_by_commas_list($array, $property = 'name')
+function new_get_separated_by_commas_list($array, $property = 'name')
 {
     $new_items = new_get_array_of_properties($array, $property);
     if (!$new_items) {

@@ -403,7 +403,7 @@ add_filter('piklist_admin_pages', 'piklist_theme_setting_pages');
         $thumb = get_the_post_thumbnail_url($id, array('400,400'));
     
     } else {
-        $thumb = get_stylesheet_directory_uri() .'assets/images/default-thumb.jpg';
+        $thumb = get_stylesheet_directory_uri() .'/assets/images/default-thumb.jpg';
 
     }
     return $thumb;

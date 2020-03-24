@@ -39,7 +39,7 @@ if (!($detect->isMobile() && !$detect->isTablet())) {
                     <li>
                     <a title="<?php echo $title; ?>" href="<?php echo  $url;?>"><?php echo $title; ?></a> 
                     <a title="<?php echo $title; ?>" href="<?php echo $url; ?>">
-                    <img width="105" height="105" alt="Muse_hysteria_cd-105" class="attachment-105x105 size-105x105 wp-post-image" src="<?php echo new_get_featured_image_link($current_song, array(105,105)) ?>">
+                    <img width="105" height="105" alt="<?php echo $title ?>" class="attachment-105x105 size-105x105 wp-post-image" src="<?php echo get_default_thumb($current_song->ID) ?>">
                     </a>
                     </li>
                     <?php

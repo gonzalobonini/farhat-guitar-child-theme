@@ -22,7 +22,7 @@ $details['Website'] = get_post_meta(get_the_ID(), 'new_band_website', true);
      
         <?php if($value): 
 
-        $value = (is_array($value)) ? new_get_separeted_by_commas_list($value) : $value;
+        $value = (is_array($value)) ? new_get_separated_by_commas_list($value) : $value;
                 
         ?>
         <li>
