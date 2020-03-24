@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
   });
 
   var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  var isSingle = jQuery(".sidebar-menu");
+  var isSingle = jQuery(".sidebar-menu").length;
   if( (isMobile || window.matchMedia("(max-width: 767px)").matches ) && isSingle){
 
 	// The viewport is less than 768 pixels wide or is mobile
