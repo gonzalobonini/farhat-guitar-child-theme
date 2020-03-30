@@ -189,14 +189,14 @@
             <?php
   } ?>
 
-            <?php $TestTags = new_get_separeted_by_commas_list($tags);
+            <?php $TestTags = new_get_separated_by_commas_list($tags);
             if ($TestTags) {
                 ?>
             <ul>
               <li>
                 <div class="details-first-column"><?php _e('Labels:', 'farhat'); ?></div>
                 <div class="details-second-column" style="text-align: left;">
-                  <?php echo new_get_separeted_by_commas_list($tags); ?>
+                  <?php echo new_get_separated_by_commas_list($tags); ?>
                 </div>
                 <hr>
               </li>
@@ -205,20 +205,20 @@
             } ?>
 
             <ul>
-              <?php $TestGenres = new_get_separeted_by_commas_list($genres);
+              <?php $TestGenres = new_get_separated_by_commas_list($genres);
               if ($TestGenres) {
                   ?>
               <li>
                 <div class="details-first-column"><?php _e('Genre:', 'farhat'); ?></div>
                 <div class="details-second-column">
-                  <?php echo new_get_separeted_by_commas_list($genres); ?>
+                  <?php echo new_get_separated_by_commas_list($genres); ?>
                 </div>
                 <hr>
               </li>
               <?php
               } ?>
 
-              <?php $TestWebsite = new_get_separeted_by_commas_list($website);
+              <?php $TestWebsite = new_get_separated_by_commas_list($website);
               if ($TestWebsite) {
                   ?>
               <li>
@@ -231,13 +231,13 @@
               <?php
               } ?>
 
-              <?php $TestMembers = new_get_separeted_by_commas_list($members);
+              <?php $TestMembers = new_get_separated_by_commas_list($members);
               if ($TestMembers) {
                   ?>
               <li>
                 <div class="details-first-column">&nbsp;<?php _e('Members:', 'farhat'); ?></div>
                 <div class="details-second-column">
-                  <?php echo new_get_separeted_by_commas_list($members); ?>
+                  <?php echo new_get_separated_by_commas_list($members); ?>
                 </div>
                   <hr>
               </li>
@@ -245,14 +245,14 @@
               } ?>
             </ul>
 
-            <?php $TestPastMembers = new_get_separeted_by_commas_list($past_members);
+            <?php $TestPastMembers = new_get_separated_by_commas_list($past_members);
             if ($TestPastMembers) {
                 ?>
             <ul>
               <li>
                 <div class="details-first-column"><?php _e('Past Members:', 'farhat'); ?></div>
                 <div class="details-second-column">
-                  <?php echo new_get_separeted_by_commas_list($past_members); ?>
+                  <?php echo new_get_separated_by_commas_list($past_members); ?>
                 </div>
                 <hr>
               </li>

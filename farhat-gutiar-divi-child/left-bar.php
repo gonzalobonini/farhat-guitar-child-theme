@@ -4,6 +4,8 @@ $this_lesson = get_the_ID();
 // get all bands
 $all_bands = new_get_all_bands(-1, 'post_title','ASC', true);
 $paypal = get_paypal_link();
+$cart_link = get_post_meta(get_the_ID(), 'new_lesson_cart_link', true);
+$tabs_link = get_post_meta(get_the_ID(), 'new_lesson_download_tabs', true);
 ?>
 
 <a id="simple-menu" class="toggle-sidebar" href="#sidr"><i class="fa fa-music"></i></a>
@@ -21,7 +23,7 @@ $paypal = get_paypal_link();
           
       
         <?php
-        if (isset($cart_link)) {
+        if ($cart_link) {
             ?>
         
           <li class="header">
@@ -34,7 +36,7 @@ $paypal = get_paypal_link();
       
         <?php
         }
-        if (isset($tabs_link)) {
+        if ($tabs_link) {
             ?>
       
           <li class="header">

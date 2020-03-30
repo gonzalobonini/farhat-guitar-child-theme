@@ -44,23 +44,12 @@
                                     array(
                                         'taxonomy' => 'style',
                                         'field' => 'name',
-                                        'terms' => new_get_separeted_by_commas_list(array($terms[0])),
+                                        'terms' => new_get_separated_by_commas_list(array($terms[0])),
                                         'operator' => 'IN'
                                     )
                                 )
                             );
 
-//                            $args = array(
-//                                'post_type' => 'new_song',
-//                                'orderby' => 'rand',
-//                                'meta_query' => array(
-//                                    array(
-//                                        'key' => 'new_song_band_id',
-//                                        'value' => $band_id,
-//                                        'compare' => '=',
-//                                    )
-//                                )
-//                            );
 
                             $related_songs_query = new WP_Query($args);
                             $related_songs = $related_songs_query->posts;
@@ -71,21 +60,20 @@
                                 var_dump($related_songs);
                             }
 
-                            $cart_link = get_post_meta(get_the_ID(), 'new_lesson_cart_link', true);
-                            $tabs_link = get_post_meta(get_the_ID(), 'new_lesson_download_tabs', true);
+                            
                             $video_link = get_post_meta(get_the_ID(), 'new_lesson_video', true);
 
                         ?>
-												<header>
-													<span class="lesson-song-name"><?php echo $band->post_title ?></span>|
-													<span class="lesson-title"><?php echo $song->post_title ?></span>
-													<div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
-															<strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
-																			<?php	echo new_get_separeted_by_commas_list($terms);
-                                                                            ?>
-															</span></span> &nbsp; &nbsp;
-													</div> <!-- .et_pb_text -->
-												</header>
+                            <header>
+                                <span class="lesson-song-name"><?php echo $band->post_title ?></span>|
+                                <span class="lesson-title"><?php echo $song->post_title ?></span>
+                                <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                        <strong><span style="color: #ff6600;">&nbsp;<?php _e('Style:', 'farhat');?><span style="color: #000000;">&nbsp;</span></span></strong><span style="color: #ff6600;"><span style="color: #000000;">
+                                                        <?php	echo new_get_separated_by_commas_list($terms);
+                                                        ?>
+                                        </span></span> &nbsp; &nbsp;
+                                </div> <!-- .et_pb_text -->
+                            </header>
 
 
                         <div class="entry-content">
