@@ -175,11 +175,20 @@ width: 94%;
 	margin: 0;
 }
 
-.flowplayer .fp-engine, .flowplayer .fp-ui, .flowplayer .fp-message {
-	width: 100%;
-	height: auto;
-}
+.flowplayer {
+    .fp-menu {
+        a{
+            &[data-speed='1.25'], &[data-speed='1.5'],  &[data-speed='1.75'], &[data-speed='2']{
+                display: none !important;
+            }
+        }
+    }
 
+    .fp-engine, .flowplayer .fp-ui, .flowplayer .fp-message {
+        width: 100%;
+        height: auto;
+    }
+}
 
 #flowplayer {
     height: 30em;
@@ -1375,9 +1384,8 @@ and (orientation : portrait) { /* STYLES GO HERE */
         width: 100%;
     }
 
-    #flowplayer {
-        //height: 15em;
-    }
+    
+   
 
     header#main-header div.social-icons-container {
         max-height: none;
