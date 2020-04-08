@@ -119,14 +119,13 @@ function new_get_array_of_properties($array, $property = 'name')
 add_filter( 'wpwhpro/run/actions/custom_action/return_args', 'clear_cache_all', 10, 3 );
 function clear_cache_all( $return_args, $identifier, $response_body ){
 
-	//If the identifier doesn't match, do nothing
-	if( $identifier !== 'ilovewebhooks' ){
-		return $return_args;
-	}
 
-	
-	//Include your own logic here....
-    $response_body = 'Test body';
+    //Include your own logic here....
+    $return_args = array(
+        'success' => false,
+        'msg' => 'Test body'
+    );
+    $clear_w3tc = w3tc_flush_all();
 	//This is what the webhook returns back to the caller of this action (response)
 	//By default, we return an array with success => true and msg -> Some Text
 	return $return_args;
