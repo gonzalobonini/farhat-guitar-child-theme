@@ -175,20 +175,35 @@ width: 94%;
 	margin: 0;
 }
 
-.flowplayer {
+.flowplayer { 
     .fp-menu {
-        a{
-            &[data-speed='1.25'], &[data-speed='1.5'],  &[data-speed='1.75'], &[data-speed='2']{
+        //a{
+            $stop: 20;
+            @for $i from 1 through 20 {
+                @if $i < 5 or $i > 10 {
+                    $speed : if($i<10,"0."+$i,$i/10);
+                    @debug $speed;
+                    a[data-speed="#{$speed}"] {
+                        display: none !important;
+                    }
+
+                }
+                
+            }
+            
+            a[data-speed="0.25"] {
                 display: none !important;
             }
-        }
-    }
+                          
+          
+        } 
+    
 
     .fp-engine, .flowplayer .fp-ui, .flowplayer .fp-message {
         width: 100%;
         height: auto;
     }
-}
+} 
 
 #flowplayer {
     height: 30em;
@@ -1676,7 +1691,7 @@ a.toggle-sidebar {
 
 img.et-waypoint  {
     opacity: 1;
-}
+} 
 
 .et_header_style_centered #et-top-navigation .et-cart-info {
     color: white;
